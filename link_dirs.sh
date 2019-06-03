@@ -4,8 +4,8 @@
 ## Note that removing your selected directories better done manually.
 
 ## Destination path (will hold the symlinks):
-dest_dir="/home/$(whoami)/test"
-# dest_dir="/home/$(whoami)"
+# dest_dir="/home/$(whoami)/test"
+dest_dir="/home/$(whoami)"
 
 ## Source path (will hold the actual directories):
 source_dir="/data"
@@ -13,11 +13,13 @@ source_dir="/data"
 cd $source_dir || return
 
 ## MAIN STOW FUNCTION
-## Ignores 'dotfiles' folder, 'lost+found' and '.Trash-1000'.
+## Ignores 'dotfiles' folder, 'lost+found', '.git', '.Trash-1000' ...
 select_dirs() {
 stow -v "$1" -t "$dest_dir" \
 --ignore='(?:\..*|[^+]*\+[^+]*)' \
 --ignore='dotfiles' \
+--ignore=".git" \
+--ignore=".gitignore" \
 .
 }
 
