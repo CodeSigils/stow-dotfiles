@@ -11,6 +11,8 @@ private/
 albert/**/*.db
 albert/**/*version
 calibre/.config/calibre/caches/
+calibre/.config/calibre/iterator.pickle
+calibre/.config/calibre/viewer.json
 cinnamon/.cinnamon/backgrounds/
 cinnamon/.cinnamon/spices.cache/
 ranger/.local/share/ranger/history
