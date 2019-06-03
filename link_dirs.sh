@@ -20,6 +20,7 @@ stow -v "$1" -t "$dest_dir" \
 --ignore='dotfiles' \
 --ignore=".git" \
 --ignore=".gitignore" \
+--ignore=".stow-local-ignore" \
 .
 }
 

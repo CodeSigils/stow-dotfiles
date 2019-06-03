@@ -11,9 +11,8 @@ alias ll="ls -lah"
 ## ===================================================
 open() { xdg-open "$@" > /dev/null 2>&1 ; }  ## open with default GUI program
 ## tip of the day
-alias \?='echo "Did you know that:"; whatis $(ls /bin | shuf -n 1)'
 alias xs='xstow'
-alias algrep='cat ~/.aliasrc* | grep'
+alias algrep='cat ~/.alias/.aliasrc* | grep'
 alias cl='clear'
 alias xx='exit'
 alias rs='reset'
@@ -23,7 +22,7 @@ alias delall='gvfs-trash --empty'
 mkdircd() { "mkdir -p -v $1" ; "cd $1 || return" ; "ls -l ../" ; } ## create folder then cd into it
 alias shred='shred -u -vzn 0'
 alias rld='source '
-alias rld-alias='source ~/.aliasrc'
+alias rld-alias='source ~/.alias/.aliasrc'
 alias rld-zshrc='source ~/.zshrc'
 alias rld-bashrc='source ~/.bashrc'
 alias rld-vimrc='source ~/.vimrc'
@@ -113,8 +112,8 @@ alias ytv="youtube-viewer"
 ## === Net - gpg - ssh
 ## ===================================================
 alias ssh-key-gen="ssh-keygen -t rsa -b 4096 -C " ## "your_email@example.com"
-alias cp-ssh-pub-key='xclip -sel clip < ~/.ssh/id_rsa.pub'
-alias ls-gpg-keys="gpg -K --keyid-format long --with-colons --with-fingerprint"
+alias ssh-cp-pub-key='xclip -sel clip < ~/.ssh/id_rsa.pub'
+alias gpg-ls-keys="gpg -K --keyid-format long --with-colons --with-fingerprint"
 
 ## ===================================================
 ## === SETUP - CONFIG
@@ -142,9 +141,9 @@ export PLAYER=$(find_alt nvlc mpv mplayer ffplay cvlc "$OPENER")
 export READER=$(find_alt zathura mupdf evince "$OPENER")
 # export ROOTER=$(find_alt gksudo kdesudo)
 # export QUEUER=$(find_alt tsp fq ts)
-export TERMER=$(find_alt tilda gnome-terminal konsole urxvt xterm lxterminal uxterm sakura lxterminal mate-terminal pantheon-terminal xfce4-terminal terminology terminator "$OPENER")
+export TERMER=$(find_alt tilda lilyterm gnome-terminal konsole urxvt xterm lxterminal uxterm sakura lxterminal mate-terminal pantheon-terminal xfce4-terminal terminology terminator "$OPENER")
 ## TITLE: Configuration functions
-cfg-alias() { "$EDITOR" ~/.aliasrc; }
+cfg-alias() { "$EDITOR" ~/.alias/.aliasrc; }
 cfg-alsabase() { sudo "$EDITOR" /etc/modprobe.d/alsa-base.conf; }
 cfg-abookrc() { "$EDITOR" ~/.abook/abookrc; }
 cfg-addressbook() { "$EDITOR" ~/.abook/addressbook; }
@@ -278,34 +277,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# =============================================================================
-# === PATHS - LANGS - VIRTUAL ENV - PACKAGE MANAGERS
-# =============================================================================
-# TITLE: Python virtual environment setup
-# LINK: https://askubuntu.com/questions/244641/how-to-set-up-and-use-a-virtual-python-environment-in-ubuntu#244642
-# DEPS: sudo <package-manager> install virtualenv virtualenvwrapper python3-pip
-# DESC: Python env isolation to avoid global conflicts.
-# 1. Setup 'virtualenvwrapper' and a custom virtual env folder.
-#    It provides better env handling commands:
-#    - Generate an env: 'mkvirtualenv -p /usr/env/python3 py3env'
-#    - Activate the env: 'workon py3env'
-#    - Deactivate an env: 'deactivate'
-#    - Remove the env: 'rmvirtualenv py3env'
-# 2. Setup 'pip3'
-#    - Avoid using sudo with pip': 'pip3 install --user virtualenvwrapper'
-#    - Makes sure that if pip creates an extra virtual environment, it is also
-#      placed in our WORKON_HOME directory.
-#    - pip3 completion:
-#       'pip3 completion --bash >> ~/.profile'
-#       'pip3 completion --zsh >> ~/.zshrc'
-
-# 1.
-# "." /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-export WORKON_HOME="$HOME/.virtualenvs"
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.7
-# 2.
-export PIP_VIRTUALENV_BASE=$WORKON_HOME 
-
 # Python Cheat: https://github.com/chrisallenlane/cheat
 export CHEATCOLORS=true
 alias ch='cheat'
@@ -314,7 +285,7 @@ alias ch='cheat'
 # LINK: https://github.com/creationix/nvm
 # DESC: Node env setup.
 # - Installation:
-# wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+# wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
