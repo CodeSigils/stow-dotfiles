@@ -10,6 +10,7 @@ private/
 ### ============================= Stow Targets ============================= ###
 albert/**/*.db
 albert/**/*version
+calibre/.config/calibre/caches/
 cinnamon/.cinnamon/backgrounds/
 cinnamon/.cinnamon/spices.cache/
 vim/.cache

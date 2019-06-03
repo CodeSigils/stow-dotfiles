@@ -28,6 +28,7 @@ util_list=(
 # bash
 
 ## === C === ##
+# calibre ## rm -rf ~/.config/calibre
 # cheat
 # cinnamon ## rm -rf ~/.cinnamon
 
@@ -87,7 +88,7 @@ util_list=(
 ## === V === ##
 # vim ## rm -rf ~/.vim*
 # vlc ## rm ~/.config/vlc/vlcrc
-# vscode ## rm -rf ~/.config/Code/User/{snippets,settings.json}
+# vscode ## rm -rf ~/.config/Code/User/{snippets,settings.json} && rm -rf ~/.vscode
 
 ## === W === ##
 # wget
