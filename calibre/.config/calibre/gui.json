@@ -1,0 +1,158 @@
+{
+  "quick_start_guide_added": true, 
+  "show_emblems": false, 
+  "library_usage_stats": {
+    "/home/seven/Books": 5
+  }, 
+  "Plugin Updater plugin:plugin updater dialog": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywADAAAAAAHBAAAA6gAABaoAAAMCAAABwgAAAQ0AAAWpAAADAQAAAAAAAAAAB4AAAAHCAAABDQAABakAAAMB"
+  }, 
+  "book_details_splitter_horizontal_state": [
+    true, 
+    200
+  ], 
+  "book_list_pin_splitter_state": {
+    "__class__": "bytearray", 
+    "__value__": "AAAA/wAAAAEAAAACAAABAAAAAEYA/////wEAAAABAA=="
+  }, 
+  "grid view visible": false, 
+  "font_stretch": 0, 
+  "cover_grid_color": [
+    80, 
+    80, 
+    80
+  ], 
+  "font": [
+    "Noto Sans", 
+    12, 
+    50, 
+    false
+  ], 
+  "custom_colors_for_color_dialog": [
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ]
+  ], 
+  "tag browser search box visible": false, 
+  "default_author_link": null, 
+  "replace_scene_breaks_history": [
+    "", 
+    "<hr />", 
+    "\u2217 \u2217 \u2217", 
+    "\u2022 \u2022 \u2022", 
+    "\u2666 \u2666 \u2666", 
+    "\u2020 \u2020", 
+    "\u2021 \u2021 \u2021", 
+    "\u221e \u221e \u221e", 
+    "\u00a4 \u00a4 \u00a4"
+  ], 
+  "cover_grid_texture": null, 
+  "search bar visible": true, 
+  "preferences dialog geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywADAAAAAACdAAAAigAABuMAAAOqAAAAngAAAK0AAAbiAAADqQAAAAAAAAAAB4AAAACeAAAArQAABuIAAAOp"
+  }, 
+  "quickview visible": false, 
+  "cover_browser_splitter_vertical_state": [
+    false, 
+    300
+  ], 
+  "tag_browser_splitter_horizontal_state": [
+    true, 
+    200
+  ]
+}

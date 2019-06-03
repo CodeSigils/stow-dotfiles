@@ -1,0 +1,120 @@
+{
+  "main_window_state": {
+    "__class__": "bytearray", 
+    "__value__": "AAAA/wAAAAL9AAAAAwAAAAAAAAEAAAACw/wCAAAAAfsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAnAAACwwAAAJIA////AAAAAQAAAAAAAAAA/AIAAAAB+wAAABwAYgBvAG8AawBtAGEAcgBrAHMALQBkAG8AYwBrAAAAAAD/////AAAA5gD///8AAAADAAAAAAAAAAD8AQAAAAH7AAAAHABmAG8AbwB0AG4AbwB0AGUAcwAtAGQAbwBjAGsAAAAAAP////8AAAA/AP///wAAAlEAAALDAAAAAQAAAAIAAAABAAAAAvwAAAACAAAAAAAAAAEAAAAQAHQAbwBvAGwAXwBiAGEAcgMAAAAA/////wAAAAAAAAAAAAAAAgAAAAEAAAASAHQAbwBvAGwAXwBiAGEAcgAyAQAAAAD/////AAAAAAAAAAA="
+  }, 
+  "in_paged_mode": false, 
+  "singleinstance": false, 
+  "viewer_window_geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywADAAAAAAJwAAAAiwAABP4AAAOcAAACcQAAALIAAAT9AAADmwAAAAAAAAAAB4AAAAJxAAAAsgAABP0AAAOb"
+  }, 
+  "viewer_toc_isvisible": false, 
+  "multiplier": 3.000000476837158, 
+  "print-to-pdf-geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywADAAAAAAKxAAABGQAABLoAAAKsAAACsgAAATwAAAS5AAACqwAAAAAAAAAAB4AAAAKyAAABPAAABLkAAAKr"
+  }, 
+  "custom_colors_for_color_dialog": [
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ]
+  ], 
+  "viewer_open_history": [
+    "/home/seven/Books/Michael S Foster/The Young Magician (80)/The Young Magician - Michael S Foster.epub", 
+    "/home/seven/Downloads/St01arvingJonDob.epub"
+  ]
+}
