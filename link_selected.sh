@@ -54,6 +54,7 @@ util_list=(
 ## === K === ##
 
 ## === L === ##
+# lilyterm ## rm -rf ~/.config/lilyterm
 
 ## === M === ##
 # mcomix ## rm -rf ~/.config/mcomix

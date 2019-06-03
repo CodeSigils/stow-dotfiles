@@ -171,7 +171,7 @@
         "value": [
             "firefox.desktop",
             "mozilla-thunderbird.desktop",
-            "org.gnome.Terminal.desktop",
+            "lilyterm.desktop",
             "nemo.desktop",
             "calibre-gui.desktop",
             "code.desktop"

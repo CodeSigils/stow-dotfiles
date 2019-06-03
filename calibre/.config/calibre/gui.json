@@ -10,7 +10,7 @@
   }, 
   "book_details_splitter_horizontal_state": [
     true, 
-    200
+    402
   ], 
   "book_list_pin_splitter_state": {
     "__class__": "bytearray", 
