@@ -13,6 +13,7 @@ albert/**/*version
 calibre/.config/calibre/caches/
 cinnamon/.cinnamon/backgrounds/
 cinnamon/.cinnamon/spices.cache/
+ranger/.local/share/ranger/history
 vim/.cache
 vim/.vim/pack/minpac/opt/minpac/
 vim/.vim/pack/minpac/start/
