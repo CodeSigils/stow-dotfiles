@@ -1,0 +1,119 @@
+[user]
+	email = geotom.dev@gmail.com
+	name = CodeSigils
+[core]
+    excludesfile = ~/.gitignore
+[web]
+    browser = google-chrome
+[push]
+	default = matching
+[color]
+    ui = auto
+[alias]
+    a = add --all
+    ai = add -i
+    #############
+    ap = apply
+    as = apply --stat
+    ac = apply --check
+    #############
+    ama = am --abort
+    amr = am --resolved
+    ams = am --skip
+    #############
+    b = branch
+    ba = branch -a
+    bd = branch -d
+    bdd = branch -D
+    br = branch -r
+    bc = rev-parse --abbrev-ref HEAD
+    #############
+    c = commit
+    ca = commit -a
+    cm = commit -m
+    cam = commit -am
+    cem = commit --allow-empty -m
+    cd = commit --amend
+    cad = commit -a --amend
+    ced = commit --allow-empty --amend
+    #############
+    cl = clone
+    cld = clone --depth 1
+    clg = !sh -c 'git clone git://github.com/$1 $(basename $1)' -
+    clgp = !sh -c 'git clone git@github.com:$(git config --get user.username)/$1 $1' -
+    #############
+    f = fetch
+    fo = fetch origin
+    fu = fetch upstream
+    #############
+    l = log --oneline
+    lg = log --oneline --graph --decorate
+    #############
+    ls = ls-files
+    lsf = !git ls-files | grep -i
+    #############
+    m = merge
+    ma = merge --abort
+    mc = merge --continue
+    ms = merge --skip
+    #############
+    o = checkout
+    ob = checkout -b
+    #############
+    pr = prune -v
+    #############
+    ps = push
+    psf = push -f
+    psu = push -u
+    pst = push --tags
+    #############
+    pso = push origin
+    psao = push --all origin
+    psfo = push -f origin
+    psuo = push -u origin
+    #############
+    psom = push origin master
+    psaom = push --all origin master
+    psfom = push -f origin master
+    psuom = push -u origin master
+    psoc = !git push origin $(git bc)
+    psaoc = !git push --all origin $(git bc)
+    psfoc = !git push -f origin $(git bc)
+    psuoc = !git push -u origin $(git bc)
+    psdc = !git push origin :$(git bc)
+    #############
+    pl = pull
+    pb = pull --rebase
+    #############
+    plo = pull origin
+    pbo = pull --rebase origin
+    plom = pull origin master
+    ploc = !git pull origin $(git bc)
+    pbom = pull --rebase origin master
+    pboc = !git pull --rebase origin $(git bc)
+    #############
+    rb = rebase
+    rba = rebase --abort
+    rbc = rebase --continue
+    rbi = rebase --interactive
+    rbs = rebase --skip
+    #############
+    re = reset
+    rev = remote -v
+    rh = reset HEAD
+    reh = reset --hard
+    rem = reset --mixed
+    res = reset --soft
+    rehh = reset --hard HEAD
+    remh = reset --mixed HEAD
+    resh = reset --soft HEAD
+    #############
+    s = status
+    sb = status -s -b
+    #############
+[credential]
+	helper = cache --timeout=3600
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[gpg]
+	program = gpg2

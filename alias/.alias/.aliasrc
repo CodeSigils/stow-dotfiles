@@ -1,0 +1,372 @@
+#!/bin/sh
+
+## ===================================================
+## === Navigation - list
+## ===================================================
+alias rg="ranger"
+alias ll="ls -lah"
+
+## ===================================================
+## === CONSOLE - Common Helpers
+## ===================================================
+open() { xdg-open "$@" > /dev/null 2>&1 ; }  ## open with default GUI program
+## tip of the day
+alias \?='echo "Did you know that:"; whatis $(ls /bin | shuf -n 1)'
+alias xs='xstow'
+alias algrep='cat ~/.aliasrc* | grep'
+alias cl='clear'
+alias xx='exit'
+alias rs='reset'
+alias del='gvfs-trash'
+alias delist='gvfs-ls trash://'
+alias delall='gvfs-trash --empty'
+mkdircd() { "mkdir -p -v $1" ; "cd $1 || return" ; "ls -l ../" ; } ## create folder then cd into it
+alias shred='shred -u -vzn 0'
+alias rld='source '
+alias rld-alias='source ~/.aliasrc'
+alias rld-zshrc='source ~/.zshrc'
+alias rld-bashrc='source ~/.bashrc'
+alias rld-vimrc='source ~/.vimrc'
+alias 'nah'='echo "shutdown (ctrl-c to abort)?" && read && sudo shutdown 0' ## Done with work?
+
+## ===================================================
+## === Maintenance
+## ===================================================
+alias dnf="sudo dnf"
+alias dnfs="sudo dnf search"
+alias dnfr="sudo dnf remove"
+alias dnfi="sudo dnf install"
+alias dnfi-noweak="dnf --setopt=install_weak_deps=False --best install"
+alias dnffo="sudo dnf info"
+alias dnfup="sudo dnf update"
+## Systemd and services
+alias s-start="sudo systemctl start"
+alias s-stop="sudo systemctl stop"
+alias s-edit="sudo systemctl edit --full"
+alias s-time="systemd-analyze time"
+alias s-blame="sudo systemd-analyze blame | head -20"
+alias s-restart="sudo systemctl restart"
+alias s-status="sudo systemctl status"
+alias s-enable="sudo systemctl enable"
+alias s-disable="sudo systemctl disable"
+alias s-reload="sudo systemctl reload"
+alias s-ls-unit-files="systemctl list-unit-files --type=service"
+alias s-ls-units="sudo systemctl list-units"
+alias s-ls-units-f="sudo systemctl list-units |grep failed"
+alias s-ls-deps="sudo systemctl list-dependencies"
+# Firewall
+alias fire="sudo firewall-cmd"
+alias fire-get-zones="sudo firewall-cmd --get-zones"
+alias fire-get-active-zone="sudo firewall-cmd --get-active-zone"
+alias fire-ls-public-all="sudo firewall-cmd --zone=public --list-all"
+alias fire-restart="sudo service firewalld restart"
+
+## ===================================================
+## === GPU
+## ===================================================
+## Make sure we are using discrete card
+## https://wiki.archlinux.org/index.php/PRIME
+## 1. xrandr --listproviders
+## 2. xrandr --setprovideroffloadsink 1 0 (or use ids)
+## 3. DRI_PRIME=1 glxinfo | grep "OpenGL renderer"
+## export DRI_PRIME=1 #--> Move to .xinitrc for global use (resource heavy)
+alias code="DRI_PRIME=1 code"
+alias firefox="DRI_PRIME=1 firefox &"
+alias gimp="DRI_PRIME=1 gimp &"
+alias chromium="DRI_PRIME=1 chromium &"
+alias ls-renderer='glxinfo|egrep "OpenGL vendor|OpenGL renderer"'
+alias ls-kernel-drivers="sudo lsinitrd /boot/initramfs-"$(uname -r)".img \
+| grep -o '/kernel/drivers/gpu/.*'"
+
+## ===================================================
+## === TIME - DATE - WEATHER - CAL
+## ===================================================
+alias weather='curl http://wttr.in/athens'
+alias weather-malta='curl http://wttr.in/malta'
+alias date-time='sudo dpkg-reconfigure tzdata'
+
+## ===================================================
+## === Substitutions
+## ===================================================
+## DESC: mainly existing commands
+alias visudo='sudo EDITOR="$EDITOR" visudo'
+alias vim='nvim'
+alias svim="sudo nvim"
+alias mkpasswd='mkpasswd --method=SHA-512'
+alias df='df -hT --total'  ## human readable, print filetype, and total
+alias du='du -d1 -h'  ## max depth, human readable
+alias info='info --vi-keys' ## GNU info act like man command
+alias emacs='emacs -nw'  ## cli mode
+alias mkdir='mkdir -p -v'  ## create if not exist, verbose
+alias cp='cp -aiv'  ## cp prompt confirmation
+alias nano='nano -c -$'  ## word wrapping
+alias wget='wget -N -c'  ## continues/resumes
+alias w3m='w3m -num'  ## w3m with line number
+alias sr='sr -browser=$BROWSERCLI'  ## surfraw: open in cli browser
+alias srf='surfraw -browser=$BROWSER'  ## surfraw: open in gui browser
+## youtube-viewer: -C=color, -f=fullscreen, -1=1080p, number of results
+# alias youtube-viewer='youtube-viewer -C -f -1 --results=30 --video-player=vlc'
+alias ytv='youtube-viewer -C -f -1 --results=30 --video-player=mpv'
+alias ytv="youtube-viewer"
+
+## ===================================================
+## === Net - gpg - ssh
+## ===================================================
+alias ssh-key-gen="ssh-keygen -t rsa -b 4096 -C " ## "your_email@example.com"
+alias cp-ssh-pub-key='xclip -sel clip < ~/.ssh/id_rsa.pub'
+alias ls-gpg-keys="gpg -K --keyid-format long --with-colons --with-fingerprint"
+
+## ===================================================
+## === SETUP - CONFIG
+## ===================================================
+## TITLE: Set Default Programs
+## DESC: Choose the first in the array of installed programs
+## and use it as the default. @function: find alternative apps if installed
+find_alt() { for i; do which "$i" >/dev/null && { echo "$i"; return 0; };done;return 1; }
+## TITLE: Definitions
+export OPENER=$(find_alt xdg-open gnome-open kde-open exo-open)
+export BROWSER=$(find_alt firefox google-chrome chromium chromium-browser qutebrowser "$OPENER")
+export BROWSERCLI=$(find_alt w3m links2 links lynx elinks surf "$OPENER")
+export BROWSERTOR=$(find_alt torbrowser-launcher)
+export COMICER=$(find_alt mcomix comix zathura "$OPENER")
+export EBOOKER=$(find_alt ebook-viewer "$OPENER")
+export EDITOR=$(find_alt nvim vim vi emacs nano leafpad gedit pluma "$OPENER")
+export EDITORGUI=$(find_alt xed geany kate kwrite mousepad leafpad gedit pluma "$OPENER")
+# export WORDPROCESSOR=$(find_alt wordgrinder "$OPENER")
+export FILEMANAGER=$(find_alt nemo pcmanfm nautilus thunar caja spacefm dolphin enlightenment_filemanager "$OPENER")
+export FILEMANAGERCLI=$(find_alt ranger vifm mc "$OPENER")
+export IMAGEVIEWER=$(find_alt eom feh ristretto display eog "$OPENER")
+export MUSICER=$(find_alt mpv mplayer mpg123 cvlc "$OPENER")
+export PAGER=$(find_alt less more most)
+export PLAYER=$(find_alt nvlc mpv mplayer ffplay cvlc "$OPENER")
+export READER=$(find_alt zathura mupdf evince "$OPENER")
+# export ROOTER=$(find_alt gksudo kdesudo)
+# export QUEUER=$(find_alt tsp fq ts)
+export TERMER=$(find_alt tilda gnome-terminal konsole urxvt xterm lxterminal uxterm sakura lxterminal mate-terminal pantheon-terminal xfce4-terminal terminology terminator "$OPENER")
+## TITLE: Configuration functions
+cfg-alias() { "$EDITOR" ~/.aliasrc; }
+cfg-alsabase() { sudo "$EDITOR" /etc/modprobe.d/alsa-base.conf; }
+cfg-abookrc() { "$EDITOR" ~/.abook/abookrc; }
+cfg-addressbook() { "$EDITOR" ~/.abook/addressbook; }
+cfg-autostartrc() { "$EDITOR" ~/.autostartrc; }
+cfg-bashrc() { "$EDITORGUI" ~/.bashrc; }
+cfg-blocklist() { "$EDITOR" ~/.scripts/blocklist.sh; }
+cfg-bookmarks() { "$EDITOR" ~/.config/surfraw/bookmarks; }
+cfg-cava() { "$EDITOR" ~/.config/cava/config; }
+cfg-clonezilla() { sudo "$EDITOR" /etc/drbl/drbl.conf; }
+cfg-dnf() { sudo "$EDITOR" /etc/dnf/dnf.conf; }
+cfg-flexget() { "$EDITOR" ~/.flexget/config.yml; }
+cfg-fstab() { sudo "$EDITOR" /etc/fstab; }
+cfg-gitignore() { "$EDITOR" ~/Public/dotfiles/.gitignore; }
+cfg-gpu() { sudo "$EDITOR" /etc/X11/xorg.conf.d/10-gpu.conf; }
+cfg-group() { sudo "$EDITOR" /etc/group; }
+cfg-grub() { sudo "$EDITOR" /etc/default/grub; }
+cfg-hintrc() { "$EDITOR" ~/.hintrc; }
+cfg-hosts() { sudo "$EDITOR" /etc/hosts; }
+cfg-hyperterminal() { "$EDITOR" ~/.hyper.js; }
+cfg-intel() { sudo "$EDITOR" /usr/share/X11/xorg.conf.d/20-intel.conf; }
+## archive.org downloader https://archive.org/services/docs/api/internetarchive/
+# cfg-internetarchive() { "$EDITOR" ~/.config/ia.ini; }
+cfg-inputrc() { "$EDITOR" ~/.inputrc; }
+cfg-i3wm() { "$EDITOR" ~/.i3/config; }
+cfg-keynavrc() { "$EDITOR" ~/.keynavrc; }
+cfg-kodi-keyboard() { "$EDITOR" ~/.kodi/userdata/keymaps/keyboard.xml; }
+cfg-kodi-confluencethumbnailview() { sudo "$EDITOR" /usr/share/kodi/addons/skin.confluence/720p/MyVideoNav.xml; }
+cfg-lgogdownloader() { "$EDITOR" ~/.config/lgogdownloader/config.cfg; }
+cfg-livestreamer() { "$EDITOR" ~/.livestreamerrc; }
+cfg-mailcap() { "$EDITOR" ~/.mailcap; }
+cfg-mbsyncrc() { "$EDITOR" ~/.mbsyncrc; }
+cfg-mc() { "$EDITOR" ~/.config/mc/ini; }
+cfg-mc-keymap() { "$EDITOR" ~/.config/mc/mc.keymap; }
+cfg-mcomix() { "$EDITOR" ~/.config/mcomix/keybindings.conf; }
+cfg-megarc() { "$EDITOR" ~/.megarc; }
+cfg-mpd() { "$EDITOR" ~/.mpd/mpd.conf; }
+cfg-mplayer() { "$EDITOR" ~/.mplayer/config; }
+cfg-mpv() { "$EDITOR" ~/.config/mpv/mpv.conf; }
+cfg-mpv-input() { "$EDITOR" ~/.config/mpv/input.conf; }
+cfg-mocp() { "$EDITOR" ~/.moc/config; }
+cfg-muttrc() { "$EDITOR" ~/.muttrc; }
+cfg-nanorc() { "$EDITOR" ~/.nanorc; }
+cfg-ncmpcpp() { "$EDITOR" ~/.ncmpcpp/config; }
+cfg-ncmpcpp-bindings() { "$EDITOR" ~/.ncmpcpp/bindings; }
+cfg-netrc() { "$EDITOR" ~/.netrc; }
+cfg-newsbeuter() { "$EDITOR" ~/.newsbeuter/config; }
+cfg-newsbeuter-queue() { "$EDITOR" ~/.newsbeuter/queue; }
+cfg-newsbeuter-urls() { "$EDITOR" ~/.newsbeuter/urls; }
+cfg-newsboat() { "$EDITOR" ~/.newsboat/config; }
+cfg-newsboat-queue() { "$EDITOR" ~/.newsboat/queue; }
+cfg-newsboat-urls() { "$EDITOR" ~/.newsboat/urls; }
+cfg-nginx-proxy() { sudo "$EDITOR" /etc/nginx/sites-enabled/proxy.conf; }
+cfg-nvim() { "$EDITOR" ~/.config/nvim/init.vim; }
+cfg-pastebinit() { "$EDITOR" ~/.pastebinit.xml; }
+cfg-pianobar() { "$EDITOR" ~/.config/pianobar/config; }
+cfg-pianobar-libao() { sudo "$EDITOR" /etc/libao.conf; }
+cfg-profile() { "$EDITOR" ~/.profile; }
+cfg-pulseaudio() { sudo "$EDITOR" /etc/pulse/default.pa; }
+cfg-pulsedaemon() { sudo "$EDITOR" /etc/pulse/daemon.conf; }
+cfg-pyload() { "$EDITOR" ~/.pyload/pyload.conf; }
+cfg-pyradio() { "$EDITOR" ~/.pyradio/stations.csv; }
+cfg-qutebrowser() { "$EDITOR" ~/.config/qutebrowser/qutebrowser.conf; }
+cfg-qutebrowser-keys() { "$EDITOR" ~/.config/qutebrowser/keys.conf; }
+cfg-qutebrowser-quickmarks() { "$EDITOR" ~/.config/qutebrowser/quickmarks; }
+cfg-quicktile() { "$EDITOR" ~/.config/quicktile.cfg; }
+cfg-rofibangs() { "$EDITOR" ~/.scripts/rofi-scripts-collection/rofi-bangs.sh; }
+cfg-ranger() { "$EDITOR" ~/.config/ranger/rc.conf; }
+cfg-ranger-rifle() { "$EDITOR" ~/.config/ranger/rifle.conf; }
+cfg-ranger-commands() { "$EDITOR" ~/.config/ranger/commands.py; }
+cfg-resolve() { sudo "$EDITOR" /etc/resolv.conf; }
+cfg-rtv() { "$EDITOR" ~/.config/rtv/rtv.cfg; }
+cfg-samba() { sudo "$EDITOR" /etc/samba/smb.conf; }
+cfg-skippyxd() { "$EDITOR" ~/.skippy-xd.rc; }
+cfg-slrnrc() { "$EDITOR" ~/.slrnrc; }
+cfg-ssh-client() { sudo "$EDITOR" /etc/ssh/ssh_config; }
+cfg-ssh-daemon() { sudo "$EDITOR" /etc/ssh/sshd_config; }
+cfg-sudoers() { sudo "$EDITOR" /etc/sudoers; }
+cfg-sakura() { "$EDITOR" ~/.config/sakura/sakura.conf; }
+cfg-surfraw() { "$EDITOR" ~/.config/surfraw/conf; }
+cfg-syncthing() { "$EDITORGUI" ~/.config/syncthing/config.xml; }
+cfg-sysctl() { sudo "$EDITOR" /etc/sysctl.conf; }
+cfg-tmuxrc() { "$EDITOR" ~/.tmux.conf; }
+cfg-tor() { sudo "$EDITOR" /etc/tor/torrc; }
+cfg-tor-user() { "$EDITOR" ~/.torrc; }
+cfg-torrench() { "$EDITOR" ~/.config/torrench/config.ini; }
+cfg-tpb() { "$EDITOR" ~/.scripts/tpb.sh; }
+cfg-transmission-daemon() { "$EDITOR" ~/.config/transmission-daemon/settings.json; }
+cfg-transmission-ncurse() { "$EDITOR" ~/.config/transmission-remote-cli/settings.cfg; }
+cfg-trz() { "$EDITOR" ~/.scripts/trz.sh; }
+cfg-turses() { "$EDITOR" ~/.turses/config; }
+cfg-urlview() { "$EDITOR" ~/.urlview; }
+cfg-updatedb() { sudo "$EDITOR" /etc/updatedb.conf; }
+cfg-vifmrc() { "$EDITOR" ~/.config/vifm/vifmrc; }
+cfg-vimrc() { "$EDITOR" ~/.vimrc; }
+cfg-w3m() { "$EDITOR" ~/.w3m/config; }
+cfg-w3m-keymap() { "$EDITOR" ~/.w3m/keymap; }
+cfg-w3m-urimethodmap() { "$EDITOR" ~/.w3m/urimethodmap; }
+cfg-wegorc() { "$EDITOR" ~/.wegorc; }
+cfg-xbindkeysrc() { "$EDITOR" ~/.xbindkeysrc && killall xbindkeys ; xbindkeys; }
+cfg-xmodmap() { "$EDITOR" ~/.Xmodmap; }
+cfg-xresources() { "$EDITOR" ~/.Xresources; }
+cfg-zathura() { "$EDITOR" ~/.config/zathura/zathurarc; }
+cfg-zshrc() { "$EDITOR" ~/.zshrc; }
+cfg-zurlrc() { "$EDITOR" ~/.zurlrc; }
+
+## ===================================================
+## === COLORS - READABILITY
+## ===================================================
+## TITLE: Color the manpages
+## DEMO: http://www.youtube.com/watch?v=9BFaLAa428k
+## LINK: https://wiki.archlinux.org/index.php/Man_page#Colored_man_pages
+man() {
+    env LESS_TERMCAP_mb=$'\E[01;31m' \
+    LESS_TERMCAP_md=$'\E[01;31m' \
+    LESS_TERMCAP_me=$'\E[0m' \
+    LESS_TERMCAP_se=$'\E[0m' \
+    LESS_TERMCAP_so=$'\E[01;44;33m' \
+    LESS_TERMCAP_ue=$'\E[0m' \
+    LESS_TERMCAP_us=$'\E[01;32m' \
+    man "$@"
+}
+
+## TITLE: color common commands (from .bashrc)
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# =============================================================================
+# === PATHS - LANGS - VIRTUAL ENV - PACKAGE MANAGERS
+# =============================================================================
+# TITLE: Python virtual environment setup
+# LINK: https://askubuntu.com/questions/244641/how-to-set-up-and-use-a-virtual-python-environment-in-ubuntu#244642
+# DEPS: sudo <package-manager> install virtualenv virtualenvwrapper python3-pip
+# DESC: Python env isolation to avoid global conflicts.
+# 1. Setup 'virtualenvwrapper' and a custom virtual env folder.
+#    It provides better env handling commands:
+#    - Generate an env: 'mkvirtualenv -p /usr/env/python3 py3env'
+#    - Activate the env: 'workon py3env'
+#    - Deactivate an env: 'deactivate'
+#    - Remove the env: 'rmvirtualenv py3env'
+# 2. Setup 'pip3'
+#    - Avoid using sudo with pip': 'pip3 install --user virtualenvwrapper'
+#    - Makes sure that if pip creates an extra virtual environment, it is also
+#      placed in our WORKON_HOME directory.
+#    - pip3 completion:
+#       'pip3 completion --bash >> ~/.profile'
+#       'pip3 completion --zsh >> ~/.zshrc'
+
+# 1.
+# "." /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+export WORKON_HOME="$HOME/.virtualenvs"
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.7
+# 2.
+export PIP_VIRTUALENV_BASE=$WORKON_HOME 
+
+# Python Cheat: https://github.com/chrisallenlane/cheat
+export CHEATCOLORS=true
+alias ch='cheat'
+
+# TITLE: nvm (Node Version Manager) npm and yarn setup
+# LINK: https://github.com/creationix/nvm
+# DESC: Node env setup.
+# - Installation:
+# wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# TITLE: npm
+alias npmi='npm install --no-optional' # avoid 'fsevents linux' warning
+alias npmid='npm install --no-optional --save-dev'
+
+# TITLE: Yarn (set path after nvm)
+export PATH="$PATH:$(yarn global bin)"
+
+cfg-yarn-global() { "$EDITOR" /home/"$(whoami)"/.config/yarn/global/package.json; }
+alias ya='yarn'
+alias yaa='yarn add'
+alias yada='yarn add -D'
+alias yacc='yarn cache clean'
+alias yah='yarn help'
+alias yao='yarn outdated'
+alias yaui='yarn upgrade-interactive'
+alias yagl='yarn global list'
+alias yaga='yarn global add'
+alias yagr='yarn global remove'
+alias yagu='yarn global upgrade'
+alias yagui='yarn global upgrade-interactive'
+alias yacfg='yarn global bin' # output symlinks to executables
+
+# TITLE: Php artisan and composer
+# export PATH=$HOME/.config/composer/vendor/bin:$PATH
+# alias art="php artisan"
+
+# TITLE: Erlang and elixir
+# export PATH=$HOME/usr/local/bin/elixir:$PATH
+# export ERL_AFLAGS="-kernel shell_history enabled"
+
+# TITLE: Golang and Go Packages
+# export GOROOT="/usr/local/go/" # sudo mv go /usr/local
+export GOPATH=$HOME/.go # defaults to GOROOT 
+export GOBIN=$GOPATH/bin
+export GOARCH=amd64
+export GOOS=linux
+export PATH="$GOBIN:$PATH" # expose go binaries system wide.
+
+# TITLE: Rust and rustup
+# Install rustup: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# TITLE: Custom Path to IntelliJ-IDEA
+# export PATH=$HOME/opt/Intellij/idea-UI-172.4155.36/bin:$PATH
+
+# TITLE: External files
+if [ -f ~/.hintrc ]; then
+    "." ~/.hintrc
+fi
+
+

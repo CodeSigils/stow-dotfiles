@@ -1,0 +1,31 @@
+# Surfraw provides a fast unix command line interface for www.
+# See also surfraw-update-path(1) for details
+
+# Configuration
+# https://www.mankier.com/1/surfraw#Configuration
+#
+# Surfraw gets its configuration from three sources, in order:
+# 1. Environment variables
+# 2. /etc/xdg/surfraw/conf
+# 3. $HOME/.config/surfraw/conf
+
+# List surfraw angines
+sr -elvi
+
+# Find where search engines are located on a debian system
+# in order to create your own. The following command will propably
+# return '/usr/lib/surfraw/github' on  a debian system:
+dpkg -L surfraw | grep youtube
+
+# Create your custom search inside an 'elvi' directory
+mkdir ~/.config/surfraw/elvi
+# and copy the template inside it.
+cp /usr/lib/surfraw/youtube ./template
+# Then make it executable
+chmode +x template
+# Run 'sr -elvi' once again to verify LOCAL ELVI at the end of the list
+sr -elvi
+
+# alias sr for a 'cli' browser and 'surfraw' for a gui one.
+alias sr='sr -browser=$BROWSERCLI'
+alias srf='surfraw -browser=$BROWSER'

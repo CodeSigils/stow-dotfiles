@@ -1,0 +1,48 @@
+#!/bin/sh
+
+# docker-compose basic commands:
+# https://docs.docker.com/compose/reference/
+
+# build    -- Build or rebuild services
+# bundle   -- Generate a Docker bundle from the Compose file
+# config   -- Validate and view the Compose file
+# create   -- Create services
+# down     -- Stop and remove containers, networks, images, and volumes
+# events   -- Receive real time events from containers
+# exec     -- Execute a command in a running container
+# help     -- Get help on a command
+# images   -- List images
+# kill     -- Kill containers
+# logs     -- View output from containers
+# pause    -- Pause services
+# port     -- Print the public port for a port binding
+# ps       -- List containers
+# pull     -- Pull service images
+# push     -- Push service images
+# restart  -- Restart services
+# rm       -- Remove stopped containers
+# run      -- Run a one-off command
+# scale    -- Set number of containers for a service
+# start    -- Start services
+# stop     -- Stop services
+# top      -- Display the running processes
+# unpause  -- Unpause services
+# up       -- Create and start containers
+# version  -- Show the Docker-Compose version information
+
+# Build and run services
+docker-compose up
+
+# run services in the background
+docker-compose up -d
+
+# Stop all services
+docker-compose stop
+
+# Run one-off commands for your services. For example, to see what environment 
+# variables are available to the web service:
+docker-compose run web env
+
+# bring everything down, removing the containers entirely. Pass --volumes to also
+# remove the data volume (used for example by a Redis container):
+docker-compose down --volumes

@@ -1,0 +1,87 @@
+# Buku examples
+# https://www.mankier.com/1/buku#Examples
+
+# Buku with xsel
+# http://tuxdiary.com/2016/03/26/buku-xsel/
+
+# Add a bookmark with tags 'search engine' and 'privacy', comment 'Search engine with perks', fetch page title from the web:
+# In the output, >: url, +: comment, #: tags.
+buku -a https://ddg.gg search engine, privacy -c Search engine with perks
+
+# Add a bookmark with tags 'search engine' & 'privacy' and immutable custom title 'DDG':
+# Note that URL must precede tags.
+buku -a https://ddg.gg search engine, privacy --title 'DDG' --immutable 1
+
+# Add a bookmark without a title (works for update too):
+buku -a https://ddg.gg search engine, privacy --title
+
+# Edit and update a bookmark from editor:
+buku -w 15012014
+
+# Update existing bookmark at index 15012014 with new URL, tags and comments, fetch title from the web:
+buku -u 15012014 --url http://ddg.gg/ --tag web search, utilities -c Private search engine
+
+# Update only comment for bookmark at 15012014:
+# Applies to --url, --title and --tag too.
+buku -u 15012014 -c this is a new comment
+
+# Export bookmarks tagged 'tag 1' or 'tag 2' to HTML, markdown or orgfile:
+# All bookmarks are exported if --tag is not specified.
+buku -e bookmarks.html --tag tag 1, tag 2
+buku -e bookmarks.md --tag tag 1, tag 2
+buku -e bookmarks.db --tag tag 1, tag 2
+
+# Import bookmarks from HTML, markdown or orgfile:
+buku -i bookmarks.html
+buku -i bookmarks.md
+buku -i bookmarks.db
+
+# Delete only comment for bookmark at 15012014:
+# Applies to --title and --tag too.
+buku -u 15012014 -c
+
+# Update or refresh full DB with page titles from the web:
+# This operation does not modify the indexes, URLs, tags or comments.
+# Only title is refreshed if fetched title is non-empty.
+buku -u
+buku -u --tacit (show only failures and exceptions)
+
+# Delete bookmark at index 15012014:
+buku -d 15012014
+
+# Delete a range or list of bookmarks:
+buku -d 100-200
+buku -d 100 15 200
+
+# Search bookmarks with ALL the keywords 'kernel' and 'debugging' in URL, title or tags:
+buku -S kernel debugging
+
+# Search bookmarks tagged 'general kernel concepts':
+buku --stag general kernel concepts
+
+# Search for bookmarks matching ANY of the tags 'kernel', 'debugging', 'general kernel concepts':
+buku --stag kernel, debugging, general kernel concepts
+
+# Search for bookmarks matching ALL of the tags 'kernel', 'debugging', 'general kernel concepts':
+buku --stag kernel + debugging + general kernel concepts
+
+# Search for bookmarks matching any of the keywords 'hello' or 'world', excluding the keywords
+# 'real' and 'life', matching both the tags 'kernel' and 'debugging', but excluding the tags
+# 'general kernel concepts' and 'books':
+buku hello world --exclude real life --stag 'kernel + debugging - general kernel concepts, books'
+
+# List all unique tags alphabetically:
+buku --stag
+
+# Run a search and update the results:
+buku -s kernel debugging -u --tag + linux kernel
+
+# Run a search and delete the results:
+buku -s kernel debugging -d
+
+# Encrypt or decrypt DB with custom number of iterations (15) to generate key:
+# The same number of iterations must be specified for one lock & unlock instance. 
+# Default is 8, if omitted.
+buku -l 15
+buku -k 15
+

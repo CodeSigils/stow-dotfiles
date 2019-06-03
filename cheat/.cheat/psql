@@ -1,0 +1,70 @@
+# psql is the PostgreSQL terminal interface. 
+# The following commands were tested on version 9.5.
+# Links: 
+# wiki: https://wiki.postgresql.org/wiki/Main_Page
+# main: https://www.postgresql.org/docs/
+# data-types: https://www.postgresql.org/docs/9.5/static/datatype.html
+# ubuntu: https://help.ubuntu.com/community/PostgreSQL
+
+# Basic commands:
+# Console: psql
+# Exit: /q or Ctrl+D
+# List: /l
+
+# Connection options:
+# -U username (if not specified current OS user is used).
+# -p port.
+# -h server hostname/address.
+
+# Connect to local server using defaul default user(1st arg) and DB (2nd arg):
+sudo -u postgres psql postgres
+
+# Set a password for the "postgres" database:
+\password postgres
+
+# Login to default PostgreSQL user (called "postgres") 
+# to create a DB and assign it to the new user:
+sudo -u postgres
+
+# Create a new user:
+sudo adduser my_postgres_user
+
+# Create a new user that matches the system user you created:
+psql
+CREATE USER my_postgres_user WITH PASSWORD 'my_password';
+CREATE DATABASE my_postgres_db OWNER my_postgres_user;
+
+# Get databases on a server:
+psql -U postgres -h serverAddress --list
+
+# Execute sql query and save output to file:
+psql -U postgres -d dbName -c 'select * from tableName;' -o fileName
+
+# Execute query and get tabular html output:
+psql -U postgres -d dbName -H -c 'select * from tableName;'
+
+# Execute query and save resulting rows to csv file:
+psql -U postgres -d dbName -t -A -P fieldsep=',' -c 'select * from tableName;' -o fileName.csv
+
+# Read commands from file:
+psql -f fileName
+
+# Restore databases from file:
+psql -f fileName.backup postgres
+
+# Create-delete tables basic syntax:
+CREATE TABLE table_name (
+  column_name1 col_type (field_length) column_constrains,
+  column_name1 col_type (field_length), 
+  column_name1 col_type (field_length)
+);  
+
+# Example:
+CREATE TABLE playground (
+    equip_id serial PRIMARY KEY,
+    type varchar (50) NOT NULL,
+    color varchar (25) NOT NULL,
+    location varchar(25) check (location in ('north', 'south', 
+    'west', 'east', 'northeast', 'southeast', 'southwest', 'northwest')),
+    install_date date
+);

@@ -1,0 +1,256 @@
+#!/bin/zsh
+
+## --------------------------------------------------------------------------- #
+## zplug
+## --------------------------------------------------------------------------- #
+## Repo: https://github.com/zplug/zplug
+## Installation. Make sure you have 'gawk' installed.
+
+## First time installation and run 
+if [[ ! -d ~/.zplug ]]; then
+   git clone https://github.com/zplug/zplug ~/.zplug
+   "." ~/.zplug/init.zsh && zplug update
+fi
+
+## Password - Protocol (requires auth every time we login)
+# ZPLUG_SUDO_PASSWORD="pass show keys/ssh"
+# ZPLUG_PROTOCOL=ssh
+
+## Init
+source /home/$(whoami)/.zplug/init.zsh
+
+## Load theme file
+zplug "themes/blinks", from:oh-my-zsh, as:theme
+
+## Set the priority when loading
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+
+## Plugins
+## --------------------------------------------------------------------
+## zplug "zsh-users/zsh-completions"
+zplug "plugins/nvm", from:oh-my-zsh
+zplug "plugins/node", from:oh-my-zsh
+## docker git
+zplug "plugins/git", from:oh-my-zsh
+zplug "webyneter/docker-aliases", use:docker-aliases.plugin.zsh
+zplug "plugins/docker-compose", from:oh-my-zsh
+## history completion autosuggestions
+zplug "plugins/history-substring-search", from:oh-my-zsh
+zplug "modules/autosuggestions", from:prezto
+zplug "modules/completion", from:prezto
+zplug "modules/directory", from:prezto
+zplug "modules/history", from:prezto
+## fzf
+zplug "junegunn/fzf", as:plugin, rename-to:fzf
+
+## zplug selfupdate. Run zplug update after
+zplug 'b4b4r07/zplug-doctor', lazy:yes 
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
+
+## Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+    echo
+fi
+
+## source plugins and add commands to $PATH
+## zplug load --verbose
+zplug load
+
+## --------------------------------------------------------------------------- #
+## FZF
+## --------------------------------------------------------------------------- #
+## Define custom fzf paths here
+FZF_EXEC_PATH="/home/$(whoami)/.zplug/repos/junegunn/fzf/bin"
+FZF_KEYS_PATH="/home/$(whoami)/.zplug/repos/junegunn/fzf/shell/key-bindings.zsh"
+FZF_COMPLETION_PATH="/home/$(whoami)/.zplug/repos/junegunn/fzf/shell/completion.zsh"
+
+## Setup fzf in PATH
+## -----------------
+if [[ ! "$PATH" == *"$FZF_EXEC_PATH"* ]]; then
+  export PATH="$PATH:$FZF_EXEC_PATH"
+fi
+## Auto-completion
+## ------------------
+[[ $- == *i* ]] && source "$FZF_COMPLETION_PATH" 2> /dev/null
+## Key bindings
+## ------------------
+source "$FZF_KEYS_PATH"
+
+## --------------------------------------------------------------------------- #
+## HISTORY
+## --------------------------------------------------------------------------- #
+# HISTCONTROL=ignoreboth
+
+## --------------------------------------------------------------------------- #
+## PATHS
+## --------------------------------------------------------------------------- #
+## If you come from bash you might have to change your $PATH.
+
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin/:/usr/bin:/usr/local/bin:~/.local/bin:$PATH
+
+## --------------------------------------------------------------------------- #
+## FONTS and Powerline
+## --------------------------------------------------------------------------- #
+## 1. Install powerline symbols: sudo apt-get install fonts-powerline
+##    The Installation path will be in: /usr/share/fonts/...
+## 2. Install Powerline: sudo apt-get install powerline
+## 3. Enable Powerline:
+
+# if [[ -r /usr/share/powerline/bindings/zsh/powerline.zsh ]]; then
+#     source /usr/share/powerline/bindings/zsh/powerline.zsh
+# fi
+
+## --------------------------------------------------------------------------- #
+## OH-MY-ZSH
+## --------------------------------------------------------------------------- #
+## Set name of the theme to load. Optionally, if you set this to "random"
+## it'll load a random theme each time that oh-my-zsh is loaded.
+## See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# ZSH_THEME="refined"
+# ZSH_THEME="tjkirch"
+# ZSH_THEME="amuse"
+
+## Example format: plugins=(rails git textmate ruby lighthouse)
+## Add wisely, as too many plugins slow down shell startup.
+# plugins=()
+
+## Uncomment to enable oh-my-zsh in case of deleting zplug
+# source $ZSH/oh-my-zsh.sh
+
+## --------------------------------------------------------------------------- #
+## MISC
+## --------------------------------------------------------------------------- #
+# export MANPATH="/usr/local/man:$MANPATH"
+
+## Time zone - Lang
+# export TZ=Europe/Madrid
+# export TZ=Europe/Malta
+export TZ=Europe/Athens
+export TC_LANG=custom.UTF-8
+export LANG=en_US.UTF-8
+
+## Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+    export EDITOR='nvim'
+else
+    export EDITOR='vi'
+fi
+
+## Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+## ---------------------------------------------------------------------------- #
+## MOVE-LIST-JUMP
+## ---------------------------------------------------------------------------- #
+## TITLE: Zsh directory module from prezto.
+## DESC: It works like fast temporary bookmarks.
+##       Visit a dir press d then change dir. Press d again.
+## -https://github.com/sorin-ionescu/prezto/blob/master/modules/directory/init.zsh
+1='cd +1'
+2='cd +2'
+3='cd +3'
+4='cd +4'
+5='cd +5'
+6='cd +6'
+7='cd +7'
+8='cd +8'
+9='cd +9'
+d='dirs -v'
+
+## ---------------------------------------------------------------------------- #
+## WEB-SEARCH
+## ---------------------------------------------------------------------------- #
+## TITLE: Web search from terminal
+## DESC: Change $BROWSER to $BROWSERCLI for lynx
+## LINK: https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/web-search/web-search.plugin.zsh
+function web_search() {
+    emulate -L zsh
+    
+    # define search engine URLS
+    typeset -A urls
+    urls=(
+        google      "https://www.google.com/search?q="
+        bing        "https://www.bing.com/search?q="
+        yahoo       "https://search.yahoo.com/search?p="
+        duckduckgo  "https://www.duckduckgo.com/?q="
+        startpage   "https://www.startpage.com/do/search?q="
+        yandex      "https://yandex.ru/yandsearch?text="
+        github      "https://github.com/search?q="
+        gitlab      "https://gitlab.com/search?q="
+        baidu       "https://www.baidu.com/s?wd="
+        ecosia      "https://www.ecosia.org/search?q="
+        goodreads   "https://www.goodreads.com/search?q="
+        qwant       "https://www.qwant.com/?q="
+    )
+    
+    ## check whether the search engine is supported
+    if [[ -z "$urls[$1]" ]]; then
+        echo "Search engine $1 not supported."
+        return 1
+    fi
+    
+    ## search or go to main page depending on number of arguments passed
+    if [[ $# -gt 1 ]]; then
+        ## build search url:
+        ## join arguments passed with '+', then append to search engine URL
+        url="${urls[$1]}${(j:+:)@[2,-1]}"
+    else
+        ## build main page url:
+        ## split by '/', then rejoin protocol (1) and domain (2) parts with '//'
+        url="${(j://:)${(s:/:)urls[$1]}[1,2]}"
+    fi
+    
+    # $BROWSERCLI "$url"
+    $BROWSER "$url"
+}
+
+alias bing='web_search bing'
+alias google='web_search google'
+alias yahoo='web_search yahoo'
+alias ddg='web_search duckduckgo'
+alias sp='web_search startpage'
+alias yandex='web_search yandex'
+alias github='web_search github'
+alias gitlab='web_search gitlab'
+alias baidu='web_search baidu'
+alias ecosia='web_search ecosia'
+alias goodreads='web_search goodreads'
+alias qwant='web_search qwant'
+
+## add your own !bang searches here
+alias wiki='web_search duckduckgo \!w'
+alias news='web_search duckduckgo \!n'
+alias youtube='web_search duckduckgo \!yt'
+alias map='web_search duckduckgo \!m'
+alias image='web_search duckduckgo \!i'
+alias ducky='web_search duckduckgo \!'
+
+## --------------------------------------------------------------------------- #
+## ALIASRC
+## --------------------------------------------------------------------------- #
+## Separate file for extra aliases, paths, functions, autocompletions etc
+if [ -f ~/.aliasrc ]; then
+    source ~/.aliasrc
+else
+    print "404: ~/.aliasrc not found. Check your .zshrc"
+fi
+
+## --------------------------------------------------------------------------- #
+## Python pip zsh completion - start
+## --------------------------------------------------------------------------- #
+function _pip_completion {
+    local words cword
+    read -Ac words
+    read -cn cword
+    reply=( $( COMP_WORDS="$words[*]" \
+            COMP_CWORD=$(( cword-1 )) \
+    PIP_AUTO_COMPLETE=1 $words[1] ) )
+}
+compctl -K _pip_completion pip
+## Python pip zsh completion - end
