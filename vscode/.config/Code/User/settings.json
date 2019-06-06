@@ -242,5 +242,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "markdown.preview.fontSize": 16,
-  "html-css-class-completion.enableEmmetSupport": true
+  "html-css-class-completion.enableEmmetSupport": true,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
 }

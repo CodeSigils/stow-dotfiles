@@ -43,6 +43,7 @@ util_list=(
 # fonts ## rm -rf ~/.local/share/fonts
 
 ## === G === ##
+# geany ## ~/.config/geany
 # git
 
 ## === H === ##

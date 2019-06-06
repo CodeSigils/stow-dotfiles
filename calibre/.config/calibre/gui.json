@@ -1,8 +1,10 @@
 {
   "quick_start_guide_added": true, 
-  "show_emblems": false, 
+  "recently_used_languages": [
+    "English"
+  ], 
   "library_usage_stats": {
-    "/home/seven/Books": 7
+    "/home/seven/Books": 15
   }, 
   "Plugin Updater plugin:plugin updater dialog": {
     "__class__": "bytearray", 
@@ -18,6 +20,7 @@
   }, 
   "grid view visible": false, 
   "font_stretch": 0, 
+  "show_emblems": false, 
   "cover_grid_color": [
     80, 
     80, 
@@ -129,6 +132,10 @@
   ], 
   "tag browser search box visible": false, 
   "default_author_link": null, 
+  "previous_sort_order_BooksView": {
+    "series": true, 
+    "title": true
+  }, 
   "replace_scene_breaks_history": [
     "", 
     "<hr />", 
@@ -140,11 +147,19 @@
     "\u221e \u221e \u221e", 
     "\u00a4 \u00a4 \u00a4"
   ], 
+  "metadata_single_gui_geom": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywADAAAAAAILAAAAtAAABV4AAAMvAAACDAAAANcAAAVdAAADLgAAAAAAAAAAB4AAAAIMAAAA1wAABV0AAAMu"
+  }, 
   "cover_grid_texture": null, 
   "search bar visible": true, 
   "preferences dialog geometry": {
     "__class__": "bytearray", 
     "__value__": "AdnQywADAAAAAACdAAAAigAABuMAAAOqAAAAngAAAK0AAAbiAAADqQAAAAAAAAAAB4AAAACeAAAArQAABuIAAAOp"
+  }, 
+  "metasingle_window_geometry3": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywADAAAAAAAYAAAAAAAAB1MAAAQpAAAAGQAAACMAAAdSAAAEKAAAAAAAAAAAB4AAAAAZAAAAIwAAB1IAAAQo"
   }, 
   "quickview visible": false, 
   "cover_browser_splitter_vertical_state": [
