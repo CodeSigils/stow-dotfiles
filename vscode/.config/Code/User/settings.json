@@ -211,6 +211,7 @@
     "graphQLHTTP",
     "graphiql",
     "intellisense",
+    "moebius",
     "monospace",
     "polyfill",
     "scrollback"
@@ -218,9 +219,9 @@
   "cSpell.enabledLanguageIds": [
     "c",
     "cpp",
-    "csharp",
     "css",
     "go",
+    "html",
     "handlebars",
     "javascript",
     "javascriptreact",
