@@ -340,4 +340,22 @@ if [ -f ~/.hintrc ]; then
     "." ~/.hintrc
 fi
 
+# =============================================================================
+# === Buku
+# =============================================================================
+alias bk='buku'
+alias bkp='buku -p | more'
+alias bka='buku -a'
+alias bkw='buku -w'
+alias bks='buku --suggest --deep -s'
+alias bkS='buku --suggest -S'
+alias bkt='buku -t' # Search bookmarks by tags: ,=any +=all, -=exclude
+alias bke='buku --export'
 
+# Add firefox last visited url from history to buku
+# http://tuxdiary.com/2016/03/26/buku-xsel/
+# https://github.com/jarun/Buku/wiki/System-integration#sync-bookmarks-with-a-web-service
+bk-moz-history() {
+    qlite3 /home/"$(whoami)"/.mozilla/firefox/*.default/places.sqlite \
+    "select url from moz_places where last_visit_date=(select max(last_visit_date) from moz_places)" | buku -a
+}
