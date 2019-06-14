@@ -2,49 +2,49 @@
 
 ## Location of dotfiles (will hold actual files and dirs)
 dot_files="/data/dotfiles"
-cd $dot_files || return
 ## Destination directory (will hold the symlinks):
 dest_dir="/home/$(whoami)"
 
+cd $dot_files || return
 ## MAIN STOW FUNCTION
-selected_apps() {
-	for i in "${util_list[@]}"; do
+link_selected() {
+	for i in "${file_list[@]}"; do
 		stow -v "$1" -t $dest_dir "$i"
 	done
 }
-link_util() { selected_apps "-R"; }
-unlink_util() { selected_apps "-D"; }
+link_files() { link_selected "-R"; }
+unlink_files() { link_selected "-D"; }
 
 ## ========================================================================== ##
-## PACKAGES - Uncomment one or more to install-uninstall before run the script
+## PACKAGES - Uncomment one or more to link-unlink before run the script
 ## ========================================================================== ##
 
-util_list=(
+file_list=(
 ## === A === ##
-# albert ## rm -rf ~/.config/albert/albert.conf && rm -rf ~/.local/share/albert
-# alias ## rm .bash_alias*
+# albert     ## ~/.config/albert/albert.conf && ~/.local/share/albert
+# alias      ## ~/.bash_alias*
 
 ## === B === ##
 # bash
 
 ## === C === ##
-# calibre ## rm -rf ~/.config/calibre
-# cheat
-# cinnamon ## rm -rf ~/.cinnamon
+# calibre    ## ~/.config/calibre
+# cheat      ## ~/.cheat
+# cinnamon   ## ~/.cinnamon
 
 ## === D === ##
 
 ## === E === ##
-# enpass ## rm -rf ~/.config/sinew.in
-# eslint
+# enpass     ## ~/.config/sinew.in
+# eslint     ## ~/.eslintrc
 
 ## === F === ##
 # fzf
-# fonts ## rm -rf ~/.local/share/fonts
+# fonts      ## ~/.local/share/fonts
 
 ## === G === ##
-# geany ## ~/.config/geany
-# git
+# geany      ## ~/.config/geany
+# git        ## ~/.gitconfig
 
 ## === H === ##
 
@@ -55,57 +55,57 @@ util_list=(
 ## === K === ##
 
 ## === L === ##
-# lilyterm ## rm -rf ~/.config/lilyterm
+# lilyterm   ## ~/.config/lilyterm
 
 ## === M === ##
-# mcomix ## rm -rf ~/.config/mcomix
-# mplayer ## rm -rf ~/.mplayer
-# mpv ## rm -rf ~/.config/mpv
+# mcomix     ## ~/.config/mcomix
+# mplayer    ## ~/.mplayer
+# mpv        ## ~/.config/mpv
 
 ## === N === ##
-# nvim ## rm ~/.config/nvim/init.vim
+# nvim       ## ~/.config/nvim/init.vim
 
 ## === O === ##
 
 ## === P === ##
-# private ## private stuff - include it in .gitignore
+# private    ## private stuff - include it in .gitignore
 
 ## === Q === ##
 
 ## === R === ##
-# ranger ## rm -rf ~/.config/ranger && rm -rf ~/.local/share/ranger/{bookmarks,tagged}
-# rygel ## rm ~/.config/rygel.conf
+# ranger     ## ~/.config/ranger && ~/.local/share/ranger/{bookmarks,tagged}
+# rygel      ## ~/.config/rygel.conf
 
 ## === S === ##
-# sakura ## rm -rf ~/.config/sakura
+# sakura     ##  ~/.config/sakura
 
 ## === T === ##
-# themes ## rm -rf ~/.themes && rm -rf ~/.icons
-# tilda ## rm -rf ~/.config/tilda
-# tint2 ## rm -rf ~/.config/tint2
+# themes     ## ~/.themes && ~/.icons
+# tilda      ## ~/.config/tilda
+# tint2      ## ~/.config/tint2
 
 ## === U === ##
-#user-dirs ## rm ~/.config/user-dirs.*
+# user-dirs  ## ~/.config/user-dirs.*
 
 ## === V === ##
-# vim ## rm -rf ~/.vim*
-# vlc ## rm ~/.config/vlc/vlcrc
-# vscode ## rm -rf ~/.config/Code/User/{snippets,settings.json} && rm -rf ~/.vscode
+# vim        ## ~/.vim*
+# vlc        ## ~/.config/vlc/vlcrc
+# vscode     ## ~/.config/Code/User/{snippets,settings.json} && rm -rf ~/.vscode
 
 ## === W === ##
-# wget
+# wget       ## ~/.wgetrc
 
 ## === X === ##
-# xarchiver ## rm -rf ~/.config/xarchiver
-# xinitrc
+# xarchiver  ## ~/.config/xarchiver
+# xinitrc    ## ~/.xinitrc
 
 ## === Y === ##
-# youtube-viewer ## rm -rf ~/.config/youtube-viewer
+# youtube-viewer ## ~/.config/youtube-viewer
 
 ## === Z === ##
-# zathura
-# zsh
+# zathura    ## ~/.config/zathura
+# zsh        ## ~/.zsh*
 )
 
-link_util ## Uncomment to link
-# unlink_util ## Uncomment to unlink
+link_files ## Uncomment to link
+# unlink_files ## Uncomment to unlink

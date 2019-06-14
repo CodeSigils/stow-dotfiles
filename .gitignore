@@ -15,6 +15,7 @@ calibre/.config/calibre/iterator.pickle
 calibre/.config/calibre/viewer.json
 cinnamon/.cinnamon/backgrounds/
 cinnamon/.cinnamon/spices.cache/
+enpass/.config/sinew.in/Enpass.conf.*
 ranger/.local/share/ranger/history
 vim/.cache
 vim/.vim/pack/minpac/opt/minpac/

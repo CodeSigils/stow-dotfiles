@@ -4,7 +4,7 @@
     "English"
   ], 
   "library_usage_stats": {
-    "/home/seven/Books": 23
+    "/home/seven/Books": 24
   }, 
   "Plugin Updater plugin:plugin updater dialog": {
     "__class__": "bytearray", 
@@ -136,6 +136,16 @@
     "series": false, 
     "title": true
   }, 
+  "preferences dialog geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywADAAAAAACdAAAAigAABuMAAAOqAAAAngAAAK0AAAbiAAADqQAAAAAAAAAAB4AAAACeAAAArQAABuIAAAOp"
+  }, 
+  "metadata_single_gui_geom": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywADAAAAAAILAAAAtAAABV4AAAMvAAACDAAAANcAAAVdAAADLgAAAAAAAAAAB4AAAAIMAAAA1wAABV0AAAMu"
+  }, 
+  "cover_grid_texture": null, 
+  "search bar visible": true, 
   "replace_scene_breaks_history": [
     "", 
     "<hr />", 
@@ -147,16 +157,6 @@
     "\u221e \u221e \u221e", 
     "\u00a4 \u00a4 \u00a4"
   ], 
-  "metadata_single_gui_geom": {
-    "__class__": "bytearray", 
-    "__value__": "AdnQywADAAAAAAILAAAAtAAABV4AAAMvAAACDAAAANcAAAVdAAADLgAAAAAAAAAAB4AAAAIMAAAA1wAABV0AAAMu"
-  }, 
-  "cover_grid_texture": null, 
-  "search bar visible": true, 
-  "preferences dialog geometry": {
-    "__class__": "bytearray", 
-    "__value__": "AdnQywADAAAAAACdAAAAigAABuMAAAOqAAAAngAAAK0AAAbiAAADqQAAAAAAAAAAB4AAAACeAAAArQAABuIAAAOp"
-  }, 
   "metasingle_window_geometry3": {
     "__class__": "bytearray", 
     "__value__": "AdnQywADAAAAAAAYAAAAAAAAB1MAAAQpAAAAGQAAACMAAAdSAAAEKAAAAAAAAAAAB4AAAAAZAAAAIwAAB1IAAAQo"
