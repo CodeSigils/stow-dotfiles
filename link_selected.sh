@@ -6,11 +6,12 @@ dot_files="/data/dotfiles"
 dest_dir="/home/$(whoami)"
 
 cd $dot_files || return
+
 ## MAIN STOW FUNCTION
 link_selected() {
-	for i in "${file_list[@]}"; do
-		stow -v "$1" -t $dest_dir "$i"
-	done
+    for i in "${file_list[@]}"; do
+        stow -v "$1" -t $dest_dir "$i"
+    done
 }
 link_files() { link_selected "-R"; }
 unlink_files() { link_selected "-D"; }
@@ -90,7 +91,7 @@ file_list=(
 ## === V === ##
 # vim        ## ~/.vim*
 # vlc        ## ~/.config/vlc/vlcrc
-# vscode     ## ~/.config/Code/User/{snippets,settings.json} && rm -rf ~/.vscode
+# vscode     ## ~/.config/Code/User/{snippets,settings.json} && ~/.vscode
 
 ## === W === ##
 # wget       ## ~/.wgetrc

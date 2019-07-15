@@ -170,6 +170,7 @@
         ],
         "value": [
             "firefox.desktop",
+            "google-chrome.desktop",
             "mozilla-thunderbird.desktop",
             "lilyterm.desktop",
             "nemo.desktop",

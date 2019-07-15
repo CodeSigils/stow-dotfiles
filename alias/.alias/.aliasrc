@@ -38,6 +38,7 @@ alias dnfi="sudo dnf install"
 alias dnfi-noweak="dnf --setopt=install_weak_deps=False --best install"
 alias dnffo="sudo dnf info"
 alias dnfup="sudo dnf update"
+alias dnfc="sudo dnf autoremove"
 ## Systemd and services
 alias s-start="sudo systemctl start"
 alias s-stop="sudo systemctl stop"
@@ -130,7 +131,7 @@ export BROWSERTOR=$(find_alt torbrowser-launcher)
 export COMICER=$(find_alt mcomix comix zathura "$OPENER")
 export EBOOKER=$(find_alt ebook-viewer "$OPENER")
 export EDITOR=$(find_alt nvim vim vi emacs nano leafpad gedit pluma "$OPENER")
-export EDITORGUI=$(find_alt xed geany kate kwrite mousepad leafpad gedit pluma "$OPENER")
+export EDITORGUI=$(find_alt geany xed kate kwrite mousepad leafpad gedit pluma "$OPENER")
 # export WORDPROCESSOR=$(find_alt wordgrinder "$OPENER")
 export FILEMANAGER=$(find_alt nemo pcmanfm nautilus thunar caja spacefm dolphin enlightenment_filemanager "$OPENER")
 export FILEMANAGERCLI=$(find_alt ranger vifm mc "$OPENER")
@@ -232,7 +233,6 @@ cfg-torrench() { "$EDITOR" ~/.config/torrench/config.ini; }
 cfg-tpb() { "$EDITOR" ~/.scripts/tpb.sh; }
 cfg-transmission-daemon() { "$EDITOR" ~/.config/transmission-daemon/settings.json; }
 cfg-transmission-ncurse() { "$EDITOR" ~/.config/transmission-remote-cli/settings.cfg; }
-cfg-trz() { "$EDITOR" ~/.scripts/trz.sh; }
 cfg-turses() { "$EDITOR" ~/.turses/config; }
 cfg-urlview() { "$EDITOR" ~/.urlview; }
 cfg-updatedb() { sudo "$EDITOR" /etc/updatedb.conf; }
