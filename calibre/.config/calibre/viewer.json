@@ -14,7 +14,7 @@
     "__class__": "bytearray", 
     "__value__": "AdnQywADAAAAAAJwAAAAiwAABP4AAAOcAAACcQAAALIAAAT9AAADmwAAAAAAAAAAB4AAAAJxAAAAsgAABP0AAAOb"
   }, 
-  "multiplier": 3.8000006675720215, 
+  "multiplier": 1.8000001907348633, 
   "custom_colors_for_color_dialog": [
     [
       255, 
@@ -114,6 +114,7 @@
     ]
   ], 
   "viewer_open_history": [
+    "/data/Dropbox/books/Intro-to-Software-Engineering/Coding_for_Beginners_in_Easy_Steps_Basic_Programming_for_All_Ages_(2015).epub", 
     "/home/seven/Public/exp-repo/hugo/restaurant-template-cms/site/content/pages/about.md", 
     "/home/seven/Books/Jim Butcher/Academ's Fury (86)/Academ's Fury - Jim Butcher.epub", 
     "/home/seven/Public/html5-templates/README.md", 
