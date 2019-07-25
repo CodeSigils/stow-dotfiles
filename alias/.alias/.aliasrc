@@ -70,10 +70,10 @@ alias fire-restart="sudo service firewalld restart"
 ## 2. xrandr --setprovideroffloadsink 1 0 (or use ids)
 ## 3. DRI_PRIME=1 glxinfo | grep "OpenGL renderer"
 ## export DRI_PRIME=1 #--> Move to .xinitrc for global use (resource heavy)
-alias code="DRI_PRIME=1 code"
-alias firefox="DRI_PRIME=1 firefox &"
-alias gimp="DRI_PRIME=1 gimp &"
-alias chromium="DRI_PRIME=1 chromium &"
+#alias code="DRI_PRIME=1 code"
+#alias firefox="DRI_PRIME=1 firefox &"
+#alias gimp="DRI_PRIME=1 gimp &"
+#alias chromium="DRI_PRIME=1 chromium &"
 alias ls-renderer='glxinfo|egrep "OpenGL vendor|OpenGL renderer"'
 alias ls-kernel-drivers="sudo lsinitrd /boot/initramfs-"$(uname -r)".img \
 | grep -o '/kernel/drivers/gpu/.*'"
