@@ -36,7 +36,7 @@
   "workbench.activityBar.visible": false,
   "window.openFilesInNewWindow": "off",
   "window.menuBarVisibility": "toggle",
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 2,
   "breadcrumbs.enabled": true,
   //*=== FILES-SEARCH ===*/
   "files.autoSave": "off",
@@ -255,5 +255,6 @@
   "markdown.preview.fontSize": 16,
   "html-css-class-completion.enableEmmetSupport": true,
   "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "typescript.updateImportsOnFileMove.enabled": "always"
 }

@@ -20,7 +20,7 @@ network_timeout = 5
  
 # library path
 # Path to directory in which your library of books is stored
-library_path = u'/home/seven/Books'
+library_path = u'/home/seven/Documents/Calibre/Fantasy'
  
 # language
 # The language in which to display the user interface

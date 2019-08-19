@@ -1,12 +1,12 @@
 {
-  "viewer_toc_isvisible": false, 
+  "viewer_toc_isvisible": true, 
   "print-to-pdf-geometry": {
     "__class__": "bytearray", 
     "__value__": "AdnQywADAAAAAAKxAAABGQAABLoAAAKsAAACsgAAATwAAAS5AAACqwAAAAAAAAAAB4AAAAKyAAABPAAABLkAAAKr"
   }, 
   "main_window_state": {
     "__class__": "bytearray", 
-    "__value__": "AAAA/wAAAAL9AAAAAwAAAAAAAAEAAAACw/wCAAAAAfsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAnAAACwwAAAJQA////AAAAAQAAAAAAAAAA/AIAAAAB+wAAABwAYgBvAG8AawBtAGEAcgBrAHMALQBkAG8AYwBrAAAAAAD/////AAAA6wD///8AAAADAAAAAAAAAAD8AQAAAAH7AAAAHABmAG8AbwB0AG4AbwB0AGUAcwAtAGQAbwBjAGsAAAAAAP////8AAABAAP///wAAAlEAAALCAAAAAQAAAAIAAAABAAAAAvwAAAACAAAAAAAAAAEAAAAQAHQAbwBvAGwAXwBiAGEAcgMAAAAA/////wAAAAAAAAAAAAAAAgAAAAEAAAASAHQAbwBvAGwAXwBiAGEAcgAyAQAAAAD/////AAAAAAAAAAA="
+    "__value__": "AAAA/wAAAAL9AAAAAwAAAAAAAAEAAAACwvwCAAAAAfsAAAAQAHQAbwBjAC0AZABvAGMAawEAAAAoAAACwgAAAJQA////AAAAAQAAAU4AAALC/AIAAAAB+wAAABwAYgBvAG8AawBtAGEAcgBrAHMALQBkAG8AYwBrAAAAACgAAALCAAAA6wD///8AAAADAAAHgAAAAOH8AQAAAAH7AAAAHABmAG8AbwB0AG4AbwB0AGUAcwAtAGQAbwBjAGsAAAAAAAAAB4AAAABAAP///wAAAUsAAALCAAAAAQAAAAIAAAABAAAAAvwAAAACAAAAAAAAAAEAAAAQAHQAbwBvAGwAXwBiAGEAcgMAAAAA/////wAAAAAAAAAAAAAAAgAAAAEAAAASAHQAbwBvAGwAXwBiAGEAcgAyAQAAAAD/////AAAAAAAAAAA="
   }, 
   "in_paged_mode": false, 
   "singleinstance": false, 
@@ -14,7 +14,7 @@
     "__class__": "bytearray", 
     "__value__": "AdnQywADAAAAAAJwAAAAiwAABP4AAAOcAAACcQAAALIAAAT9AAADmwAAAAAAAAAAB4AAAAJxAAAAsgAABP0AAAOb"
   }, 
-  "multiplier": 1.8000001907348633, 
+  "multiplier": 3.40000057220459, 
   "custom_colors_for_color_dialog": [
     [
       255, 
@@ -114,9 +114,34 @@
     ]
   ], 
   "viewer_open_history": [
+    "/home/seven/Downloads/MetalMage.epub", 
+    "/home/seven/Downloads/Nordic Tales.epub", 
+    "/home/seven/Downloads/Revan - Drew Karpyshyn.epub", 
+    "/home/seven/Documents/Calibre/Fantasy/Steve Feasey/Dark Blade_ Whispers of the Gods Book 1 (104)/Dark Blade_ Whispers of the Gods Book 1 - Steve Feasey.epub", 
+    "/data/Dropbox/books/SciFi/Dark Blade.epub", 
+    "/data/Dropbox/books/SciFi/Dystopia/SongsMVNFor.epub", 
+    "/data/Dropbox/books/SciFi/World Unraveled.epub", 
+    "/home/seven/Downloads/The Grand Dark.epub", 
+    "/home/seven/Downloads/World Unraveled.epub", 
+    "/data/Dropbox/books/SciFi/Urban-steam/Stray-Souls-[Magicals-Anonymous-#1]-by-Kate-Griffin-{Ani7Wak}.epub", 
+    "/data/Dropbox/books/SciFi/Epic-magic-sagas/The_Fire_Within.epub", 
+    "/data/Dropbox/books/SciFi/Epic-magic-sagas/The-Path-of-Flames-[Chronicles-of-the-Black-Gate#1]-PhilTucker/The_Path_of_Flames_byPhilTucker.epub", 
+    "/data/Dropbox/books/SciFi/Space/Incarnate__Essence.epub", 
+    "/home/seven/Documents/Calibre/Fantasy/Gareth Hanrahan/The Gutter Prayer (92)/The Gutter Prayer - Gareth Hanrahan.epub", 
+    "/home/seven/Documents/Calibre/Code/Mat Ryer/Go Programming Blueprints (2)/Go Programming Blueprints - Mat Ryer.epub", 
+    "/home/seven/Downloads/Howling Dark.epub", 
+    "/home/seven/Documents/Calibre/Code/Axel Rauschmayer/Speaking JavaScript_ An In-Depth Guide for Programmers (14)/Speaking JavaScript_ An In-Depth Guide for - Axel Rauschmayer.epub", 
+    "/home/seven/Documents/Calibre/Books/Miles Cameron/Cold Iron (43)/Cold Iron - Miles Cameron.epub", 
+    "/home/seven/Books/Gareth Hanrahan/The Gutter Prayer_ The Black Iron Legacy, Book One (92)/The Gutter Prayer_ The Black Iron Legacy, - Gareth Hanrahan.epub", 
+    "/home/seven/Books/Ash Turner/Children of Gods (90)/Children of Gods - Ash Turner.epub", 
+    "/data/Dropbox/books/SciFi/Urban-steam/ChildrenOfGod.epub", 
+    "/home/seven/Books/Michael S Foster/The Young Magician (80)/The Young Magician - Michael S Foster.epub", 
+    "/home/seven/Books/Michael Greenfield/Fall of a Kingdom_ Book One of the Southern Empire Trilogy (75)/Fall of a Kingdom_ Book One of the Souther - Michael Greenfield.epub", 
+    "/home/seven/Downloads/The Hollow Mountain.epub", 
+    "/home/seven/Downloads/The_Time_Maste.epub", 
+    "/home/seven/Books/Jim Butcher/Academ's Fury (86)/Academ's Fury - Jim Butcher.epub", 
     "/data/Dropbox/books/Intro-to-Software-Engineering/Coding_for_Beginners_in_Easy_Steps_Basic_Programming_for_All_Ages_(2015).epub", 
     "/home/seven/Public/exp-repo/hugo/restaurant-template-cms/site/content/pages/about.md", 
-    "/home/seven/Books/Jim Butcher/Academ's Fury (86)/Academ's Fury - Jim Butcher.epub", 
     "/home/seven/Public/html5-templates/README.md", 
     "/home/seven/Books/Jim Butcher/Furies of Calderon (85)/Furies of Calderon - Jim Butcher.epub", 
     "/home/seven/Books/D. K. Holmberg/The Fire Within (81)/The Fire Within - D. K. Holmberg.epub", 
@@ -124,7 +149,6 @@
     "/home/seven/Books/Victoria Corva/Books & Bone (53)/Books & Bone - Victoria Corva.epub", 
     "/home/seven/Books/Miles Cameron/Dark Forge (51)/Dark Forge - Miles Cameron.epub", 
     "/data/Dropbox/books/SciFi/Dystopia/The-Starving-JonDob.epub", 
-    "/home/seven/Books/Michael S Foster/The Young Magician (80)/The Young Magician - Michael S Foster.epub", 
     "/home/seven/Downloads/St01arvingJonDob.epub"
   ]
 }

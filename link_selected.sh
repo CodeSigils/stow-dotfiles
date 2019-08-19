@@ -69,7 +69,7 @@ file_list=(
 ## === O === ##
 
 ## === P === ##
-# private    ## private stuff - include it in .gitignore
+private    ## private stuff - include it in .gitignore
 
 ## === Q === ##
 
@@ -108,5 +108,5 @@ file_list=(
 # zsh        ## ~/.zsh*
 )
 
-link_files ## Uncomment to link
+link_files ## Uncomment to link-relink
 # unlink_files ## Uncomment to unlink

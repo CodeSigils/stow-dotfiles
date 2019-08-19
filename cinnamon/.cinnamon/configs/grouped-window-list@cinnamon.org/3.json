@@ -175,7 +175,8 @@
             "lilyterm.desktop",
             "nemo.desktop",
             "calibre-gui.desktop",
-            "code.desktop"
+            "code.desktop",
+            "io.github.mhogomchungu.sirikali.desktop"
         ]
     },
     "group-apps": {

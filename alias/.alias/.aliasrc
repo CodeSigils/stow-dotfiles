@@ -356,6 +356,6 @@ alias bke='buku --export'
 # http://tuxdiary.com/2016/03/26/buku-xsel/
 # https://github.com/jarun/Buku/wiki/System-integration#sync-bookmarks-with-a-web-service
 bk-moz-history() {
-    qlite3 /home/"$(whoami)"/.mozilla/firefox/*.default/places.sqlite \
+    sqlite3 /home/"$(whoami)"/.mozilla/firefox/*.default/places.sqlite \
     "select url from moz_places where last_visit_date=(select max(last_visit_date) from moz_places)" | buku -a
 }

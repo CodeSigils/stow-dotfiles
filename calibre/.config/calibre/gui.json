@@ -3,12 +3,9 @@
   "recently_used_languages": [
     "English"
   ], 
-  "library_usage_stats": {
-    "/home/seven/Books": 26
-  }, 
-  "Plugin Updater plugin:plugin updater dialog": {
+  "viewer_image_popup_geometry": {
     "__class__": "bytearray", 
-    "__value__": "AdnQywADAAAAAAHBAAAA6gAABaoAAAMCAAABwgAAAQ0AAAWpAAADAQAAAAAAAAAAB4AAAAHCAAABDQAABakAAAMB"
+    "__value__": "AdnQywADAAAAAAFvAAAAAAAABpoAAAQtAAABcAAAACcAAAaZAAAELAAAAAAAAAAAB4AAAAFwAAAAJwAABpkAAAQs"
   }, 
   "book_details_splitter_horizontal_state": [
     true, 
@@ -18,19 +15,75 @@
     "__class__": "bytearray", 
     "__value__": "AAAA/wAAAAEAAAACAAABAAAAAEYA/////wEAAAABAA=="
   }, 
-  "grid view visible": false, 
-  "font_stretch": 0, 
-  "show_emblems": false, 
-  "cover_grid_color": [
-    80, 
-    80, 
-    80
-  ], 
+  "choose-merge-dialog-geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywADAAAAAAI6AAABGQAABTIAAALTAAACOwAAATwAAAUxAAAC0gAAAAAAAAAAB4AAAAI7AAABPAAABTEAAALS"
+  }, 
   "font": [
     "Noto Sans", 
     12, 
     50, 
     false
+  ], 
+  "tag browser search box visible": false, 
+  "default_author_link": null, 
+  "previous_sort_order_BooksView": {
+    "series": true, 
+    "title": true
+  }, 
+  "replace_scene_breaks_history": [
+    "", 
+    "<hr />", 
+    "\u2217 \u2217 \u2217", 
+    "\u2022 \u2022 \u2022", 
+    "\u2666 \u2666 \u2666", 
+    "\u2020 \u2020", 
+    "\u2021 \u2021 \u2021", 
+    "\u221e \u221e \u221e", 
+    "\u00a4 \u00a4 \u00a4"
+  ], 
+  "metadata_single_gui_geom": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywADAAAAAAILAAAAtAAABV4AAAMvAAACDAAAANcAAAVdAAADLgAAAAAAAAAAB4AAAAIMAAAA1wAABV0AAAMu"
+  }, 
+  "cover_grid_texture": null, 
+  "jobs_dialog_geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywADAAAAAAJ5AAAA0QAABPMAAAMWAAACegAAAPgAAATyAAADFQAAAAAAAAAAB4AAAAJ6AAAA+AAABPIAAAMV"
+  }, 
+  "preferences dialog geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywADAAAAAACdAAAAigAABuMAAAOqAAAAngAAAK0AAAbiAAADqQAAAAAAAAAAB4AAAACeAAAArQAABuIAAAOp"
+  }, 
+  "bulk_metadata_window_tab": 1, 
+  "choose-merge-dialog-splitter-state": {
+    "__class__": "bytearray", 
+    "__value__": "AAAA/wAAAAEAAAACAAAB4QAAAQAA/////wEAAAABAA=="
+  }, 
+  "tag_browser_splitter_horizontal_state": [
+    true, 
+    200
+  ], 
+  "jobs view column layout3": {
+    "__class__": "bytearray", 
+    "__value__": "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfQAAAAFAQEBAAAAAAAAAAAAAAAAAGT/////AAAAhAAAAAAAAAAFAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAD6AAAAAAA"
+  }, 
+  "show_emblems": false, 
+  "library_usage_stats": {
+    "/home/seven/Documents/Calibre/Fantasy": 17, 
+    "/home/seven/Documents/Calibre/Code": 7
+  }, 
+  "Plugin Updater plugin:plugin updater dialog": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywADAAAAAAHBAAAA6gAABaoAAAMCAAABwgAAAQ0AAAWpAAADAQAAAAAAAAAAB4AAAAHCAAABDQAABakAAAMB"
+  }, 
+  "quickview visible": false, 
+  "grid view visible": false, 
+  "font_stretch": 0, 
+  "cover_grid_color": [
+    80, 
+    80, 
+    80
   ], 
   "custom_colors_for_color_dialog": [
     [
@@ -130,44 +183,36 @@
       255
     ]
   ], 
-  "tag browser search box visible": false, 
-  "default_author_link": null, 
-  "previous_sort_order_BooksView": {
-    "series": false, 
-    "title": true
-  }, 
-  "preferences dialog geometry": {
-    "__class__": "bytearray", 
-    "__value__": "AdnQywADAAAAAACdAAAAigAABuMAAAOqAAAAngAAAK0AAAbiAAADqQAAAAAAAAAAB4AAAACeAAAArQAABuIAAAOp"
-  }, 
-  "metadata_single_gui_geom": {
-    "__class__": "bytearray", 
-    "__value__": "AdnQywADAAAAAAILAAAAtAAABV4AAAMvAAACDAAAANcAAAVdAAADLgAAAAAAAAAAB4AAAAIMAAAA1wAABV0AAAMu"
-  }, 
-  "cover_grid_texture": null, 
-  "search bar visible": true, 
-  "replace_scene_breaks_history": [
-    "", 
-    "<hr />", 
-    "\u2217 \u2217 \u2217", 
-    "\u2022 \u2022 \u2022", 
-    "\u2666 \u2666 \u2666", 
-    "\u2020 \u2020", 
-    "\u2021 \u2021 \u2021", 
-    "\u221e \u221e \u221e", 
-    "\u00a4 \u00a4 \u00a4"
+  "book_info_dialog_layout": [
+    {
+      "__class__": "bytearray", 
+      "__value__": "AdnQywADAAAAAAHuAAAAAAAABX0AAAP7AAAB7wAAACcAAAV8AAAD+gAAAAAAAAAAB4AAAAHvAAAAJwAABXwAAAP6"
+    }, 
+    {
+      "__class__": "bytearray", 
+      "__value__": "AAAA/wAAAAEAAAACAAABXgAAAXAB/////wEAAAABAA=="
+    }
   ], 
+  "show_vl_tabs": true, 
+  "search bar visible": true, 
   "metasingle_window_geometry3": {
     "__class__": "bytearray", 
     "__value__": "AdnQywADAAAAAAAYAAAAAAAAB1MAAAQpAAAAGQAAACMAAAdSAAAEKAAAAAAAAAAAB4AAAAAZAAAAIwAAB1IAAAQo"
   }, 
-  "quickview visible": false, 
   "cover_browser_splitter_vertical_state": [
     false, 
     300
   ], 
-  "tag_browser_splitter_horizontal_state": [
-    true, 
-    200
-  ]
+  "single-cover-fetch-dialog-geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywADAAAAAAILAAAAsAAABV4AAAMrAAACDAAAANMAAAVdAAADKgAAAAAAAAAAB4AAAAIMAAAA0wAABV0AAAMq"
+  }, 
+  "duplicates-question-dialog-geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywADAAAAAAJGAAACcQAABIYAAAQVAAACRwAAApQAAASFAAAEFAAAAAAAAAAAB4AAAAJHAAAClAAABIUAAAQU"
+  }, 
+  "bulk_metadata_window_geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywADAAAAAAAYAAAAAAAAB1MAAAQpAAAAGQAAACMAAAdSAAAEKAAAAAAAAAAAB4AAAAAZAAAAIwAAB1IAAAQo"
+  }
 }
