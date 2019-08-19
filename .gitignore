@@ -6,6 +6,7 @@ private/
 *.db
 *.hist
 *.cache
+*.plist
 
 ### ============================= Stow Targets ============================= ###
 albert/**/*.db
