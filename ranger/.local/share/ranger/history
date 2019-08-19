@@ -1,5 +1,6 @@
+k
+delete
+rename 
 open_with vim
 open_with nvim
 open_with 
-k
-delete
