@@ -72,11 +72,11 @@ font_magnification_step = 0.2
  
 # fullscreen clock
 # Show a clock in fullscreen mode.
-fullscreen_clock = False
+fullscreen_clock = True
  
 # fullscreen pos
 # Show reading position in fullscreen mode.
-fullscreen_pos = False
+fullscreen_pos = True
  
 # fullscreen scrollbar
 # Show the scrollbar in fullscreen mode.

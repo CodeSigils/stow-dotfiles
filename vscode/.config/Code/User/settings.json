@@ -3,11 +3,26 @@
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "workbench.enableExperiments": false,
-  //*=== EDITOR ===*/
+  //*=== EDITOR - FORMATTERS ===*/
   "editor.maxTokenizationLineLength": 30000,
   "editor.formatOnSave": true,
   "[javascript]": {
     "editor.formatOnSave": false
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "editor.fontFamily": "'Fira Code Medium', 'Fira Code', hack, 'Droid Sans Mono', 'Courier New', monospace",
   "editor.fontLigatures": true,
@@ -36,7 +51,7 @@
   "workbench.activityBar.visible": false,
   "window.openFilesInNewWindow": "off",
   "window.menuBarVisibility": "toggle",
-  "window.zoomLevel": 2,
+  "window.zoomLevel": 0,
   "breadcrumbs.enabled": true,
   //*=== FILES-SEARCH ===*/
   "files.autoSave": "off",
@@ -60,7 +75,6 @@
     "**/bower_components/**": true,
     "**/.idea/**": true,
     "**/.vscode": true,
-    "venv": true,
     "env*": true,
     "*.sublime-*": true
   },
@@ -179,7 +193,6 @@
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
   //*=== VIM ===*/
-  /*
   "vim.neovimPath": "/usr/bin/nvim",
   "vim.enableNeovim": true,
   "vim.leader": ",",
@@ -242,6 +255,7 @@
     "plaintext",
     "python",
     "restructuredtext",
+    "react",
     "rust",
     "text",
     "typescript",
@@ -249,12 +263,11 @@
     "vue",
     "yml"
   ],
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  
   "markdown.preview.fontSize": 16,
   "html-css-class-completion.enableEmmetSupport": true,
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "typescript.updateImportsOnFileMove.enabled": "always"
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  
 }

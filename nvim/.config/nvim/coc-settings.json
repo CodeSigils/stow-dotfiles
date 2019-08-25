@@ -1,0 +1,86 @@
+{
+  //https://github.com/neoclide/coc.nvim/blob/master/doc/coc.txt
+
+  "languageserver": {
+    "rust": {
+      "command": "ra_lsp_server",
+      "filetypes": [
+        "rust"
+      ],
+      "rootPatterns": [
+        "Cargo.toml"
+      ]
+    },
+    "golang": {
+      "command": "go-langserver",
+      "filetypes": [
+        "go"
+      ],
+      "initializationOptions": {
+        "gocodeCompletionEnabled": true,
+        "diagnosticsEnabled": true,
+        "lintTool": "golint"
+      }
+    },
+    "bash": {
+      "command": "bash-language-server",
+      "args": [
+        "start"
+      ],
+      "filetypes": [
+        "sh"
+      ],
+      "ignoredRootPaths": [
+        "~"
+      ]
+    }
+  },
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "html",
+    "Markdown"
+  ],
+  "pairs.enableCharacters": [
+    "(",
+    "[",
+    "{",
+    "<",
+    "'",
+    "\"",
+    "`"
+  ],
+  "emmet.includeLanguages": {
+		"html": "html",
+    "vue-html": "html",
+    "javascript": "javascriptreact",
+    "svelte": "html"
+  },
+  // Example configuration: with https://nerdfonts.com:  >
+  "suggest.completionItemKindLabels": {
+    "keyword": "\uf1de",
+    "variable": "\ue79b",
+    "value": "\uf89f",
+    "operator": "\u03a8",
+    "function": "\u0192",
+    "reference": "\ufa46",
+    "constant": "\uf8fe",
+    "method": "\uf09a",
+    "struct": "\ufb44",
+    "class": "\uf0e8",
+    "interface": "\uf417",
+    "text": "\ue612",
+    "enum": "\uf435",
+    "enumMember": "\uf02b",
+    "module": "\uf40d",
+    "color": "\ue22b",
+    "property": "\ue624",
+    "field": "\uf9be",
+    "unit": "\uf475",
+    "event": "\ufacd",
+    "file": "\uf723",
+    "folder": "\uf114",
+    "snippet": "\ue60b",
+    "typeParameter": "\uf728",
+    "default": "\uf29c"
+  }
+}

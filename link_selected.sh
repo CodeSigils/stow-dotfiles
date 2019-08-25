@@ -69,7 +69,7 @@ file_list=(
 ## === O === ##
 
 ## === P === ##
-private    ## private stuff - include it in .gitignore
+# private    ## private stuff - include it in .gitignore
 
 ## === Q === ##
 

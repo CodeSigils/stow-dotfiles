@@ -28,7 +28,7 @@
   "tag browser search box visible": false, 
   "default_author_link": null, 
   "previous_sort_order_BooksView": {
-    "series": true, 
+    "series": false, 
     "title": true
   }, 
   "replace_scene_breaks_history": [
@@ -70,8 +70,8 @@
   }, 
   "show_emblems": false, 
   "library_usage_stats": {
-    "/home/seven/Documents/Calibre/Fantasy": 17, 
-    "/home/seven/Documents/Calibre/Code": 7
+    "/home/seven/Documents/Calibre/Fantasy": 30, 
+    "/home/seven/Documents/Calibre/Code": 9
   }, 
   "Plugin Updater plugin:plugin updater dialog": {
     "__class__": "bytearray", 
