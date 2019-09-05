@@ -75,6 +75,9 @@ set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 set listchars=eol:↲,tab:▶▹,nbsp:␣,extends:…,trail:•
 
 
+
+
+
 "-------------Search-------------"
 set hlsearch                        "highlight matches
 set foldenable                      "enable folding
@@ -85,6 +88,18 @@ set incsearch
 if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
+
+
+
+
+"-------------Abbreviations-------------"
+"Replace common mistakes
+inoreabbrev teh the
+cnoreabbrev Wq wq
+cnoreabbrev WQ wq
+cnoreabbrev W w
+cnoreabbrev Q q
+
 
 
 
