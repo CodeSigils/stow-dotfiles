@@ -70,8 +70,8 @@
   }, 
   "show_emblems": false, 
   "library_usage_stats": {
-    "/home/seven/Documents/Calibre/Fantasy": 30, 
-    "/home/seven/Documents/Calibre/Code": 9
+    "/home/seven/Documents/Calibre/Fantasy": 41, 
+    "/home/seven/Documents/Calibre/Code": 10
   }, 
   "Plugin Updater plugin:plugin updater dialog": {
     "__class__": "bytearray", 
@@ -193,6 +193,10 @@
       "__value__": "AAAA/wAAAAEAAAACAAABXgAAAXAB/////wEAAAABAA=="
     }
   ], 
+  "toc_editor_window_geom": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywADAAAAAAHaAAAAowAABZEAAANJAAAB2wAAAMYAAAWQAAADSAAAAAAAAAAAB4AAAAHbAAAAxgAABZAAAANI"
+  }, 
   "show_vl_tabs": true, 
   "search bar visible": true, 
   "metasingle_window_geometry3": {

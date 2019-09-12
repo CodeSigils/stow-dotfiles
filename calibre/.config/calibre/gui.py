@@ -104,7 +104,7 @@ send_to_device_template_history = cPickle.loads('\x80\x02]q\x01.')
  
 # main search history
 # Search history for the main GUI
-main_search_history = cPickle.loads('\x80\x02]q\x01.')
+main_search_history = cPickle.loads('\x80\x02]q\x01X\x05\x00\x00\x00Strayq\x02a.')
  
 # viewer search history
 # Search history for the e-book viewer
