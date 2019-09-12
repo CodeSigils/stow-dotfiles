@@ -104,7 +104,14 @@
     "*.postcss": "postcss",
     "*.js": "javascriptreact"
   },
-  //*=== MARKDOWN-HTML-EMMET ===*/
+  //*=== HTML - CSS - MARKDOWN - EMMET ===*/
+  "html-css-class-completion.enableEmmetSupport": true,
+  "html.format.endWithNewline": true,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "css.lint.compatibleVendorPrefixes": "warning",
+  "css.lint.importStatement": "warning",
   // Overwrite settings
   "[markdown]": {
     "editor.wordWrap": "bounded",
@@ -124,11 +131,6 @@
       "typescriptreact",
       "babel"
     ]
-  },
-  "html-css-class-completion.enableEmmetSupport": true,
-  "html.format.endWithNewline": true,
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   //*=== INTELLICODE - PATH_INTELLISENSE ===*/
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
@@ -273,7 +275,5 @@
     "typescriptreact",
     "vue",
     "yml"
-  ],
-  "css.lint.compatibleVendorPrefixes": "warning",
-  "css.lint.importStatement": "warning"
+  ]
 }
