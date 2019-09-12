@@ -3,6 +3,16 @@
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "workbench.enableExperiments": false,
+  //*=== WORKBENCH ===*/
+  "workbench.colorTheme": "Solarized Light",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.iconTheme": "vscode-great-icons",
+  "workbench.statusBar.visible": true,
+  "workbench.activityBar.visible": false,
+  "window.openFilesInNewWindow": "off",
+  "window.menuBarVisibility": "toggle",
+  "window.zoomLevel": 0,
+  "breadcrumbs.enabled": true,
   //*=== EDITOR - FORMATTERS ===*/
   "editor.maxTokenizationLineLength": 30000,
   "editor.formatOnSave": true,
@@ -13,7 +23,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -28,10 +38,11 @@
   "editor.fontLigatures": true,
   "editor.fontSize": 20,
   "editor.fontWeight": "200",
-  "editor.renderWhitespace": "all",
+  "editor.renderWhitespace": "none",
   "editor.insertSpaces": false,
   "editor.renderIndentGuides": true,
   "editor.renderLineHighlight": "gutter",
+  "editor.suggestSelection": "first",
   "editor.tabCompletion": "on",
   "editor.tabSize": 2,
   "editor.lineHeight": 30,
@@ -45,14 +56,6 @@
   "editor.cursorBlinking": "solid",
   "editor.minimap.enabled": false,
   "editor.matchBrackets": true,
-  "workbench.startupEditor": "newUntitledFile",
-  "workbench.iconTheme": "vscode-great-icons",
-  "workbench.statusBar.visible": true,
-  "workbench.activityBar.visible": false,
-  "window.openFilesInNewWindow": "off",
-  "window.menuBarVisibility": "toggle",
-  "window.zoomLevel": 0,
-  "breadcrumbs.enabled": true,
   //*=== FILES-SEARCH ===*/
   "files.autoSave": "off",
   "files.exclude": {
@@ -108,12 +111,11 @@
     "editor.wordWrapColumn": 80,
     "editor.quickSuggestions": true
   },
-  "html.format.endWithNewline": true,
+  "markdown.preview.fontSize": 17,
   "emmet.triggerExpansionOnTab": true,
   "emmet.excludeLanguages": ["markdown"],
   "emmet.includeLanguages": {
     "vue-html": "html",
-    "blade": "html",
     "javascript": [
       "javascript",
       "javascriptreact",
@@ -123,10 +125,12 @@
       "babel"
     ]
   },
+  "html.format.endWithNewline": true,
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  //*=== PATH_INTELLISENSE ===*/
+  //*=== INTELLICODE - PATH_INTELLISENSE ===*/
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "path-intellisense.mappings": {
     "path-intellisense.mappings": {
       "/": "${workspaceRoot}"
@@ -170,7 +174,6 @@
   "prettier.singleQuote": true,
   "prettier.printWidth": 85,
   "prettier.semi": true,
-  "prettier.stylelintIntegration": true,
   //*=== LIVE_SERVER-REST_CLIENT ===*/
   "liveServer.settings.donotShowInfoMsg": true,
   "liveServer.settings.port": 6550,
@@ -195,11 +198,12 @@
   //*=== VIM ===*/
   "vim.neovimPath": "/usr/bin/nvim",
   "vim.enableNeovim": true,
-  "vim.leader": ",",
+  "vim.leader": "<space>",
   "vim.easymotion": true,
   "vim.sneak": true,
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
+  "vim.highlightedyank.enable": true,
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "k"],
@@ -219,7 +223,6 @@
   //*=== GIT-TERMINAL ===*/
   "git.path": "/usr/bin/git",
   "terminal.integrated.shell.linux": "/usr/bin/bash",
-  "terminal.integrated.shellArgs.linux": [],
   "terminal.integrated.shell.osx": "/usr/bin/bash",
   "terminal.integrated.shellArgs.osx": [],
   "terminal.integrated.scrollback": 800,
@@ -244,18 +247,20 @@
     "cpp",
     "css",
     "go",
-    "html",
+    "golang",
     "handlebars",
+    "html",
     "javascript",
     "javascriptreact",
     "json",
     "latex",
     "markdown",
+    "org",
     "php",
     "plaintext",
     "python",
-    "restructuredtext",
     "react",
+    "restructuredtext",
     "rust",
     "text",
     "typescript",
@@ -263,11 +268,9 @@
     "vue",
     "yml"
   ],
-  
-  "markdown.preview.fontSize": 16,
+
   "html-css-class-completion.enableEmmetSupport": true,
-  "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  
+  "css.lint.compatibleVendorPrefixes": "warning",
+  "css.lint.importStatement": "warning"
 }
