@@ -1,6 +1,4 @@
 k
-open_with vim
-open_with nvim
 rename 
 rename UDACITY-Data-Structures-Algorithms-v1.0.0
 rename Typescript-The-Complete-Developers-Guide
@@ -11,7 +9,6 @@ rename [ FreeCourseWeb.com ] Udemy - Learn JAVASCRIPT 77 Quizzes, 25 HWs & 5 Cod
 rename [FreeCoursesOnline.Me] [UDACITY] Web Developer Nanodegree - [FCO]
 rename UDACITY-Mobile-Web-Specialist-v1.0.0
 rename CSScasts-css-libraries-plugins-tips-tricks-for-developers
-find 
 rename Udemy-Web-Dev-Google-Go
 bulkrename
 rename Apress-Pro-Bash-Programming-Scripting-the-GNULinux-Shell-(10-2009).pdf
@@ -32,5 +29,9 @@ find .q
 find .a
 open_with 
 find .vl
-delete
 open vim
+rename dist
+open_with vim
+open_with nvim
+delete
+find 
