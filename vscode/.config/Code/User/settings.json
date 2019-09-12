@@ -125,6 +125,7 @@
       "babel"
     ]
   },
+  "html-css-class-completion.enableEmmetSupport": true,
   "html.format.endWithNewline": true,
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -143,7 +144,8 @@
   // "php.validate.executablePath": "<php-path>",
   //*=== ELIXIR-ERLANG ===*/
   // "elixir.useElixirSense": false,
-  //*=== JS ===*/
+  //*=== JS - TYPESCRIPT ===*/
+  "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
   //*=== VUE ===*/
   "vetur.format.styleInitialIndent": true,
@@ -151,11 +153,15 @@
   "eslint.packageManager": "yarn",
   "eslint.nodePath": "/usr/bin/node",
   "eslint.options": {
-    "extensions": [".js", ".json", ".vue", ".jsx"]
+    "extensions": [".js", ".ts", ".tsx", ".json", ".vue", ".jsx"]
   },
   "eslint.validate": [
     {
       "language": "vue",
+      "autoFix": true
+    },
+    {
+      "language": "typescript",
       "autoFix": true
     },
     {
@@ -268,9 +274,6 @@
     "vue",
     "yml"
   ],
-
-  "html-css-class-completion.enableEmmetSupport": true,
-  "typescript.updateImportsOnFileMove.enabled": "always",
   "css.lint.compatibleVendorPrefixes": "warning",
   "css.lint.importStatement": "warning"
 }
