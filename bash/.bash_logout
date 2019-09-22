@@ -7,10 +7,14 @@
 # if [ "$SHLVL" = 1 ]; then
 #    [ -x /usr/bin/clear_console ] && /usr/bin/clear_console -q
 # fi
+
 ## FEDORA
-if [ "$SHLVL" = 1 ]; then
-    [ -x /usr/bin/clear ] && /usr/bin/clear -q
-fi
+clear_console_on_exit() {
+ if [ "$SHLVL" = 1 ]; then
+   command "$(which clear)" 
+ fi
+}
+trap clear_console_on_exit EXIT
 
 ## kill ssh_agent on logout
 #if [ -n "$SSH_AUTH_SOCK" ] ; then
