@@ -142,7 +142,7 @@ export PLAYER=$(find_alt nvlc mpv mplayer ffplay cvlc "$OPENER")
 export READER=$(find_alt zathura mupdf evince "$OPENER")
 # export ROOTER=$(find_alt gksudo kdesudo)
 # export QUEUER=$(find_alt tsp fq ts)
-export TERMER=$(find_alt tilda lilyterm gnome-terminal konsole urxvt xterm lxterminal uxterm sakura lxterminal mate-terminal pantheon-terminal xfce4-terminal terminology terminator "$OPENER")
+export TERMER=$(find_alt xfce4-terminal tilda lilyterm gnome-terminal konsole urxvt xterm lxterminal uxterm sakura lxterminal mate-terminal pantheon-terminal  terminology terminator "$OPENER")
 ## TITLE: Configuration functions
 cfg-alias() { "$EDITOR" ~/.alias/.aliasrc; }
 cfg-alsabase() { sudo "$EDITOR" /etc/modprobe.d/alsa-base.conf; }
