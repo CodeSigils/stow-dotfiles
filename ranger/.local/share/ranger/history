@@ -27,11 +27,21 @@ code .
 w
 find .q
 find .a
-open_with 
 find .vl
 open vim
 rename dist
 open_with vim
 open_with nvim
-delete
 find 
+find em
+rename org-mode.org
+delete
+find ranl
+open_with 
+preview
+?
+open_with 0
+open_with 15
+open_with ask
+open_with 17
+open_with 1
