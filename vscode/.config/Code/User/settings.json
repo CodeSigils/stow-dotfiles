@@ -4,7 +4,7 @@
   "telemetry.enableTelemetry": false,
   "workbench.enableExperiments": false,
   //*=== WORKBENCH ===*/
-  "workbench.colorTheme": "Solarized Light",
+  "workbench.colorTheme": "Quiet Light",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.iconTheme": "vscode-great-icons",
   "workbench.statusBar.visible": true,
@@ -112,7 +112,7 @@
   },
   "css.lint.compatibleVendorPrefixes": "warning",
   "css.lint.importStatement": "warning",
-  // Overwrite settings
+  // Overwrite editor settings for markdown
   "[markdown]": {
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 80,
