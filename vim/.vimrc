@@ -1,6 +1,3 @@
-let s:uname = system("uname -s")
-" let s:hname = system("uname -n")
-
 set nocompatible
 
 set backspace=indent,eol,start
@@ -12,6 +9,9 @@ set smarttab                      "go to the next indent of the next tabstop
 set tabstop=2                     "number of visual spaces per TAB
 set shiftwidth=2                  "number of visual spaces per SHIFT
 set hidden
+
+
+set encoding=utf-8                    " Encoding
 
 if has('linebreak')
   set breakindent                     " indent wrapped lines to match start
@@ -27,52 +27,6 @@ else
   set directory+=~/.vim/tmp/swap//    " keep swap files out of the way
   set directory+=.
 endif
-
-
-"-------------Visuals-------------"
-"Place in ~/.vim/colors
-"wget https://raw.githubusercontent.com/gosukiwi/vim-atom-dark/master/colors/atom-dark.vim
-"wget https://raw.githubusercontent.com/gosukiwi/vim-atom-dark/master/colors/atom-dark-256.vim
-
-colorscheme atom-dark-256
-set t_CO=256                        "force 256 colors in terminal
-set ruler
-set showcmd                         "show command in bottom bar
-set wildmenu                        "visual autocomplete for command menu
-set lazyredraw                      "redraw only when is needed
-set showmatch                       "highlight mathcing brackets
-set wrap linebreak nolist           "soft wrap
-"set textwidth=80                   "wrap lines to 80 chars
-set tw=80                           "wrap lines to 80 chars
-
-"MacVim only
-
-set linespace=14
-set guifont=Fira_Code_Medium:h15
-set guioptions-=l
-set guioptions-=L
-set guioptions-=r
-set guioptions-=R
-"colorscheme atom-dark
-
-" set list                            " show whitespace
-" set listchars=nbsp:⦸                " CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
-" set listchars+=tab:▷┅               " WHITE RIGHT-POINTING TRIANGLE (U+25B7, UTF-8: E2 96 B7)
-                                      " + BOX DRAWINGS HEAVY TRIPLE DASH HORIZONTAL (U+2505, UTF-8: E2 94 85)
-set listchars+=extends:»              " RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
-set listchars+=precedes:«             " LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
-set listchars+=trail:•                " BULLET (U+2022, UTF-8: E2 80 A2)
-set nojoinspaces                      " don't autoinsert two spaces after '.', '?', '!' for join command
-set noshowmatch                       " don't jump between matching brackets
-set number                            " show line numbers in gutter
-
-"statusline appears all the time:
-set laststatus=2
-set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
-
-" set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
-" ↩ ↵ ↲ ␣ • … → » ∎ ¶ ▶ ▸ ▷ ▹
-set listchars=eol:↲,tab:▶▹,nbsp:␣,extends:…,trail:•
 
 
 
@@ -233,3 +187,55 @@ nmap <leader>f  <Plug>(coc-format-selected)
 "-------------Abbreviations-------------"
 abbr _pl #!/usr/bin/perl<CR>use strict;<CR>use warnings;
 abbr _sh #!/bin/sh<CR>
+
+
+
+
+
+"-------------Visuals-------------"
+
+" set list                            " show whitespace
+" ↩ ↵ ↲ ␣ • … → » « ∎ ¶ ▶ ▸ ▷ ▹
+set listchars+=extends:»              " RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
+set listchars+=precedes:«             " LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
+set listchars+=trail:•                " BULLET (U+2022, UTF-8: E2 80 A2)
+set nojoinspaces                      " don't autoinsert two spaces after '.', '?', '!' for join command
+set noshowmatch                       " don't jump between matching brackets
+set number                            " show line numbers in gutter
+" set listchars=nbsp:⦸                " CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
+" set listchars+=tab:▷┅               " WHITE RIGHT-POINTING TRIANGLE (U+25B7, UTF-8: E2 96 B7)
+" set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+set listchars=eol:↲,tab:▶▹,nbsp:␣,extends:…,trail:•
+
+"Colorscheme
+"Place in ~/.vim/colors
+"wget https://raw.githubusercontent.com/gosukiwi/vim-atom-dark/master/colors/atom-dark.vim
+"wget https://raw.githubusercontent.com/gosukiwi/vim-atom-dark/master/colors/atom-dark-256.vim
+
+colorscheme atom-dark-256
+set t_CO=256                        "force 256 colors in terminal
+set ruler
+set showcmd                         "show command in bottom bar
+set wildmenu                        "visual autocomplete for command menu
+
+set showmatch                       "highlight mathcing brackets
+set wrap linebreak nolist           "soft wrap
+"set textwidth=80                   "wrap lines to 80 chars
+set tw=80                           "wrap lines to 80 chars
+
+"MacVim only
+set linespace=14
+set guifont=Fira_Code_Medium:h15
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R
+"colorscheme atom-dark
+
+"statusline appears all the time:
+set laststatus=2
+
+set lazyredraw                      "redraw only when is needed
+
+
+
