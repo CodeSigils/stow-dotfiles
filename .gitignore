@@ -24,9 +24,7 @@ vim/**/pack/minpac/
 vim/**/tpope/
 vim/**/.*hist
 vim/**/*.swp
-ihsec/**/*
-!ihsec/README.org
-!ihsec/.doom.d
+ihsec/.ihsec/**/*
 !ihsec/.ihsec/personal/init.el
 !ihsec/.ihsec/personal/config.el
 !ihsec/.ihsec/personal/config.org
