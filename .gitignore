@@ -7,21 +7,23 @@ private/
 *.hist
 *.cache
 *.plist
+*.swp
 
 ### ============================= Stow Targets ============================= ###
 albert/**/*.db
 albert/**/*version
 calibre/.config/calibre/caches/
-calibre/.config/calibre/iterator.pickle
-calibre/.config/calibre/viewer.json
+calibre/.config/calibre/*.pickle
+calibre/.config/calibre/*.json
 cinnamon/.cinnamon/backgrounds/
 cinnamon/.cinnamon/spices.cache/
 enpass/.config/sinew.in/Enpass.conf.*
 ranger/.local/share/ranger/history
 vim/.cache
-vim/.vim/pack/minpac/opt/minpac/
-vim/.vim/pack/minpac/start/
-vim/.vim/.netrwhist
+vim/**/pack/minpac
+vim/**/tpope
+vim/**/.*hist
+vim/**/*.swp
 
 ### =============================== Windows ================================ ###
 *.exe
