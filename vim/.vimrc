@@ -9,7 +9,7 @@ set smarttab                      "go to the next indent of the next tabstop
 set tabstop=2                     "number of visual spaces per TAB
 set shiftwidth=2                  "number of visual spaces per SHIFT
 set hidden
-
+set noswapfile
 
 set encoding=utf-8                    " Encoding
 
@@ -155,8 +155,8 @@ nnoremap <C-p> : <C-u>FZF<CR>
 
 "ranger
 "https://github.com/rafaqz/ranger.vim
-ret g:ranger_terminal = 'xterm -e'
 call minpac#add('rafaqz/ranger.vim')
+ret g:ranger_terminal = 'xterm -e'
 
 map <leader>rr :RangerEdit<cr>
 map <leader>rv :RangerVSplit<cr>
