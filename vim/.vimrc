@@ -238,4 +238,3 @@ set laststatus=2
 set lazyredraw                      "redraw only when is needed
 
 
-
