@@ -3,15 +3,10 @@
 # ~/.bash_logout: executed by bash(1) when login shell exits.
 
 ## when leaving the console clear the screen to increase privacy
-## DEBIAN
-# if [ "$SHLVL" = 1 ]; then
-#    [ -x /usr/bin/clear_console ] && /usr/bin/clear_console -q
-# fi
-
-## FEDORA
 clear_console_on_exit() {
  if [ "$SHLVL" = 1 ]; then
    command "$(which clear)" 
+   # && dev > null ~/.bash_history
  fi
 }
 trap clear_console_on_exit EXIT
