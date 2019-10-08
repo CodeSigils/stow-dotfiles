@@ -114,3 +114,4 @@ hi SpecialKey      guifg=#465457
 " https://groups.google.com/forum/#!msg/vim_dev/afPqwAFNdrU/nqh6tOM87QUJ
 set background=dark
 
+so ~/.vim/colors/status_line.vim
