@@ -1,10 +1,13 @@
 #!/bin/sh
 
 ## ===================================================
-## === Navigation - list
+## === Navigation - list - history
 ## ===================================================
-alias rg="ranger"
+alias rng="ranger"
 alias ll="ls -lah"
+hgrep() {
+history | grep $1;
+}
 
 ## ===================================================
 ## === CONSOLE - Common Helpers
