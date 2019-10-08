@@ -12,11 +12,11 @@ private/
 ### ============================= Stow Targets ============================= ###
 albert/**/*.db
 albert/**/*version
-calibre/.config/**/caches/
-calibre/.config/**/*.pickle
-calibre/.config/**/*.json
-cinnamon/.cinnamon/backgrounds/
-cinnamon/.cinnamon/spices.cache/
+calibre/**/caches/
+calibre/**/*.pickle
+calibre/**/*.json
+cinnamon/**/backgrounds/
+cinnamon/**/spices.cache/
 enpass/.config/sinew.in/Enpass.conf.*
 ranger/.local/share/ranger/history
 vim/.cache
