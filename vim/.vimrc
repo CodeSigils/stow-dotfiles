@@ -84,8 +84,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 call plug#begin()
 
-"=== Unimpaired ===
-"Plug 'tpope/vim-unimpaired'
+"=== Scriptease ===
 "Plug 'tpope/vim-scriptease', {'type': 'opt'}
 
 "=== Ale Syntax Checking ===
