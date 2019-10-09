@@ -20,11 +20,11 @@ cinnamon/**/spices.cache/
 enpass/.config/sinew.in/Enpass.conf.*
 ranger/.local/share/ranger/history
 vim/*.cache
-vim/**/pack/minpac/
+vim/**/pack
 vim/**/tpope/
 vim/**/.*hist
 vim/**/*.swp
-ihsec/.ihsec/**/*
+ihsec/.ihsec/**/**/*
 !ihsec/.ihsec/personal/init.el
 !ihsec/.ihsec/personal/config.el
 !ihsec/.ihsec/personal/config.org
