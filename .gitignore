@@ -26,6 +26,7 @@ vim/**/autoload/
 vim/**/plugged/
 vim/**/.*hist
 vim/**/*.swp
+vscode/extensions/
 ihsec/**/*
 !ihsec/**/personal/init.el
 !ihsec/**/personal/config.el

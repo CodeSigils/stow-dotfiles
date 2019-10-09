@@ -2,7 +2,7 @@
 
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
+    . ~/.bashrc
 fi
 
 # User specific environment and startup programs
@@ -16,5 +16,3 @@ _pip_completion()
 }
 complete -o default -F _pip_completion pip3
 # pip bash completion end
-
-export PATH="$HOME/.cargo/bin:$PATH"

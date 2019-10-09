@@ -5,13 +5,6 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
-# User specific environment
-# set PATH so it includes user's private bin directories 
-PATH="$HOME/bin:$HOME/.local/bin:$PATH"
-PATH="$PATH:/var/lib/snapd/snap/bin"
-PATH="$HOME/.cargo/bin:$PATH"
-export PATH
-
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 

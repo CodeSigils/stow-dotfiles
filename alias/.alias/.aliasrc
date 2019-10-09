@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ## ===================================================
 ## === Navigation - list - history
@@ -6,7 +6,7 @@
 alias rng="ranger"
 alias ll="ls -lah"
 hgrep() {
-history | grep $1;
+  "history | grep $1";
 }
 
 ## ===================================================
@@ -284,65 +284,6 @@ fi
 export CHEATCOLORS=true
 alias ch='cheat'
 
-# TITLE: nvm (Node Version Manager) npm and yarn setup
-# LINK: https://github.com/creationix/nvm
-# DESC: Node env setup.
-# - Installation:
-# wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# TITLE: npm
-alias npmi='npm install --no-optional' # avoid 'fsevents linux' warning
-alias npmid='npm install --no-optional --save-dev'
-
-# TITLE: Yarn (set path after nvm)
-export PATH="$PATH:$(yarn global bin)"
-
-cfg-yarn-global() { "$EDITOR" /home/"$(whoami)"/.config/yarn/global/package.json; }
-alias ya='yarn'
-alias yaa='yarn add'
-alias yada='yarn add -D'
-alias yacc='yarn cache clean'
-alias yah='yarn help'
-alias yao='yarn outdated'
-alias yaui='yarn upgrade-interactive'
-alias yagl='yarn global list'
-alias yaga='yarn global add'
-alias yagr='yarn global remove'
-alias yagu='yarn global upgrade'
-alias yagui='yarn global upgrade-interactive'
-alias yacfg='yarn global bin' # output symlinks to executables
-
-# TITLE: Php artisan and composer
-# export PATH=$HOME/.config/composer/vendor/bin:$PATH
-# alias art="php artisan"
-
-# TITLE: Erlang and elixir
-# export PATH=$HOME/usr/local/bin/elixir:$PATH
-# export ERL_AFLAGS="-kernel shell_history enabled"
-
-# TITLE: Golang and Go Packages
-# export GOROOT="/usr/local/go/" # sudo mv go /usr/local
-export GOPATH=$HOME/.go # defaults to GOROOT 
-export GOBIN=$GOPATH/bin
-export GOARCH=amd64
-export GOOS=linux
-export PATH="$GOBIN:$PATH" # expose go binaries system wide.
-
-# TITLE: Rust and rustup
-# Install rustup: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-export PATH="$HOME/.cargo/bin:$PATH"
-
-# TITLE: Custom Path to IntelliJ-IDEA
-# export PATH=$HOME/opt/Intellij/idea-UI-172.4155.36/bin:$PATH
-
-# TITLE: External files
-if [ -f ~/.hintrc ]; then
-    "." ~/.hintrc
-fi
-
 # =============================================================================
 # === Buku
 # =============================================================================
@@ -362,3 +303,85 @@ bk-moz-history() {
     sqlite3 /home/"$(whoami)"/.mozilla/firefox/*.default/places.sqlite \
     "select url from moz_places where last_visit_date=(select max(last_visit_date) from moz_places)" | buku -a
 }
+# TITLE: npm
+alias npmi='npm install --no-optional' # avoid 'fsevents linux' warning
+alias npmid='npm install --no-optional --save-dev'
+
+
+cfg-yarn-global() { "$EDITOR" /home/"$(whoami)"/.config/yarn/global/package.json; }
+alias ya='yarn'
+alias yaa='yarn add'
+alias yada='yarn add -D'
+alias yacc='yarn cache clean'
+alias yah='yarn help'
+alias yao='yarn outdated'
+alias yaui='yarn upgrade-interactive'
+alias yagl='yarn global list'
+alias yaga='yarn global add'
+alias yagr='yarn global remove'
+alias yagu='yarn global upgrade'
+alias yagui='yarn global upgrade-interactive'
+alias yacfg='yarn global bin' # output symlinks to executables
+
+## ===================================================
+## === PATHS
+## ===================================================
+# User specific environment
+# set PATH so it includes user's private bin directories 
+PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+PATH="$PATH:/var/lib/snapd/snap/bin"
+
+# TITLE: nvm (Node Version Manager) npm and yarn setup
+# LINK: https://github.com/creationix/nvm
+# DESC: Node env setup.
+# - Installation:
+# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# TITLE: Yarn (set path after nvm)
+PATH="$PATH:$(yarn global bin)"
+
+# TITLE: Php artisan and composer
+# PATH=$HOME/.config/composer/vendor/bin:$PATH
+# alias art="php artisan"
+
+# TITLE: Erlang and elixir
+# PATH=$HOME/usr/local/bin/elixir:$PATH
+# export ERL_AFLAGS="-kernel shell_history enabled"
+
+# TITLE: Golang and Go Packages
+# export GOROOT="/usr/local/go/" # sudo mv go /usr/local
+export GOPATH=$HOME/.go # defaults to GOROOT 
+export GOBIN=$GOPATH/bin
+export GOARCH=amd64
+export GOOS=linux
+PATH="$GOBIN:$PATH" # expose go binaries system wide.
+
+# TITLE: Rust and rustup
+# Install rustup: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+PATH="$HOME/.cargo/bin:$PATH"
+
+# TITLE: skim
+PATH="$HOME/.skim/bin:$PATH"
+# --files: List files that would be searched but do not search
+# --no-ignore: Do not respect .gitignore, etc...
+# --hidden: Search hidden files and folders
+# --follow: Follow symlinks
+# --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+
+# TITLE: Custom Path to IntelliJ-IDEA
+# PATH=$HOME/opt/Intellij/idea-UI-172.4155.36/bin:$PATH
+
+export PATH
+
+# TITLE: External files
+if [ -f ~/.hintrc ]; then
+    "." ~/.hintrc
+fi
+
