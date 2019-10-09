@@ -32,7 +32,7 @@ endif
 
 
 
-"-------------Search-------------"
+"========================= Search ========================="
 set hlsearch                        "highlight matches
 set foldenable                      "enable folding
 set foldlevelstart=10               "open most folds by default
@@ -46,18 +46,7 @@ endif
 
 
 
-"-------------Abbreviations-------------"
-"Replace common mistakes
-inoreabbrev teh the
-cnoreabbrev Wq wq
-cnoreabbrev WQ wq
-cnoreabbrev W w
-cnoreabbrev Q q
-
-
-
-
-"-------------Mappings-------------"
+"========================= Mappings ========================="
 let mapleader = ','               "replace default leader / with comma
 
 "Windows splitting
@@ -76,88 +65,85 @@ inoremap jk <ESC>
 noremap <F3> :set list!<CR>
 inoremap <F3> <Esc>:set list!<CR>a
 
-"Map <tab> for trigger completion, completion confirm
-  inoremap <silent><expr> <TAB>
-    \ pumvisible() ? coc#_select_confirm() :
-    \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ coc#refresh()
-  
-  function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-  endfunction
-
-"Snippet expand and jump like VSCode. 
-"Note the `coc-snippets` extension is required for this to work.
-  let g:coc_snippet_next = '<tab>'
 
 
 
 
-"-------------YML-------------"
+"========================= YML ========================="
 autocmd FileType yaml setlocal ai ts=2 sw=2 et
 
 
 
 
-"-------------Package-Manager-------------"
-"Install minpac. git with ssh setup required
-"mkdir -p $VIMCONFIG/pack/minpac/opt
-"cd $VIMCONFIG/pack/minpac/opt
-"git clone https://github.com/k-takata/minpac.git
+"========================= Package-Manager ========================="
+"=== Auto-Install ===
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin()
 
-packadd minpac
-call minpac#init()
+"=== Unimpaired ===
+"Plug 'tpope/vim-unimpaired'
+"Plug 'tpope/vim-scriptease', {'type': 'opt'}
 
-"Installing plugins using minpac:
-"1. Append next 2 lines to your .vimrc:
-"
-"call minpac#add('tpope/vim-unimpaired')
-"call minpac#add('tpope/vim-scriptease', {'type': 'opt'})
-"
-"By default, minpac installs plugins to the start directory,
-"but to install an optional plugin you need to specify {’type’: ’opt’} 
-"as the second argument.
-"
-"2. Reload .vimrc:
-" :source %
-"
-"3. Invoke minipac function:
-" :call minpac#update()
-"
-"4. Delete a plugin with minpac
-" Delete the line from .vimrc then run
-" :call minpac#clean()
-"
-"5. Create some commands for speed
-command! PackUpdate call minpac#update()
-command! PackClean call minpac#clean()
-command! PackStatus call minpac#status()
+"=== Ale Syntax Checking ===
+Plug 'w0rp/ale'
+
+"=== Auto-completion === https://github.com/neoclide/coc.nvim
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+"=== Easy align === https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
+
+"=== Unimpaired === https://github.com/tpope/vim-unimpaired
+Plug 'tpope/vim-unimpaired'
+
+"=== Vim Surround ===
+Plug 'tpope/vim-surround'
+
+"=== FzF ===
+"Plug 'junegunn/fzf'
+
+"=== Skim === https://github.com/lotabout/skim.vim
+Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
+
+"=== ranger === https://github.com/rafaqz/ranger.vim
+Plug 'rafaqz/ranger.vim'
+
+"=== Front-end ===
+"Plug 'pangloss/vim-javascript'
+"Plug 'mxw/vim-jsx'
+
+call plug#end()
 
 
 
 
-"-------------Plugins-------------"
-"Let minpac manage itself:
-call minpac#add('k-takata/minpac', {'type': 'opt'})
+" ========================= Plugin Setup ========================= "
+" === Ale
+let g:ale_sign_error           = '●' " Less aggressive than the default '>>'
+let g:ale_sign_warning         = '.'
+let g:ale_lint_on_enter        = 0 " Less distracting when opening a new file
+" let g:ale_lint_on_save = 1
+let g:ale_fix_on_save          = 1
+let g:ale_lint_on_text_changed = 'never'
 
-"unimpaired
-"https://github.com/tpope/vim-unimpaired
-call minpac#add('tpope/vim-unimpaired')
+" === Easy Align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
-"vim-surround
-call minpac#add('tpope/vim-surround')
+" === Fzf
+"nnoremap <C-p> : <C-u>FZF<CR>
 
-"fzf
-call minpac#add('junegunn/fzf',)
-nnoremap <C-p> : <C-u>FZF<CR>
+" === Skim
+nnoremap <C-p> : <C-u>SK<CR>
 
-"ranger
-"https://github.com/rafaqz/ranger.vim
-call minpac#add('rafaqz/ranger.vim')
+" === Ranger
 ret g:ranger_terminal = 'xterm -e'
-
 map <leader>rr :RangerEdit<cr>
 map <leader>rv :RangerVSplit<cr>
 map <leader>rs :RangerSplit<cr>
@@ -166,34 +152,41 @@ map <leader>ri :RangerInsert<cr>
 map <leader>ra :RangerAppend<cr>
 map <leader>rc :set operatorfunc=RangerChangeOperator<cr>g@
 
-"Syntax Checking - Ale
-call minpac#add('w0rp/ale',)
-let g:ale_sign_error = '●' " Less aggressive than the default '>>'
-let g:ale_sign_warning = '.'
-let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
-" let g:ale_lint_on_save = 1
-let g:ale_fix_on_save = 1
-let g:ale_lint_on_text_changed = 'never'
-
-"front-end
-call minpac#add('pangloss/vim-javascript')
-call minpac#add('mxw/vim-jsx')
-
-"--------------------COC-----------------------------------
+" === COC
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
+"Map <tab> for trigger completion, completion confirm
+  inoremap <silent><expr> <TAB>
+    \ pumvisible() ? coc#_select_confirm() :
+    \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ coc#refresh()
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+  endfunction
+"Snippet expand and jump like VSCode. 
+"Note the `coc-snippets` extension is required for this to work.
+  let g:coc_snippet_next = '<tab>'
 
-"-------------Abbreviations-------------"
+
+
+
+" ========================= Abbreviations ========================= "
 abbr _pl #!/usr/bin/perl<CR>use strict;<CR>use warnings;
 abbr _sh #!/bin/sh<CR>
+"Replace common mistakes
+inoreabbrev teh the
+cnoreabbrev Wq wq
+cnoreabbrev WQ wq
+cnoreabbrev W w
+cnoreabbrev Q q
 
 
 
 
-
-"-------------Visuals-------------"
-
+" ========================= Visuals ========================= "
 " set list                            " show whitespace
 " ↩ ↵ ↲ ␣ • … → » « ∎ ¶ ▶ ▸ ▷ ▹
 set listchars+=extends:»              " RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
