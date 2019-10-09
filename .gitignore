@@ -16,21 +16,24 @@ calibre/**/caches/
 calibre/**/*.pickle
 calibre/**/*.json
 cinnamon/**/backgrounds/
+cinnamon/**/configs/
 cinnamon/**/spices.cache/
 enpass/.config/sinew.in/Enpass.conf.*
 ranger/.local/share/ranger/history
 vim/*.cache
 vim/**/pack
 vim/**/tpope/
+vim/**/autoload/
+vim/**/plugged/
 vim/**/.*hist
 vim/**/*.swp
-ihsec/.ihsec/**/**/*
-!ihsec/.ihsec/personal/init.el
-!ihsec/.ihsec/personal/config.el
-!ihsec/.ihsec/personal/config.org
-!ihsec/.ihsec/doomemacs/init.el
-!ihsec/.ihsec/doomemacs/init.example.el
-!ihsec/.ihsec/doomemacs/README.md
+ihsec/**/*
+!ihsec/**/personal/init.el
+!ihsec/**/personal/config.el
+!ihsec/**/personal/config.org
+!ihsec/**/doomemacs/init.el
+!ihsec/**/doomemacs/init.example.el
+!ihsec/**/doomemacs/README.md
 
 ### =============================== Windows ================================ ###
 *.exe
