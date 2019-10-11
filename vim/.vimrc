@@ -164,7 +164,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 
 "=== Skim === https://github.com/lotabout/skim.vim
-Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
+Plug 'lotabout/skim'
 Plug 'lotabout/skim.vim'
 
 "=== Ranger === https://github.com/rafaqz/ranger.vim
@@ -205,6 +205,18 @@ nmap ga <Plug>(EasyAlign)
 
 "=== Skim 
 nnoremap <C-p> : <C-u>SK<CR>
+
+let g:search_ignore_dirs = ['.git', '.nvm', 'node_modules']
+
+" TODO: git grep when under repository
+" Choose grep backend, use ripgrep if available
+if executable("rg")
+  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ --hidden\ --follow
+  set grepformat=%f:%l:%c:%m
+else
+  set grepprg=grep\ -n\ --with-filename\ -I\ -R
+  set grepformat=%f:%l:%m
+endif
 " --column: Show column number
 " --line-number: Show line number
 " --no-heading: Do not show file headings in results
@@ -215,8 +227,8 @@ nnoremap <C-p> : <C-u>SK<CR>
 " --follow: Follow symlinks
 " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 " --color: Search color options
-command! -bang -nargs=* Ag call fzf#vim#ag_interactive(<q-args>, fzf#vim#with_preview('right:50%:hidden', 'alt-h'))
-command! -bang -nargs=* Rg call fzf#vim#rg_interactive(<q-args>, fzf#vim#with_preview('right:50%:hidden', 'alt-h'))
+command! -bang -nargs=* Ag call fzf#vim#ag_interactive(<q-args>, fzf#vim#with_preview('right:50%:hidden:follow', 'alt-h'))
+command! -bang -nargs=* Rg call fzf#vim#rg_interactive(<q-args>, fzf#vim#with_preview('right:50%:hidden:follow', 'alt-h'))
 " This is the default extra key bindings
 let g:skim_action = {
   \ 'ctrl-t': 'tab split',
@@ -233,7 +245,7 @@ let g:skim_layout = { 'down': '~40%' }
 let g:skim_history_dir = '~/.local/share/skim-history'
 
 " [Buffers] Jump to the existing window if possible
-" let g:fzf_buffers_jump = 1
+let g:fzf_buffers_jump = 1
 
 " [[B]Commits] Customize the options used by 'git log':
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
@@ -288,9 +300,6 @@ cnoreabbrev Wq wq
 cnoreabbrev WQ wq
 cnoreabbrev W w
 cnoreabbrev Q q
-
-
-
 
 
 
