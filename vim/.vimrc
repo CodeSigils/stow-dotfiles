@@ -23,7 +23,7 @@ endif
 if exists('$SUDO_USER')
   set noswapfile                   " don't create root-owned files
 else
-  set directory=~/local/.vim/tmp/swap//
+  set directory=~/.local/.vim/tmp/swap//
   set directory+=~/.vim/tmp/swap// " keep swap files out of the way
   set directory+=.
 endif

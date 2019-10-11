@@ -20,7 +20,8 @@ cinnamon/**/configs/
 cinnamon/**/spices.cache/
 enpass/.config/sinew.in/Enpass.conf.*
 ranger/.local/share/ranger/history
-vim/**/pack
+vim/tmp/
+vim/**/pack/
 vim/**/tpope/
 vim/**/autoload/
 vim/**/plugged/
