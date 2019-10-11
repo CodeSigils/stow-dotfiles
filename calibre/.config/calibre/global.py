@@ -24,11 +24,11 @@ library_path = u'/home/seven/Documents/Calibre/Fantasy'
  
 # language
 # The language in which to display the user interface
-language = 'en'
+language = None
  
 # output format
 # The default output format for e-book conversions.
-output_format = 'epub'
+output_format = 'EPUB'
  
 # input format order
 # Ordered list of formats to prefer for input.
@@ -56,7 +56,7 @@ check_for_dupes_on_ctl = False
  
 # installation uuid
 # Installation UUID
-installation_uuid = '80e3cd55-80e0-4e24-9ddf-2c97daae4e13'
+installation_uuid = 'dfe17d1a-f8ea-44a2-87a0-70f0a6cb7016'
  
 # new book tags
 # Tags to apply to books added to the library
