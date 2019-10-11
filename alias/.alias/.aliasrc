@@ -303,25 +303,8 @@ bk-moz-history() {
     sqlite3 /home/"$(whoami)"/.mozilla/firefox/*.default/places.sqlite \
     "select url from moz_places where last_visit_date=(select max(last_visit_date) from moz_places)" | buku -a
 }
-# TITLE: npm
-alias npmi='npm install --no-optional' # avoid 'fsevents linux' warning
-alias npmid='npm install --no-optional --save-dev'
 
 
-cfg-yarn-global() { "$EDITOR" /home/"$(whoami)"/.config/yarn/global/package.json; }
-alias ya='yarn'
-alias yaa='yarn add'
-alias yada='yarn add -D'
-alias yacc='yarn cache clean'
-alias yah='yarn help'
-alias yao='yarn outdated'
-alias yaui='yarn upgrade-interactive'
-alias yagl='yarn global list'
-alias yaga='yarn global add'
-alias yagr='yarn global remove'
-alias yagu='yarn global upgrade'
-alias yagui='yarn global upgrade-interactive'
-alias yacfg='yarn global bin' # output symlinks to executables
 
 ## ===================================================
 ## === PATHS
@@ -342,9 +325,25 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+alias npmi='npm install --no-optional' # avoid 'fsevents linux' warning
+alias npmid='npm install --no-optional --save-dev'
 
 # TITLE: Yarn (set path after nvm)
 PATH="$PATH:$(yarn global bin)"
+cfg-yarn-global() { "$EDITOR" /home/"$(whoami)"/.config/yarn/global/package.json; }
+alias ya='yarn'
+alias yaa='yarn add'
+alias yada='yarn add -D'
+alias yacc='yarn cache clean'
+alias yah='yarn help'
+alias yao='yarn outdated'
+alias yaui='yarn upgrade-interactive'
+alias yagl='yarn global list'
+alias yaga='yarn global add'
+alias yagr='yarn global remove'
+alias yagu='yarn global upgrade'
+alias yagui='yarn global upgrade-interactive'
+alias yacfg='yarn global bin' # output symlinks to executables
 
 # TITLE: Php artisan and composer
 # PATH=$HOME/.config/composer/vendor/bin:$PATH
