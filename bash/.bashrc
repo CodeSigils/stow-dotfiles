@@ -52,3 +52,4 @@ __password_store_extension_complete_import() {
 }
 
 source $GOPATH/src/github.com/tomnomnom/gf/gf-completion.bash
+

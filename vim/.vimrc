@@ -177,9 +177,8 @@ Plug 'jceb/vim-orgmode'
 Plug 'majutsushi/tagbar'
 nmap <F7> :TagbarToggle<CR>
 
-"=== Front end ===
-"Plug 'pangloss/vim-javascript'
-"Plug 'mxw/vim-jsx'
+"=== Polyglot === https://github.com/sheerun/vim-polyglot
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -227,8 +226,8 @@ endif
 " --follow: Follow symlinks
 " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 " --color: Search color options
-command! -bang -nargs=* Ag call fzf#vim#ag_interactive(<q-args>, fzf#vim#with_preview('right:50%:hidden:follow', 'alt-h'))
-command! -bang -nargs=* Rg call fzf#vim#rg_interactive(<q-args>, fzf#vim#with_preview('right:50%:hidden:follow', 'alt-h'))
+command! -bang -nargs=* Ag call fzf#vim#ag_interactive(<q-args>, fzf#vim#with_preview('right:50%', 'alt-h'))
+command! -bang -nargs=* Rg call fzf#vim#rg_interactive(<q-args>, fzf#vim#with_preview('right:50%', 'alt-h'))
 " This is the default extra key bindings
 let g:skim_action = {
   \ 'ctrl-t': 'tab split',
@@ -236,25 +235,13 @@ let g:skim_action = {
   \ 'ctrl-v': 'vsplit' }
 " Default fzf layout
 " - down / up / left / right
-let g:skim_layout = { 'down': '~40%' }
+let g:skim_layout = { 'right': '~40%' }
 
 " Enable per-command history.
 " CTRL-N and CTRL-P will be automatically bound to next-history and
 " previous-history instead of down and up. If you don't like the change,
 " explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
 let g:skim_history_dir = '~/.local/share/skim-history'
-
-" [Buffers] Jump to the existing window if possible
-let g:fzf_buffers_jump = 1
-
-" [[B]Commits] Customize the options used by 'git log':
-let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
-
-" [Tags] Command to generate tags file
-let g:fzf_tags_command = 'ctags -R'
-
-" [Commands] --expect expression for directly executing the command
-let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 
 " Replace the default dictionary completion with fzf-based fuzzy completion
 inoremap <expr> <c-x><c-k> fzf#vim#complete('cat /usr/share/dict/words')

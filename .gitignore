@@ -8,6 +8,7 @@ private/
 *.cache
 *.plist
 *.swp
+*.tmp
 
 ### ============================= Stow Targets ============================= ###
 albert/**/*.db

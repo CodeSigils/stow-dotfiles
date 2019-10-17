@@ -3,10 +3,9 @@
 
 ;; pretify symbols
 ;; (setq prettify-symbols-unprettify-at-point t)
-;; (global-prettify-symbols-mode +1)
+(global-prettify-symbols-mode +1)
 
-
-;; ===== web - js - css
+;; === web - js - css
 (setq
   web-mode-markup-indent-offset 2
   web-mode-code-indent-offset 2
@@ -20,10 +19,20 @@
 
 (add-hook!
  js2-mode 'prettier-js-mode
- (add-hook 'before-save-hook #'refmt-before-save nil t)
- (add-hook 'js-mode-hook 'js2-minor-mode))
+ (add-hook 'before-save-hook #'refmt-before-save nil t))
 
-;; ===== org
+(add-hook!
+js2-mode 'js2-refactor-mode)
+
+(add-hook 'js2-mode-hook (lambda ()
+  (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
+
+;; === skewer
+(add-hook 'js2-mode-hook 'skewer-mode)
+(add-hook 'css-mode-hook 'skewer-css-mode)
+(add-hook 'html-mode-hook 'skewer-html-mode)
+
+;; === org
 (setq
   org-ellipsis " ▾ "
   ;; org-bullets-bullet-list '(" ")

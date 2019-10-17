@@ -30,13 +30,13 @@
        ;;indent-guides     ; highlighted indent columns
        modeline          ; snazzy, Atom-inspired modeline, plus API
        nav-flash         ; blink the current line after jumping
-       ;;neotree           ; a project drawer, like NERDTree for vim
        ophints           ; highlight the region an operation acts on
        (popup            ; tame sudden yet inevitable temporary windows
         +all             ; catch all popups that start with an asterix
         +defaults)       ; default popup rules
        pretty-code       ; replace bits of code with pretty symbols
        ;;tabs              ; an tab bar for Emacs
+       ;;neotree           ; a project drawer, like NERDTree for vim
        treemacs          ; a project drawer, like neotree but cooler
        unicode           ; extended unicode support for various languages
        vc-gutter         ; vcs diff in the fringe
@@ -86,7 +86,7 @@
        magit             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
-       ;;pdf               ; pdf enhancements
+       pdf               ; pdf enhancements
        ;;prodigy           ; FIXME managing external services & code builders
        rgb               ; creating color strings
        ;;terraform         ; infrastructure as code
@@ -182,7 +182,7 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
    ["#f0f0f0" "#ff6c6b" "#98be65" "#ECBE7B" "#51afef" "#c678dd" "#46D9FF" "#bbc2cf"])
- '(custom-enabled-themes (quote (doom-one)))
+ '(custom-enabled-themes (quote (doom-one-light)))
  '(custom-safe-themes
    (quote
     ("fe76f3d5094967034192f6a505085db8db6deb0e135749d9a54dc488d6d3ee2f" "0fe9f7a04e7a00ad99ecacc875c8ccb4153204e29d3e57e9669691e6ed8340ce" "2d1fe7c9007a5b76cea4395b0fc664d0c1cfd34bb4f1860300347cdad67fb2f9" "f2b83b9388b1a57f6286153130ee704243870d40ae9ec931d0a1798a5a916e76" "cdb3e7a8864cede434b168c9a060bf853eeb5b3f9f758310d2a2e23be41a24ae" "d6f04b6c269500d8a38f3fabadc1caa3c8fdf46e7e63ee15605af75a09d5441e" "5e0b63e0373472b2e1cf1ebcc27058a683166ab544ef701a6e7f2a9f33a23726" "423435c7b0e6c0942f16519fa9e17793da940184a50201a4d932eafe4c94c92d" "c8f959fb1ea32ddfc0f50db85fea2e7d86b72bb4d106803018be1c3566fd6c72" "2d392972cbe692ee4ac61dc79907af65051450caf690a8c4d36eb40c1857ba7d" "728eda145ad16686d4bbb8e50d540563573592013b10c3e2defc493f390f7d83" default)))
