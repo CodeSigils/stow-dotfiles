@@ -92,25 +92,24 @@ alias date-time='sudo dpkg-reconfigure tzdata'
 ## === Substitutions
 ## ===================================================
 ## DESC: mainly existing commands
-alias visudo='sudo EDITOR="$EDITOR" visudo'
-alias vim='nvim'
-alias svim="sudo nvim"
-alias mkpasswd='mkpasswd --method=SHA-512'
+alias code='codium'
 alias df='df -hT --total'  ## human readable, print filetype, and total
 alias du='du -d1 -h'  ## max depth, human readable
-alias info='info --vi-keys' ## GNU info act like man command
 alias emacs='emacs -nw'  ## cli mode
+alias mkpasswd='mkpasswd --method=SHA-512'
+alias info='info --vi-keys' ## GNU info act like man command
 alias mkdir='mkdir -p -v'  ## create if not exist, verbose
 alias cp='cp -aiv'  ## cp prompt confirmation
 alias nano='nano -c -$'  ## word wrapping
-alias wget='wget -N -c'  ## continues/resumes
-alias w3m='w3m -num'  ## w3m with line number
 alias sr='sr -browser=$BROWSERCLI'  ## surfraw: open in cli browser
 alias srf='surfraw -browser=$BROWSER'  ## surfraw: open in gui browser
+alias svim="sudo nvim"
 ## youtube-viewer: -C=color, -f=fullscreen, -1=1080p, number of results
-# alias youtube-viewer='youtube-viewer -C -f -1 --results=30 --video-player=vlc'
 alias ytv='youtube-viewer -C -f -1 --results=30 --video-player=mpv'
-alias ytv="youtube-viewer"
+alias vim='nvim'
+alias visudo='sudo EDITOR="$EDITOR" visudo'
+alias wget='wget -N -c'  ## continues/resumes
+alias w3m='w3m -num'  ## w3m with line number
 
 ## ===================================================
 ## === Net - gpg - ssh

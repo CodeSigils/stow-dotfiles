@@ -93,7 +93,6 @@ inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 
 
 
-
 "========================= Visuals ========================="
 "=== Whitesplace - brackets - numbers
 "F3 to show non-printing chars
