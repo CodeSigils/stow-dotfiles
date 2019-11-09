@@ -40,7 +40,7 @@ alias dnfr="sudo dnf remove"
 alias dnfi="sudo dnf install"
 alias dnfi-noweak="dnf --setopt=install_weak_deps=False --best install"
 alias dnffo="sudo dnf info"
-alias dnfup="sudo dnf update"
+alias dnfup="sudo dnf upgrade"
 alias dnfc="sudo dnf autoremove"
 ## Systemd and services
 alias s-start="sudo systemctl start"
