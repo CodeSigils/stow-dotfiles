@@ -51,5 +51,11 @@ __password_store_extension_complete_import() {
 	fi
 }
 
-source $GOPATH/src/github.com/tomnomnom/gf/gf-completion.bash
+if [[ $(command -v go) ]]; then
+  source "${GOPATH}/src/github.com/tomnomnom/gf/gf-completion.bash"
+fi
+
+if [[ $(command -v kitty) ]]; then
+source <(kitty + complete setup bash)
+fi
 

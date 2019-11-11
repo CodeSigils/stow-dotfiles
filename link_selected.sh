@@ -55,6 +55,7 @@ file_list=(
 ## === J === ##
 
 ## === K === ##
+# kitty     ## ~/.config/kitty
 
 ## === L === ##
 # lilyterm   ## ~/.config/lilyterm

@@ -93,6 +93,7 @@ alias date-time='sudo dpkg-reconfigure tzdata'
 ## ===================================================
 ## DESC: mainly existing commands
 alias code='codium'
+alias docker='podman'
 alias df='df -hT --total'  ## human readable, print filetype, and total
 alias du='du -d1 -h'  ## max depth, human readable
 alias emacs='emacs -nw'  ## cli mode
@@ -304,7 +305,6 @@ bk-moz-history() {
 }
 
 
-
 ## ===================================================
 ## === PATHS
 ## ===================================================
@@ -354,17 +354,19 @@ alias yacfg='yarn global bin' # output symlinks to executables
 
 # TITLE: Golang and Go Packages
 # export GOROOT="/usr/local/go/" # sudo mv go /usr/local
-export GOPATH=$HOME/.go # defaults to GOROOT 
-export GOBIN=$GOPATH/bin
-export GOARCH=amd64
-export GOOS=linux
-PATH="$GOBIN:$PATH" # expose go binaries system wide.
+if [[ $(command -v go) ]]; then
+  export GOPATH=$HOME/.go # defaults to GOROOT 
+  export GOBIN=$GOPATH/bin
+  export GOARCH=amd64
+  export GOOS=linux
+  PATH="$GOBIN:$PATH" # expose go binaries system wide.
+fi
 
 # TITLE: Rust and rustup
 # Install rustup: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 PATH="$HOME/.cargo/bin:$PATH"
 
-# TITLE: skim
+# TITLE: fzf and skim
 PATH="$HOME/.skim/bin:$PATH"
 # --files: List files that would be searched but do not search
 # --no-ignore: Do not respect .gitignore, etc...
