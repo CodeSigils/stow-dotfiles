@@ -385,6 +385,18 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 
 export PATH
 
+
+## ===================================================
+## === DOTFILES
+## ===================================================
+# TITLE: Manage dotfiles with a git bare repo
+# URL: https://www.atlassian.com/git/tutorials/dotfiles
+# To init run once: git init --bare $HOME/.dotfiles
+# Run this after once: config config --local status.showUntrackedFiles no
+# To add: config add /path/to/file
+# To commit: config commit -m "message"
+alias config='$(command -v git) --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+
 # TITLE: External files
 if [ -f ~/.hintrc ]; then
     "." ~/.hintrc
