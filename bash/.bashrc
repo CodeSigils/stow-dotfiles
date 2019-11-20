@@ -9,8 +9,8 @@ fi
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
-if [ -f ~/.alias/.aliasrc ]; then
-    "." ~/.alias/.aliasrc
+if [ -f ~/.shell/.aliasrc ]; then
+    "." ~/.shell/.aliasrc
 fi
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -31,24 +31,24 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 PASSWORD_STORE_EXTENSION_COMMANDS+=(import)
 
 __password_store_extension_complete_import() {
-	local importers=(1password 1password4 1password4pif aegis andotp
-		apple-keychain bitwarden buttercup chrome chromesqlite csv dashlane
-		encryptr enpass enpass6 fpm gnome-authenticator gnome-keyring gorilla
-		kedpm keepass keepass-csv keepass-xml keepassx keepassx2 keepassx2-csv
-		keepassxc keepassxc-csv keeper lastpass myki networkmanager pass
-		passpie passwordexporter pwsafe revelation roboform upm)
-	local args=(-h --help -p --path -a --all -c --clean -C --convert -s --sep
-		  --cols --config -l --list -f --force -q --quiet -v --verbose -V
-		  --version)
-	local lastarg="${COMP_WORDS[$COMP_CWORD-1]}"
-	if [[ $lastarg == "-p" || $lastarg == "--path" ]]; then
-		_pass_complete_folders
-		compopt -o nospace
-	elif [[ $COMP_CWORD -gt 2 ]]; then
-		COMPREPLY+=($(compgen -W "${args[*]}" -- ${cur}))
-	else
-		COMPREPLY+=($(compgen -W "${importers[*]} ${args[*]}" -- ${cur}))
-	fi
+    local importers=(1password 1password4 1password4pif aegis andotp
+        apple-keychain bitwarden buttercup chrome chromesqlite csv dashlane
+        encryptr enpass enpass6 fpm gnome-authenticator gnome-keyring gorilla
+        kedpm keepass keepass-csv keepass-xml keepassx keepassx2 keepassx2-csv
+        keepassxc keepassxc-csv keeper lastpass myki networkmanager pass
+        passpie passwordexporter pwsafe revelation roboform upm)
+    local args=(-h --help -p --path -a --all -c --clean -C --convert -s --sep
+          --cols --config -l --list -f --force -q --quiet -v --verbose -V
+          --version)
+    local lastarg="${COMP_WORDS[$COMP_CWORD-1]}"
+    if [[ $lastarg == "-p" || $lastarg == "--path" ]]; then
+        _pass_complete_folders
+        compopt -o nospace
+    elif [[ $COMP_CWORD -gt 2 ]]; then
+        COMPREPLY+=($(compgen -W "${args[*]}" -- ${cur}))
+    else
+        COMPREPLY+=($(compgen -W "${importers[*]} ${args[*]}" -- ${cur}))
+    fi
 }
 
 if [[ $(command -v go) ]]; then
