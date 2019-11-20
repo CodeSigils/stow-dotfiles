@@ -139,6 +139,7 @@ set lazyredraw                      "redraw only when is needed
 
 
 "========================= Package-Manager ========================="
+"
 "=== Auto-Install ===
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
