@@ -1,0 +1,25 @@
+#!/bin/bash
+
+## TITLE: Color the manpages
+## DEMO: http://www.youtube.com/watch?v=9BFaLAa428k
+## LINK: https://wiki.archlinux.org/index.php/Man_page#Colored_man_pages
+man() {
+    env LESS_TERMCAP_mb=$'\E[01;31m' \
+    LESS_TERMCAP_md=$'\E[01;31m' \
+    LESS_TERMCAP_me=$'\E[0m' \
+    LESS_TERMCAP_se=$'\E[0m' \
+    LESS_TERMCAP_so=$'\E[01;44;33m' \
+    LESS_TERMCAP_ue=$'\E[0m' \
+    LESS_TERMCAP_us=$'\E[01;32m' \
+    man "$@"
+}
+
+## TITLE: color common commands (from .bashrc)
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi

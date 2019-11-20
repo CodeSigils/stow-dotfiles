@@ -23,7 +23,6 @@ unlink_files() { link_selected "-D"; }
 file_list=(
 ## === A === ##
 # albert     ## ~/.config/albert/albert.conf && ~/.local/share/albert
-# alias      ## ~/.bash_alias*
 
 ## === B === ##
 # bash
@@ -82,6 +81,7 @@ polybar    ## ~/.config/polybar
 
 ## === S === ##
 # sakura     ##  ~/.config/sakura
+# shell
 
 ## === T === ##
 # themes     ## ~/.themes && ~/.icons

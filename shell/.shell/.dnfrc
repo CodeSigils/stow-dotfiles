@@ -1,0 +1,11 @@
+#!/bin/bash
+
+## TITLE: Dnf
+alias dnf="sudo dnf"
+alias dnfs="sudo dnf search"
+alias dnffo="sudo dnf info"
+alias dnfi="sudo dnf install"
+alias dnfi-noweak="dnf --setopt=install_weak_deps=False --best install"
+alias dnfr="sudo dnf remove"
+alias dnfup="sudo dnf upgrade"
+alias dnfc="sudo dnf autoremove"

@@ -1,0 +1,173 @@
+#!/bin/bash
+
+## Define folder that holds the alias files
+ALIASPATH="${HOME}/.shell"
+
+## ===================================================
+## === PATHS - Must be declared at the top
+## ===================================================
+if [ -f "${ALIASPATH}/.pathrc" ]; then
+    "." "${ALIASPATH}/.pathrc"
+fi
+
+## ===================================================
+## === SETUP - CONFIG
+## ===================================================
+if [ -f "${ALIASPATH}/.configrc" ]; then
+    "." "${ALIASPATH}/.configrc"
+fi
+
+## ===================================================
+## === CONSOLE - Common Helpers
+## ===================================================
+open() { xdg-open "$@" > /dev/null 2>&1 ; }  ## open with default GUI program
+hgrep() {
+  history | grep "$1";
+}
+alias algrep='cat ${ALIASPATH}/.aliasrc* | grep'
+alias xs='xstow'
+alias cl='clear'
+alias xx='exit'
+alias rs='reset'
+mkdircd() { "mkdir -p -v $1" ; "cd $1 || return" ; "ls -l ../" ; } ## create folder then cd into it
+alias shred='shred -u -vzn 0'
+alias rld='source '
+alias rld-alias='source ${ALIASPATH}/.aliasrc'
+alias rld-zshrc='source ~/.zshrc'
+alias rld-bashrc='source ~/.bashrc'
+alias rld-vimrc='source ~/.vimrc'
+alias 'nah'='echo "shutdown (ctrl-c to abort)?" && read && sudo shutdown 0' ## Done with work?
+
+## ===================================================
+## === Substitutions - list - history - weather - date
+## ===================================================
+## Navigation - History
+alias rng="ranger"
+## Substitutions
+if [[ "$(command -v lsd)" ]]; then
+  alias ls='lsd --color=auto'
+fi
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+alias df='df -hT --total'  ## human readable, print filetype, and total
+alias du='du -d1 -h'  ## max depth, human readable
+alias mkpasswd='mkpasswd --method=SHA-512'
+alias info='info --vi-keys' ## GNU info act like man command
+alias mkdir='mkdir -p -v'  ## create if not exist, verbose
+alias cp='cp -aiv'  ## cp prompt confirmation
+## Editors
+alias code='codium'
+alias emacs='emacs -nw'  ## cli mode
+alias nano='nano -c -$'  ## word wrapping
+alias svim="sudo nvim"
+alias vim='nvim'
+alias visudo='sudo EDITOR="$EDITOR" visudo'
+## Youtube viewer flags: -C=color, -f=fullscreen, -1=1080p, number of results
+alias ytv='youtube-viewer -C -f -1 --results=30 --video-player=mpv'
+alias sr='sr -browser=$BROWSERCLI'  ## surfraw: open in cli browser
+alias srf='surfraw -browser=$BROWSER'  ## surfraw: open in gui browser
+alias wget='wget -N -c'  ## continues/resumes
+alias w3m='w3m -num'  ## w3m with line number
+## Weather - date -time
+alias weather='curl http://wttr.in/athens'
+alias weather-malta='curl http://wttr.in/malta'
+alias date-time='sudo dpkg-reconfigure tzdata'
+#alias docker='podman'
+
+## ===================================================
+## === Maintenance
+## ===================================================
+if [ -f "${ALIASPATH}/.dnfrc" ]; then
+    "." "${ALIASPATH}/.dnfrc"
+fi
+## Systemd and services
+alias s-start="sudo systemctl start"
+alias s-stop="sudo systemctl stop"
+alias s-edit="sudo systemctl edit --full"
+alias s-time="systemd-analyze time"
+alias s-blame="sudo systemd-analyze blame | head -20"
+alias s-restart="sudo systemctl restart"
+alias s-status="sudo systemctl status"
+alias s-enable="sudo systemctl enable"
+alias s-disable="sudo systemctl disable"
+alias s-reload="sudo systemctl reload"
+alias s-ls-unit-files="systemctl list-unit-files --type=service"
+alias s-ls-units="sudo systemctl list-units"
+alias s-ls-units-f="sudo systemctl list-units |grep failed"
+alias s-ls-deps="sudo systemctl list-dependencies"
+## Firewall
+if [ "$(command -v firewall-cmd)" ]; then
+  alias fire="sudo firewall-cmd"
+  alias fire-get-zones="sudo firewall-cmd --get-zones"
+  alias fire-get-active-zone="sudo firewall-cmd --get-active-zone"
+  alias fire-ls-public-all="sudo firewall-cmd --zone=public --list-all"
+  alias fire-restart="sudo service firewalld restart"
+fi
+## Net - gpg - ssh
+alias ssh-key-gen="ssh-keygen -t rsa -b 4096 -C " ## "your_email@example.com"
+alias ssh-cp-pub-key='xclip -sel clip < ~/.ssh/id_rsa.pub'
+alias gpg-ls-keys="gpg -K --keyid-format long --with-colons --with-fingerprint"
+
+## ===================================================
+# === APPS - External CLI
+## ===================================================
+## Buku
+if [ "$(command -v buku)" ]; then
+  "." "${ALIASPATH}/.bukurc"
+fi
+## npm
+if [ "$(command npm)" ]; then
+  alias npmi='npm install --no-optional' # avoid 'fsevents linux' warning
+  alias npmid='npm install --no-optional --save-dev'
+fi
+## yarn
+if [ "$(command yarn)" ]; then
+  cfg-yarn-global() { "$EDITOR" /home/"$(whoami)"/.config/yarn/global/package.json; }
+  alias ya='yarn'
+  alias yaa='yarn add'
+  alias yada='yarn add -D'
+  alias yacc='yarn cache clean'
+  alias yah='yarn help'
+  alias yao='yarn outdated'
+  alias yaui='yarn upgrade-interactive'
+  alias yagl='yarn global list'
+  alias yaga='yarn global add'
+  alias yagr='yarn global remove'
+  alias yagu='yarn global upgrade'
+  alias yagui='yarn global upgrade-interactive'
+  alias yacfg='yarn global bin' # output symlinks to executables
+fi
+
+## ===================================================
+## === GPU
+## ===================================================
+#if [ -f ${ALIASPATH}/.gpurc ]; then
+#    "." ${ALIASPATH}/.gpurc
+#fi
+
+## ===================================================
+## === DOTFILES
+## ===================================================
+# TITLE: Manage dotfiles with a git bare repo
+# URL: https://www.atlassian.com/git/tutorials/dotfiles
+# To init run once: git init --bare $HOME/.dotfiles
+# Run this after once: config config --local status.showUntrackedFiles no
+# To add: config add /path/to/file
+# To commit: config commit -m "message"
+alias config='$(command -v git) --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+
+## ===================================================
+## === COLORS - READABILITY
+## ===================================================
+if [ -f "${ALIASPATH}/.colorsrc" ]; then
+    "." "${ALIASPATH}/.colorsrc"
+fi
+
+# TITLE: External files
+if [ -f ~/.hintrc ]; then
+    "." ~/.hintrc
+fi
+
+

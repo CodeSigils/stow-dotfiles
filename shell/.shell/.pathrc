@@ -1,0 +1,58 @@
+#!/bin/bash
+
+## User specific environment
+## set PATH so it includes user's private bin directories 
+PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+PATH="$PATH:/var/lib/snapd/snap/bin"
+
+if [ -d ~/.nvm ]; then
+  ## TITLE: nvm (Node Version Manager) npm and yarn setup
+  ## LINK: https://github.com/creationix/nvm
+  ## DESC: Node env setup.
+  ## - Installation:
+  ## curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
+  export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+  #export NVM_DIR="$HOME/.nvm"
+  #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+fi
+
+## TITLE: Yarn (set path after nvm)
+PATH="$PATH:$(yarn global bin)"
+
+## TITLE: Php artisan and composer
+# PATH=$HOME/.config/composer/vendor/bin:$PATH
+
+## TITLE: Erlang and elixir
+# PATH=$HOME/usr/local/bin/elixir:$PATH
+# export ERL_AFLAGS="-kernel shell_history enabled"
+
+## TITLE: Golang and Go Packages
+# export GOROOT="/usr/local/go/" # sudo mv go /usr/local
+if [[ $(command -v go) ]]; then
+  export GOPATH=$HOME/.go # defaults to GOROOT 
+  export GOBIN=$GOPATH/bin
+  export GOARCH=amd64
+  export GOOS=linux
+  PATH="$GOBIN:$PATH" # expose go binaries system wide.
+fi
+
+## TITLE: Rust and rustup
+## Install rustup: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+PATH="$HOME/.cargo/bin:$PATH"
+
+## TITLE: fzf and skim
+PATH="$HOME/.skim/bin:$PATH"
+## --files: List files that would be searched but do not search
+## --no-ignore: Do not respect .gitignore, etc...
+## --hidden: Search hidden files and folders
+## --follow: Follow symlinks
+## --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+
+## TITLE: Custom Path to IntelliJ-IDEA
+# PATH=$HOME/opt/Intellij/idea-UI-172.4155.36/bin:$PATH
+
+export PATH

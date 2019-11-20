@@ -1,0 +1,131 @@
+#!/bin/bash
+
+## TITLE: Set Default Programs
+## DESC: Choose the first in the array of installed programs
+## and use it as the default. @function: find alternative apps if installed
+find_alt() { for i; do which "$i" >/dev/null && { echo "$i"; return 0; };done;return 1; }
+## TITLE: Definitions
+export OPENER=$(find_alt xdg-open gnome-open kde-open exo-open)
+export BROWSER=$(find_alt firefox google-chrome chromium chromium-browser qutebrowser "$OPENER")
+export BROWSERCLI=$(find_alt w3m links2 links lynx elinks surf "$OPENER")
+export BROWSERTOR=$(find_alt torbrowser-launcher)
+export COMICER=$(find_alt mcomix comix zathura "$OPENER")
+export EBOOKER=$(find_alt ebook-viewer "$OPENER")
+export EDITOR=$(find_alt nvim vim vi emacs nano leafpad gedit pluma "$OPENER")
+export EDITORGUI=$(find_alt geany xed kate kwrite mousepad leafpad gedit pluma "$OPENER")
+# export WORDPROCESSOR=$(find_alt wordgrinder "$OPENER")
+export FILEMANAGER=$(find_alt nemo pcmanfm nautilus thunar caja spacefm dolphin enlightenment_filemanager "$OPENER")
+export FILEMANAGERCLI=$(find_alt ranger vifm mc "$OPENER")
+export IMAGEVIEWER=$(find_alt eom feh ristretto display eog "$OPENER")
+export MUSICER=$(find_alt mpv mplayer mpg123 cvlc "$OPENER")
+export PAGER=$(find_alt less more most)
+export PLAYER=$(find_alt nvlc mpv mplayer ffplay cvlc "$OPENER")
+export READER=$(find_alt zathura mupdf evince "$OPENER")
+# export ROOTER=$(find_alt gksudo kdesudo)
+# export QUEUER=$(find_alt tsp fq ts)
+export TERMER=$(find_alt kitty xfce4-terminal tilda lilyterm gnome-terminal konsole urxvt xterm lxterminal uxterm sakura lxterminal mate-terminal pantheon-terminal  terminology terminator "$OPENER")
+## TITLE: Configuration functions
+cfg-alias() { "$EDITOR" ${ALIASPATH}/.aliasrc; }
+cfg-alsabase() { sudo "$EDITOR" /etc/modprobe.d/alsa-base.conf; }
+cfg-abookrc() { "$EDITOR" ~/.abook/abookrc; }
+cfg-addressbook() { "$EDITOR" ~/.abook/addressbook; }
+cfg-autostartrc() { "$EDITOR" ~/.autostartrc; }
+cfg-bashrc() { "$EDITORGUI" ~/.bashrc; }
+cfg-blocklist() { "$EDITOR" ~/.scripts/blocklist.sh; }
+cfg-bookmarks() { "$EDITOR" ~/.config/surfraw/bookmarks; }
+cfg-cava() { "$EDITOR" ~/.config/cava/config; }
+cfg-clonezilla() { sudo "$EDITOR" /etc/drbl/drbl.conf; }
+cfg-dnf() { sudo "$EDITOR" /etc/dnf/dnf.conf; }
+cfg-flexget() { "$EDITOR" ~/.flexget/config.yml; }
+cfg-fstab() { sudo "$EDITOR" /etc/fstab; }
+cfg-gitignore() { "$EDITOR" ~/Public/dotfiles/.gitignore; }
+cfg-gpu() { sudo "$EDITOR" /etc/X11/xorg.conf.d/10-gpu.conf; }
+cfg-group() { sudo "$EDITOR" /etc/group; }
+cfg-grub() { sudo "$EDITOR" /etc/default/grub; }
+cfg-hintrc() { "$EDITOR" ~/.hintrc; }
+cfg-hosts() { sudo "$EDITOR" /etc/hosts; }
+cfg-hyperterminal() { "$EDITOR" ~/.hyper.js; }
+cfg-intel() { sudo "$EDITOR" /usr/share/X11/xorg.conf.d/20-intel.conf; }
+## archive.org downloader https://archive.org/services/docs/api/internetarchive/
+# cfg-internetarchive() { "$EDITOR" ~/.config/ia.ini; }
+cfg-inputrc() { "$EDITOR" ~/.inputrc; }
+cfg-i3wm() { "$EDITOR" ~/.i3/config; }
+cfg-keynavrc() { "$EDITOR" ~/.keynavrc; }
+cfg-kodi-keyboard() { "$EDITOR" ~/.kodi/userdata/keymaps/keyboard.xml; }
+cfg-kodi-confluencethumbnailview() { sudo "$EDITOR" /usr/share/kodi/addons/skin.confluence/720p/MyVideoNav.xml; }
+cfg-lgogdownloader() { "$EDITOR" ~/.config/lgogdownloader/config.cfg; }
+cfg-livestreamer() { "$EDITOR" ~/.livestreamerrc; }
+cfg-mailcap() { "$EDITOR" ~/.mailcap; }
+cfg-mbsyncrc() { "$EDITOR" ~/.mbsyncrc; }
+cfg-mc() { "$EDITOR" ~/.config/mc/ini; }
+cfg-mc-keymap() { "$EDITOR" ~/.config/mc/mc.keymap; }
+cfg-mcomix() { "$EDITOR" ~/.config/mcomix/keybindings.conf; }
+cfg-megarc() { "$EDITOR" ~/.megarc; }
+cfg-mpd() { "$EDITOR" ~/.mpd/mpd.conf; }
+cfg-mplayer() { "$EDITOR" ~/.mplayer/config; }
+cfg-mpv() { "$EDITOR" ~/.config/mpv/mpv.conf; }
+cfg-mpv-input() { "$EDITOR" ~/.config/mpv/input.conf; }
+cfg-mocp() { "$EDITOR" ~/.moc/config; }
+cfg-muttrc() { "$EDITOR" ~/.muttrc; }
+cfg-nanorc() { "$EDITOR" ~/.nanorc; }
+cfg-ncmpcpp() { "$EDITOR" ~/.ncmpcpp/config; }
+cfg-ncmpcpp-bindings() { "$EDITOR" ~/.ncmpcpp/bindings; }
+cfg-netrc() { "$EDITOR" ~/.netrc; }
+cfg-newsbeuter() { "$EDITOR" ~/.newsbeuter/config; }
+cfg-newsbeuter-queue() { "$EDITOR" ~/.newsbeuter/queue; }
+cfg-newsbeuter-urls() { "$EDITOR" ~/.newsbeuter/urls; }
+cfg-newsboat() { "$EDITOR" ~/.newsboat/config; }
+cfg-newsboat-queue() { "$EDITOR" ~/.newsboat/queue; }
+cfg-newsboat-urls() { "$EDITOR" ~/.newsboat/urls; }
+cfg-nginx-proxy() { sudo "$EDITOR" /etc/nginx/sites-enabled/proxy.conf; }
+cfg-nvim() { "$EDITOR" ~/.config/nvim/init.vim; }
+cfg-pastebinit() { "$EDITOR" ~/.pastebinit.xml; }
+cfg-pianobar() { "$EDITOR" ~/.config/pianobar/config; }
+cfg-pianobar-libao() { sudo "$EDITOR" /etc/libao.conf; }
+cfg-profile() { "$EDITOR" ~/.profile; }
+cfg-pulseaudio() { sudo "$EDITOR" /etc/pulse/default.pa; }
+cfg-pulsedaemon() { sudo "$EDITOR" /etc/pulse/daemon.conf; }
+cfg-pyload() { "$EDITOR" ~/.pyload/pyload.conf; }
+cfg-pyradio() { "$EDITOR" ~/.pyradio/stations.csv; }
+cfg-qutebrowser() { "$EDITOR" ~/.config/qutebrowser/qutebrowser.conf; }
+cfg-qutebrowser-keys() { "$EDITOR" ~/.config/qutebrowser/keys.conf; }
+cfg-qutebrowser-quickmarks() { "$EDITOR" ~/.config/qutebrowser/quickmarks; }
+cfg-quicktile() { "$EDITOR" ~/.config/quicktile.cfg; }
+cfg-rofibangs() { "$EDITOR" ~/.scripts/rofi-scripts-collection/rofi-bangs.sh; }
+cfg-ranger() { "$EDITOR" ~/.config/ranger/rc.conf; }
+cfg-ranger-rifle() { "$EDITOR" ~/.config/ranger/rifle.conf; }
+cfg-ranger-commands() { "$EDITOR" ~/.config/ranger/commands.py; }
+cfg-resolve() { sudo "$EDITOR" /etc/resolv.conf; }
+cfg-rtv() { "$EDITOR" ~/.config/rtv/rtv.cfg; }
+cfg-samba() { sudo "$EDITOR" /etc/samba/smb.conf; }
+cfg-skippyxd() { "$EDITOR" ~/.skippy-xd.rc; }
+cfg-slrnrc() { "$EDITOR" ~/.slrnrc; }
+cfg-ssh-client() { sudo "$EDITOR" /etc/ssh/ssh_config; }
+cfg-ssh-daemon() { sudo "$EDITOR" /etc/ssh/sshd_config; }
+cfg-sudoers() { sudo "$EDITOR" /etc/sudoers; }
+cfg-sakura() { "$EDITOR" ~/.config/sakura/sakura.conf; }
+cfg-surfraw() { "$EDITOR" ~/.config/surfraw/conf; }
+cfg-syncthing() { "$EDITORGUI" ~/.config/syncthing/config.xml; }
+cfg-sysctl() { sudo "$EDITOR" /etc/sysctl.conf; }
+cfg-tmuxrc() { "$EDITOR" ~/.tmux.conf; }
+cfg-tor() { sudo "$EDITOR" /etc/tor/torrc; }
+cfg-tor-user() { "$EDITOR" ~/.torrc; }
+cfg-torrench() { "$EDITOR" ~/.config/torrench/config.ini; }
+cfg-tpb() { "$EDITOR" ~/.scripts/tpb.sh; }
+cfg-transmission-daemon() { "$EDITOR" ~/.config/transmission-daemon/settings.json; }
+cfg-transmission-ncurse() { "$EDITOR" ~/.config/transmission-remote-cli/settings.cfg; }
+cfg-turses() { "$EDITOR" ~/.turses/config; }
+cfg-urlview() { "$EDITOR" ~/.urlview; }
+cfg-updatedb() { sudo "$EDITOR" /etc/updatedb.conf; }
+cfg-vifmrc() { "$EDITOR" ~/.config/vifm/vifmrc; }
+cfg-vimrc() { "$EDITOR" ~/.vimrc; }
+cfg-w3m() { "$EDITOR" ~/.w3m/config; }
+cfg-w3m-keymap() { "$EDITOR" ~/.w3m/keymap; }
+cfg-w3m-urimethodmap() { "$EDITOR" ~/.w3m/urimethodmap; }
+cfg-wegorc() { "$EDITOR" ~/.wegorc; }
+cfg-xbindkeysrc() { "$EDITOR" ~/.xbindkeysrc && killall xbindkeys ; xbindkeys; }
+cfg-xmodmap() { "$EDITOR" ~/.Xmodmap; }
+cfg-xresources() { "$EDITOR" ~/.Xresources; }
+cfg-zathura() { "$EDITOR" ~/.config/zathura/zathurarc; }
+cfg-zshrc() { "$EDITOR" ~/.zshrc; }
+cfg-zurlrc() { "$EDITOR" ~/.zurlrc; }
