@@ -5,7 +5,7 @@
 ## when leaving the console clear the screen to increase privacy
 clear_console_on_exit() {
  if [ "$SHLVL" = 1 ]; then
-   command "$(which clear)" 
+   command "$(command -v clear)" 
    # && dev > null ~/.bash_history
  fi
 }

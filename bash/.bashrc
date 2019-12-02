@@ -11,23 +11,16 @@ fi
 # User specific aliases and functions
 if [ -f ~/.shell/.aliasrc ]; then
     "." ~/.shell/.aliasrc
+else
+    print "404: ~/.shell/.aliasrc not found. Check your .bashrc"
 fi
 
 # Add an "alert" alias for long running commands.  Use like so:
 # sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# docker-compose completions
-# https://docs.docker.com/compose/completion/#bash
-# if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
-#    . /opt/local/etc/profile.d/bash_completion.sh
-# fi
 
-# fzf fuzzy finder
-# https://github.com/junegunn/fzf
-[ -f ~/.bash/.fzf.bash ] && source ~/.bash/.fzf.bash
 # pass-import completion file for bash
-
 PASSWORD_STORE_EXTENSION_COMMANDS+=(import)
 
 __password_store_extension_complete_import() {
@@ -51,11 +44,23 @@ __password_store_extension_complete_import() {
     fi
 }
 
-if [[ $(command -v go) ]]; then
+## https://github.com/tomnomnom/gf 
+## go get -u github.com/tomnomnom/gf
+if [[ $(command -v gf) ]]; then
   source "${GOPATH}/src/github.com/tomnomnom/gf/gf-completion.bash"
 fi
 
+# docker-compose completions
+# https://docs.docker.com/compose/completion/#bash
+if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+   . /opt/local/etc/profile.d/bash_completion.sh
+fi
+
+# fzf fuzzy finder
+# https://github.com/junegunn/fzf
+[ -f "$HOME/.bash/.fzf.bash" ] && "." "$HOME/.bash/.fzf.bash"
+
 if [[ $(command -v kitty) ]]; then
-source <(kitty + complete setup bash)
+  source <(kitty + complete setup bash)
 fi
 
