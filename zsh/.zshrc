@@ -54,10 +54,10 @@ fi
 ## ALIASRC
 ## --------------------------------------------------------------------------- #
 ## Separate file for extra aliases, paths, functions, autocompletions etc
-if [ -f ~/.alias/.aliasrc ]; then
-    source ~/.alias/.aliasrc
+if [ -f ~/.shell/.aliasrc ]; then
+    source ~/.shell/.aliasrc
 else
-    print "404: ~/.alias/.aliasrc not found. Check your .zshrc"
+    print "404: ~/.shell/.aliasrc not found. Check your .zshrc"
 fi
 
 ## --------------------------------------------------------------------------- #
