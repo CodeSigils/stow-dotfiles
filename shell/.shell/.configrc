@@ -1,9 +1,9 @@
 #!/bin/bash
 
-## TITLE: Set Default Programs
+## TITLE: Set Default Programs and config aliases
 ## DESC: Choose the first in the array of installed programs
 ## and use it as the default. @function: find alternative apps if installed
-find_alt() { for i; do which "$i" >/dev/null && { echo "$i"; return 0; };done;return 1; }
+find_alt() { for i; do command -v "$i" >/dev/null && { echo "$i"; return 0; };done;return 1; }
 ## TITLE: Definitions
 export OPENER=$(find_alt xdg-open gnome-open kde-open exo-open)
 export BROWSER=$(find_alt firefox google-chrome chromium chromium-browser qutebrowser "$OPENER")
@@ -25,12 +25,15 @@ export READER=$(find_alt zathura mupdf evince "$OPENER")
 # export QUEUER=$(find_alt tsp fq ts)
 export TERMER=$(find_alt kitty xfce4-terminal tilda lilyterm gnome-terminal konsole urxvt xterm lxterminal uxterm sakura lxterminal mate-terminal pantheon-terminal  terminology terminator "$OPENER")
 ## TITLE: Configuration functions
-cfg-alias() { "$EDITOR" ${ALIASPATH}/.aliasrc; }
+cfg-alias() { "$EDITOR" "${ALIASPATH}/.aliasrc"; }
+cfg-pathrc() { "$EDITOR" "${ALIASPATH}/.pathrc"; }
+cfg-bashrc() { "$EDITOR" "${HOME}/.bashrc"; }
+cfg-configrc() { "$EDITOR" "${ALIASPATH}/.configrc"; }
+cfg-bukurc() { "$EDITOR" "${ALIASPATH}/.bukurc"; }
 cfg-alsabase() { sudo "$EDITOR" /etc/modprobe.d/alsa-base.conf; }
 cfg-abookrc() { "$EDITOR" ~/.abook/abookrc; }
 cfg-addressbook() { "$EDITOR" ~/.abook/addressbook; }
 cfg-autostartrc() { "$EDITOR" ~/.autostartrc; }
-cfg-bashrc() { "$EDITORGUI" ~/.bashrc; }
 cfg-blocklist() { "$EDITOR" ~/.scripts/blocklist.sh; }
 cfg-bookmarks() { "$EDITOR" ~/.config/surfraw/bookmarks; }
 cfg-cava() { "$EDITOR" ~/.config/cava/config; }

@@ -5,31 +5,42 @@
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 PATH="$PATH:/var/lib/snapd/snap/bin"
 
-if [ -d ~/.nvm ]; then
-  ## TITLE: nvm (Node Version Manager) npm and yarn setup
-  ## LINK: https://github.com/creationix/nvm
-  ## DESC: Node env setup.
-  ## - Installation:
-  ## curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
-  export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+## TITLE: nvm (Node Version Manager) 
+## LINK: https://github.com/creationix/nvm
+## DESC: Node env setup.
+## - Installation:
+## curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
+if ! command -v nvm &> /dev/null; then
+  export NVM_DIR;
+  NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
 
-  #export NVM_DIR="$HOME/.nvm"
-  #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+## TITLE: fvm Node Version Manager (nvm alternative)
+## LINK: https://github.com/Schniz/fnm
+## - Installation:
+## curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash
+if ! command -v fnm &> /dev/null; then
+  export PATH=$HOME/.fnm:$PATH
+  eval "$(fnm env)"
 fi
 
 ## TITLE: Yarn (set path after nvm)
-PATH="$PATH:$(yarn global bin)"
+if ! command -v yarn &> /dev/null; then
+  PATH="$PATH:$(yarn global bin)"
+fi
 
 ## TITLE: Php artisan and composer
+#if [[ $(command -v composer) ]]; then
 # PATH=$HOME/.config/composer/vendor/bin:$PATH
+#fi
 
 ## TITLE: Erlang and elixir
 # PATH=$HOME/usr/local/bin/elixir:$PATH
 # export ERL_AFLAGS="-kernel shell_history enabled"
 
-## TITLE: Golang and Go Packages
+## TITLE: Golang, go version manager and packages
 # export GOROOT="/usr/local/go/" # sudo mv go /usr/local
 if [[ $(command -v go) ]]; then
   export GOPATH=$HOME/.go # defaults to GOROOT 
@@ -38,13 +49,19 @@ if [[ $(command -v go) ]]; then
   export GOOS=linux
   PATH="$GOBIN:$PATH" # expose go binaries system wide.
 fi
+## gvm: go version manager
+## Note: gvm will overwite $GOPATH to .gvm/pkgsets/<go version>/global 
+## and $GOROOT to ${GVM_ROOT}/.gvm/gos/<go version>
+if [ -d "/home/$(whoami)/.gvm" ]; then
+  [[ -s "/home/$(whoami)/.gvm/scripts/gvm" ]] && source "/home/$(whoami)/.gvm/scripts/gvm"
+fi
 
 ## TITLE: Rust and rustup
 ## Install rustup: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 PATH="$HOME/.cargo/bin:$PATH"
 
 ## TITLE: fzf and skim
-PATH="$HOME/.skim/bin:$PATH"
+# PATH="$HOME/.skim/bin:$PATH"
 ## --files: List files that would be searched but do not search
 ## --no-ignore: Do not respect .gitignore, etc...
 ## --hidden: Search hidden files and folders

@@ -9,3 +9,6 @@ alias dnfi-noweak="dnf --setopt=install_weak_deps=False --best install"
 alias dnfr="sudo dnf remove"
 alias dnfup="sudo dnf upgrade"
 alias dnfc="sudo dnf autoremove"
+alias dnfcc="sudo dnf autoremove && sudo dnf clean all"
+alias dnfl="sudo dnf repolist"
+
