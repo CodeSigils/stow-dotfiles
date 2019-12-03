@@ -41,19 +41,19 @@ fi
 # export ERL_AFLAGS="-kernel shell_history enabled"
 
 ## TITLE: Golang, go version manager and packages
-# export GOROOT="/usr/local/go/" # sudo mv go /usr/local
-if [[ $(command -v go) ]]; then
-  export GOPATH=$HOME/.go # defaults to GOROOT 
-  export GOBIN=$GOPATH/bin
-  export GOARCH=amd64
-  export GOOS=linux
-  PATH="$GOBIN:$PATH" # expose go binaries system wide.
-fi
 ## gvm: go version manager
 ## Note: gvm will overwite $GOPATH to .gvm/pkgsets/<go version>/global 
 ## and $GOROOT to ${GVM_ROOT}/.gvm/gos/<go version>
 if [ -d "/home/$(whoami)/.gvm" ]; then
   [[ -s "/home/$(whoami)/.gvm/scripts/gvm" ]] && source "/home/$(whoami)/.gvm/scripts/gvm"
+fi
+# export GOROOT="/usr/local/go/" # sudo mv go /usr/local
+if ! command -v go &> /dev/null; then
+  export GOPATH=$HOME/.go # defaults to GOROOT 
+  export GOBIN=$GOPATH/bin
+  export GOARCH=amd64
+  export GOOS=linux
+  PATH="$GOBIN:$PATH" # expose go binaries system wide.
 fi
 
 ## TITLE: Rust and rustup
