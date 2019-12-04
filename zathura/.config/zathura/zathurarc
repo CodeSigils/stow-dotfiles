@@ -1,2 +1,10 @@
 set scroll-step 51
 set smooth-scroll "true"
+
+set window-width 850
+set window-title-home-tilde "true"
+set font 15
+
+map <C-i> zoom in
+map <C-o> zoom out
+
