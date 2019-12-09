@@ -3,6 +3,13 @@
 ## Define folder that holds the alias files
 ALIASPATH="${HOME}/.shell"
 
+## Set neovim as default man pager
+#export MANPAGER="/bin/sh -c \"col -b | nvim -c 'set ft=man ts=8' -\""
+## Alternatively, to set vim as the default pager system-wide,
+## locate the less.sh script. (You can find it at /usr/share/vim/vim81/macros/
+## on current Fedora systems.) Export this location as the variable PAGER 
+## to set it as default, or under an alias to invoke it explicitly.
+
 ## ===================================================
 ## === PATHS - Must be declared at the top
 ## ===================================================

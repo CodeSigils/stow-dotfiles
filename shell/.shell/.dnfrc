@@ -10,5 +10,12 @@ alias dnfr="sudo dnf remove"
 alias dnfup="sudo dnf upgrade"
 alias dnfc="sudo dnf autoremove"
 alias dnfcc="sudo dnf autoremove && sudo dnf clean all"
+
+## TITLE: Repos
+## LINK: https://docs.fedoraproject.org/en-US/Fedora/22/html/System_Administrators_Guide/sec-Managing_DNF_Repositories.html
 alias dnfl="sudo dnf repolist"
+alias dnf-repo-add="sudo dnf config-manager --add-repo"
+alias dnf-repo-dis-="sudo dnf config-manager --disablerepo"
+## dnf --enablerepo=some-disabled-repository install some-package
+alias dnf-repo-en="sudo dnf config-manager --enablerepo"
 
