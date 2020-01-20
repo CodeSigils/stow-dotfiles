@@ -10,15 +10,15 @@ set tabstop=2                      " number of visual spaces per TAB
 set shiftwidth=2                   " number of visual spaces per SHIFT
 set hidden
 set noswapfile
-
+set breakindentopt=shift:2     " emphasize broken lines by indenting them
 set encoding=utf-8                 " Encoding
 
-if has('linebreak')
-  set breakindent                  " indent wrapped lines to match start
-  if exists('&breakindentopt')
-    set breakindentopt=shift:2     " emphasize broken lines by indenting them
-  endif
-endif
+"if has('linebreak')
+"  set breakindent                  " indent wrapped lines to match start
+"  if exists('&breakindentopt')
+"    set breakindentopt=shift:2     " emphasize broken lines by indenting them
+"  endif
+"endif
 
 if exists('$SUDO_USER')
   set noswapfile                   " don't create root-owned files
@@ -123,7 +123,7 @@ set t_CO=256                        "force 256 colors in terminal
 set ruler
 set showcmd                         "show command in bottom bar
 set wildmenu                        "visual autocomplete for command menu
-"MacVim only
+"=== MacVim only
 set linespace=14
 set guifont=Fira_Code_Medium:h15
 set guioptions-=l
@@ -248,7 +248,7 @@ inoremap <expr> <c-x><c-k> fzf#vim#complete('cat /usr/share/dict/words')
 
 
 "=== Ranger
-ret g:ranger_terminal = 'xterm -e'
+"ret g:ranger_terminal = 'xterm -e'
 map <leader>rr :RangerEdit<cr>
 map <leader>rv :RangerVSplit<cr>
 map <leader>rs :RangerSplit<cr>
