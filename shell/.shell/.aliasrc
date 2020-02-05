@@ -82,6 +82,7 @@ alias weather='curl http://wttr.in/athens'
 alias weather-malta='curl http://wttr.in/malta'
 alias date-time='sudo dpkg-reconfigure tzdata'
 #alias docker='podman'
+alias lookup="curl dict://dict.org/d:"
 
 ## ===================================================
 ## === Maintenance

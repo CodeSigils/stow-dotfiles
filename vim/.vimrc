@@ -3,14 +3,14 @@ set nocompatible
 set backspace=indent,eol,start
 
 set expandtab                      " tabs are spaces
+set tabstop=2                      " number of visual spaces per TAB
+set shiftwidth=2                   " number of visual spaces per SHIFT
 set autoindent
 set smartindent
 set smarttab                       " go to the next indent of the next tabstop
-set tabstop=2                      " number of visual spaces per TAB
-set shiftwidth=2                   " number of visual spaces per SHIFT
 set hidden
 set noswapfile
-set breakindentopt=shift:2     " emphasize broken lines by indenting them
+set breakindentopt=shift:2         " emphasize broken lines by indenting them
 set encoding=utf-8                 " Encoding
 
 "if has('linebreak')
@@ -27,7 +27,6 @@ else
   set directory+=~/.vim/tmp/swap// " keep swap files out of the way
   set directory+=.
 endif
-
 
 
 
@@ -49,8 +48,7 @@ endif
 "========================= Mappings ========================="
 inoremap jk <ESC>                 "replace esc with jk
 let mapleader = ','               "replace default leader / with comma
-"Windows splitting
-"set splitbelow
+"set splitbelow                   "windows splitting
 set splitright
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
@@ -90,6 +88,7 @@ function! Smart_TabComplete()
   endif
 endfunction
 inoremap <tab> <c-r>=Smart_TabComplete()<CR>
+
 
 
 
@@ -184,6 +183,7 @@ call plug#end()
 
 
 
+
 "========================= Plugin Setup ========================="
 "=== Ale
 let g:ale_sign_error           = '●' " Less aggressive than the default '>>'
@@ -245,7 +245,6 @@ let g:skim_history_dir = '~/.local/share/skim-history'
 
 " Replace the default dictionary completion with fzf-based fuzzy completion
 inoremap <expr> <c-x><c-k> fzf#vim#complete('cat /usr/share/dict/words')
-
 
 "=== Ranger
 "ret g:ranger_terminal = 'xterm -e'
