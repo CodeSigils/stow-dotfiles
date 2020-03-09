@@ -133,8 +133,6 @@ if [ "$(command -v npm)" ]; then
 fi
 ## yarn
 if [ "$(command -v yarn)" ]; then
-  cfg-yarn-global() { "$EDITOR"
-  "/home/$(whoami)/.config/yarn/global/package.json"; }
   alias ya='yarn'
   alias yaa='yarn add'
   alias yada='yarn add -D'

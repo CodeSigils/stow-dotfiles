@@ -19,8 +19,8 @@ fi
 
 ## TITLE: fvm Node Version Manager (nvm alternative)
 ## LINK: https://github.com/Schniz/fnm
-## - Installation:
-## curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash
+## - Installation - update:
+## curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash -s -- --install-dir "./.fnm" --skip-shell
 if ! command -v fnm &> /dev/null; then
   export PATH=$HOME/.fnm:$PATH
   eval "$(fnm env)"
@@ -29,6 +29,7 @@ fi
 ## TITLE: Yarn (set path after nvm)
 if ! command -v yarn &> /dev/null; then
   PATH="$PATH:$(yarn global bin)"
+  # PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 fi
 
 ## TITLE: Php artisan and composer

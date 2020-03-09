@@ -129,15 +129,15 @@ show_controls = True
  
 # serif family
 # The serif font family
-serif_family = u'Liberation Serif'
+serif_family = u'BPG Sans GPL&GNU'
  
 # sans family
 # The sans-serif font family
-sans_family = u'Liberation Sans'
+sans_family = u'BPG Sans GPL&GNU'
  
 # mono family
 # The monospace font family
-mono_family = u'Liberation Mono'
+mono_family = u'BPG Sans Medium GPL&GNU'
  
 # default font size
 # The standard font size in px

@@ -64,3 +64,4 @@ if [[ $(command -v kitty) ]]; then
   source <(kitty + complete setup bash)
 fi
 
+
