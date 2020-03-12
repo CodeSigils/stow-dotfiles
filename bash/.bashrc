@@ -44,12 +44,6 @@ __password_store_extension_complete_import() {
     fi
 }
 
-## https://github.com/tomnomnom/gf 
-## go get -u github.com/tomnomnom/gf
-if [[ $(command -v gf) ]]; then
-  source "${GOPATH}/src/github.com/tomnomnom/gf/gf-completion.bash"
-fi
-
 # docker-compose completions
 # https://docs.docker.com/compose/completion/#bash
 if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
@@ -63,5 +57,4 @@ fi
 if [[ $(command -v kitty) ]]; then
   source <(kitty + complete setup bash)
 fi
-
 

@@ -169,6 +169,12 @@ Plug 'lotabout/skim.vim'
 "=== Ranger === https://github.com/rafaqz/ranger.vim
 Plug 'rafaqz/ranger.vim'
 
+"=== Rust === https://github.com/rust-lang/rust.vim
+Plug 'rust-lang/rust.vim'
+
+"=== Supertab ===
+Plug 'ervandew/supertab'
+
 "=== Orgmode === https://github.com/jceb/vim-orgmode/blob/master/doc/orgguide.txt
 Plug 'jceb/vim-orgmode'
 
@@ -273,8 +279,6 @@ nmap <leader>f  <Plug>(coc-format-selected)
 "Snippet expand and jump like VSCode. 
 "Note the `coc-snippets` extension is required for this to work.
   let g:coc_snippet_next = '<tab>'
-
-
 
 
 "========================= Abbreviations ========================="

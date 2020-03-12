@@ -10,7 +10,8 @@ PATH="$PATH:/var/lib/snapd/snap/bin"
 ## DESC: Node env setup.
 ## - Installation:
 ## curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
-if ! command -v nvm &> /dev/null; then
+
+if [[ $(command -v nvm) ]]; then
   export NVM_DIR;
   NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
@@ -21,7 +22,7 @@ fi
 ## LINK: https://github.com/Schniz/fnm
 ## - Installation - update:
 ## curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash -s -- --install-dir "./.fnm" --skip-shell
-if ! command -v fnm &> /dev/null; then
+if [[ $(command -v fnm) ]]; then
   export PATH=$HOME/.fnm:$PATH
   eval "$(fnm env)"
 fi
@@ -43,18 +44,24 @@ fi
 
 ## TITLE: Golang, go version manager and packages
 ## gvm: go version manager
-## Note: gvm will overwite $GOPATH to .gvm/pkgsets/<go version>/global 
+## Install:
+## bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+## Note: 
+## gvm will overwite $GOPATH to .gvm/pkgsets/<go version>/global 
 ## and $GOROOT to ${GVM_ROOT}/.gvm/gos/<go version>
-if [ -d "/home/$(whoami)/.gvm" ]; then
-  [[ -s "/home/$(whoami)/.gvm/scripts/gvm" ]] && source "/home/$(whoami)/.gvm/scripts/gvm"
-fi
+[[ -s "/home/seven/.gvm/scripts/gvm" ]] && source "/home/seven/.gvm/scripts/gvm"
+
 # export GOROOT="/usr/local/go/" # sudo mv go /usr/local
-if ! command -v go &> /dev/null; then
-  export GOPATH=$HOME/.go # defaults to GOROOT 
-  export GOBIN=$GOPATH/bin
-  export GOARCH=amd64
-  export GOOS=linux
-  PATH="$GOBIN:$PATH" # expose go binaries system wide.
+export GOPATH=$HOME/.go # defaults to GOROOT 
+export GOBIN=$GOPATH/bin
+export GOARCH=amd64
+export GOOS=linux
+PATH=$PATH:$GOBIN # expose go binaries system wide.
+
+## https://github.com/tomnomnom/gf 
+## go get -u github.com/tomnomnom/gf
+if [[ $(command -v gf) ]]; then
+  source "${GOPATH}/src/github.com/tomnomnom/gf/gf-completion.bash"
 fi
 
 ## TITLE: Rust and rustup
