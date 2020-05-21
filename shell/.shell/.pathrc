@@ -33,6 +33,14 @@ if ! command -v yarn &> /dev/null; then
   # PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 fi
 
+## TITLE: Deno
+## LINK: https://deno.land/#installation
+if ! command -v deno &> /dev/null; then
+  export DENO_INSTALL;
+  DENO_INSTALL="/home/$(whoami)/.deno"
+  PATH="$DENO_INSTALL/bin:$PATH"
+fi
+
 ## TITLE: Php artisan and composer
 #if [[ $(command -v composer) ]]; then
 # PATH=$HOME/.config/composer/vendor/bin:$PATH
