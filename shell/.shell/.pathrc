@@ -5,6 +5,13 @@
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 PATH="$PATH:/var/lib/snapd/snap/bin"
 
+## TITLE: Perl modules with CPAN
+PATH="/home/seven/perl5/bin${PATH:+:${PATH}}"; 
+PERL5LIB="/home/seven/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/seven/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/seven/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/seven/perl5"; export PERL_MM_OPT;
+
 ## TITLE: nvm (Node Version Manager) 
 ## LINK: https://github.com/creationix/nvm
 ## DESC: Node env setup.
@@ -35,16 +42,16 @@ fi
 
 ## TITLE: Deno
 ## LINK: https://deno.land/#installation
-if ! command -v deno &> /dev/null; then
+if [[ -d "/home/$(whoami)/.deno" ]]; then
   export DENO_INSTALL;
   DENO_INSTALL="/home/$(whoami)/.deno"
   PATH="$DENO_INSTALL/bin:$PATH"
 fi
 
 ## TITLE: Php artisan and composer
-#if [[ $(command -v composer) ]]; then
-# PATH=$HOME/.config/composer/vendor/bin:$PATH
-#fi
+if [[ $(command -v composer) ]]; then
+ PATH=$HOME/.config/composer/vendor/bin:$PATH
+fi
 
 ## TITLE: Erlang and elixir
 # PATH=$HOME/usr/local/bin/elixir:$PATH

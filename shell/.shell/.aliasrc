@@ -72,7 +72,7 @@ alias svim="sudo nvim"
 alias vim='nvim'
 alias visudo='sudo EDITOR="$EDITOR" visudo'
 ## Youtube viewer flags: -C=color, -f=fullscreen, -1=1080p, number of results
-alias ytv='youtube-viewer -C -f -1 --results=30 --video-player=mpv'
+alias ytv='straw-viewer -C -f -1 --results=30'
 alias sr='sr -browser=$BROWSERCLI'  ## surfraw: open in cli browser
 alias srf='surfraw -browser=$BROWSER'  ## surfraw: open in gui browser
 alias wget='wget -N -c'  ## continues/resumes
