@@ -4,7 +4,7 @@
 ;; will do this for you). The `doom!' block below controls what modules are
 ;; enabled and in what order they will be loaded.
 ;;
-;; ==== REMEMBER to run 'doom refresh' after modifying it. ====
+;; ==== REMEMBER to run 'doom refresh' (or doom sync) after modifying it. ====
 ;;
 ;; More information about these modules (and what flags they support) can be
 ;; found in modules/README.org.
