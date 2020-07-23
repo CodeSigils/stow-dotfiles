@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Surfraw provides a fast unix command line interface for www.
 # See also surfraw-update-path(1) for details
 

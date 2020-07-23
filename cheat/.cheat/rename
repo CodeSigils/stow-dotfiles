@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Lowercase all files and folders in current dir
 rename 'y/A-Z/a-z/' *
 
@@ -7,10 +9,10 @@ rename "s/\s+//g" *
 # Examples:
 
 # 1.Use with find to remove whitespace from folder names
-find -name "* *" -type d | rename 's/ /_/g'
+find /some/path -name "* *" -type d | rename 's/ /_/g'
 
 # 2.Remove whitespace from file names
-find -name "* *" -type f | rename 's/ /_/g'
+find /some/path -name "* *" -type f | rename 's/ /_/g'
 
 # 3.Alias examples
 alias white-to-dash='{find ./ -depth -name "* *" |rename "s/ /-/g" * && ls}'
