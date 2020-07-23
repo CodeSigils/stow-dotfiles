@@ -16,10 +16,18 @@ man() {
 
 ## TITLE: color common commands (from .bashrc)
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    test -r "${HOME}/dircolors" && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+
+## TITLE: Random color script
+## LINK: https://gitlab.com/dwt1/shell-color-scripts
+#if [ "$(command -v colorscript)" ]; then
+	#colorscript random
+	#colorscript -e fade
+#fi
+
