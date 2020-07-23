@@ -162,6 +162,9 @@ Plug 'tpope/vim-unimpaired'
 "=== Vim Surround ===
 Plug 'tpope/vim-surround'
 
+"=== Vim sneak === https://github.com/justinmk/vim-sneak
+Plug 'justinmk/vim-sneak'
+
 "=== Skim === https://github.com/lotabout/skim.vim
 Plug 'lotabout/skim'
 Plug 'lotabout/skim.vim'
