@@ -71,7 +71,7 @@ file_list=(
 
 ## === P === ##
 # private    ## private stuff - include it in .gitignore
-polybar    ## ~/.config/polybar
+# polybar    ## ~/.config/polybar
 
 ## === Q === ##
 
