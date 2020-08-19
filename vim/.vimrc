@@ -257,13 +257,13 @@ inoremap <expr> <c-x><c-k> fzf#vim#complete('cat /usr/share/dict/words')
 
 "=== Ranger
 "ret g:ranger_terminal = 'xterm -e'
-map <leader>rr :RangerEdit<cr>
-map <leader>rv :RangerVSplit<cr>
-map <leader>rs :RangerSplit<cr>
-map <leader>rt :RangerTab<cr>
-map <leader>ri :RangerInsert<cr>
-map <leader>ra :RangerAppend<cr>
-map <leader>rc :set operatorfunc=RangerChangeOperator<cr>g@
+"map <leader>rr :RangerEdit<cr>
+"map <leader>rv :RangerVSplit<cr>
+"map <leader>rs :RangerSplit<cr>
+"map <leader>rt :RangerTab<cr>
+"map <leader>ri :RangerInsert<cr>
+"map <leader>ra :RangerAppend<cr>
+"map <leader>rc :set operatorfunc=RangerChangeOperator<cr>g@
 
 "=== COC
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
