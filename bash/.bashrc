@@ -1,5 +1,10 @@
 #!/bin/bash .bashrc
 
+# Basic vars
+#export TERM="st-256color"
+export TERM=xterm-256color
+export HISTCONTROL=ignoredups:erasedups # no duplicate entries
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
@@ -20,6 +25,7 @@ fi
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 
+if [ "$(command -v pass)" ]; then
 # pass-import completion file for bash
 PASSWORD_STORE_EXTENSION_COMMANDS+=(import)
 
@@ -43,6 +49,7 @@ __password_store_extension_complete_import() {
         COMPREPLY+=($(compgen -W "${importers[*]} ${args[*]}" -- ${cur}))
     fi
 }
+fi
 
 # docker-compose completions
 # https://docs.docker.com/compose/completion/#bash
