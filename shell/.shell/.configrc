@@ -47,7 +47,6 @@ cf-group() { sudo "$EDITOR" /etc/group; }
 cf-grub() { sudo "$EDITOR" /etc/default/grub; }
 cf-hintrc() { "$EDITOR" ~/.hintrc; }
 cf-hosts() { sudo "$EDITOR" /etc/hosts; }
-cf-hyperterminal() { "$EDITOR" ~/.hyper.js; }
 cf-intel() { sudo "$EDITOR" /usr/share/X11/xorg.conf.d/20-intel.conf; }
 ## archive.org downloader https://archive.org/services/docs/api/internetarchive/
 # cfg-internetarchive() { "$EDITOR" ~/.config/ia.ini; }
