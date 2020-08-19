@@ -45,6 +45,12 @@ alias rld-bashrc='source ~/.bashrc'
 alias rld-vimrc='source ~/.vimrc'
 alias 'nah'='echo "shutdown (ctrl-c to abort)?" && read && sudo shutdown 0' ## Done with work?
 
+## Update Kitty terminal emulator
+## Link: https://sw.kovidgoyal.net/kitty/binary.html
+if [[ "$(command -v kitty)" ]]; then
+  alias kitty-update='curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin'
+fi
+
 ## ===================================================
 ## === Substitutions - list - history - weather - date
 ## ===================================================
