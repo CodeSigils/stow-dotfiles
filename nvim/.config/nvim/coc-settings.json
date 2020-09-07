@@ -21,18 +21,6 @@
         "diagnosticsEnabled": true,
         "lintTool": "golint"
       }
-    },
-    "bash": {
-      "command": "bash-language-server",
-      "args": [
-        "start"
-      ],
-      "filetypes": [
-        "sh"
-      ],
-      "ignoredRootPaths": [
-        "~"
-      ]
     }
   },
   "coc.preferences.formatOnSaveFiletypes": [
