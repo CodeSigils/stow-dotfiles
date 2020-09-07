@@ -1,19 +1,35 @@
 #!/bin/bash .bashrc
 
-# Basic vars
-#export TERM="st-256color"
-export TERM=xterm-256color
-export HISTCONTROL=ignoredups:erasedups # no duplicate entries
+## ===================================================
+## === BASH Initial Setup - Completion 
+## ===================================================
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
-# Uncomment the following line if you don't like systemctl's auto-paging feature:
-# export SYSTEMD_PAGER=
+#if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+#   . /opt/local/etc/profile.d/bash_completion.sh
+#fi
 
-# User specific aliases and functions
+## Uncomment the following line if you don't like systemctl's auto-paging feature:
+## export SYSTEMD_PAGER=
+
+## ===================================================
+## === History
+## ===================================================
+
+# Basic vars
+#export TERM="st-256color"
+export TERM=xterm-256color
+export HISTCONTROL=ignoredups:erasedups # no duplicate entries
+
+## ===================================================
+## === ALIAS - CUSTOM SETUP in "~/.shell" dir
+## ===================================================
+
+## User specific aliases and functions
 if [ -f ~/.shell/.aliasrc ]; then
     "." ~/.shell/.aliasrc
 else
@@ -24,6 +40,9 @@ fi
 # sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+## ===================================================
+## === Added Apps - Custom Helpers
+## ===================================================
 
 if [ "$(command -v pass)" ]; then
 # pass-import completion file for bash
@@ -49,12 +68,6 @@ __password_store_extension_complete_import() {
         COMPREPLY+=($(compgen -W "${importers[*]} ${args[*]}" -- ${cur}))
     fi
 }
-fi
-
-# docker-compose completions
-# https://docs.docker.com/compose/completion/#bash
-if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
-   . /opt/local/etc/profile.d/bash_completion.sh
 fi
 
 # fzf fuzzy finder
