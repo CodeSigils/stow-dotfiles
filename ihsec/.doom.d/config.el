@@ -1,9 +1,24 @@
 ;;; .doom.d/config.el -*- lexical-binding: t; -*-
-;; Place your private configuration here
+;; Place your PRIVATE CONFIG here
 
+;; ======================================================
+;; === Local config
+;; ======================================================
+
+;; === org
+(setq
+  org-ellipsis " ▾ "
+  org-tags-column -80
+  org-log-done 'time
+ )
+;; In case xdg-open *.html does not work:
+(setq process-connection-type nil)
 ;; pretify symbols
-;; (setq prettify-symbols-unprettify-at-point t)
-(global-prettify-symbols-mode +1)
+(setq prettify-symbols-unprettify-at-point t)
+(add-hook!
+  org-mode 'org-superstar-mode t)
+
+(global-prettify-symbols-mode t)
 
 ;; === web - js - css
 (setq
@@ -18,31 +33,24 @@
  )
 
 (add-hook!
- js2-mode 'prettier-js-mode
- (add-hook 'before-save-hook #'refmt-before-save nil t))
+ js2-mode 'prettier-js-mode t)
 
 (add-hook!
-js2-mode 'js2-refactor-mode)
-
-(add-hook 'js2-mode-hook (lambda ()
-  (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
+js2-mode 'js2-refactor-mode t)
 
 ;; === skewer
 (add-hook 'js2-mode-hook 'skewer-mode)
 (add-hook 'css-mode-hook 'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
 
-;; === org
-(setq
-  org-ellipsis " ▾ "
-  ;; org-bullets-bullet-list '(" ")
-  org-tags-column -80
-  org-agenda-files (ignore-errors (directory-files +org-dir t "\\.org$" t))
-  org-log-done 'time
- )
 
+;; === reasonML
 (add-hook! reason-mode
   (add-hook 'before-save-hook #'refmt-before-save nil t))
+
+;; ======================================================
+;; === Auto-generated code
+;; ======================================================
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

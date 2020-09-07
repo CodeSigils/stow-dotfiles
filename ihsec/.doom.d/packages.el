@@ -6,6 +6,7 @@
 ;; (package! another-package :recipe (:host github :repo "username/repo"))
 ;; (package! builtin-package :disable t)
 (package! ob-typescript)
+(package! org-superstar)
 (package! indium)
 (package! js2-refactor)
 (package! xref-js2)
