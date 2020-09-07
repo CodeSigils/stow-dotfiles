@@ -2,7 +2,12 @@
 
 ## User specific environment
 ## set PATH so it includes user's private bin directories 
-PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+if [[ -d "$HOME/bin" ]]; then
+  PATH="$HOME/bin:$PATH"
+fi
+if [[ -d "$HOME/bin" ]]; then
+  PATH="$HOME/.local/bin:$PATH"
+fi
 PATH="$PATH:/var/lib/snapd/snap/bin"
 
 ## TITLE: Perl modules with CPAN
@@ -53,15 +58,15 @@ if [[ -d "/home/$(whoami)/.deno" ]]; then
 fi
 
 ## TITLE: Php artisan and composer
-if [[ $(command -v composer) ]]; then
- PATH=$HOME/.config/composer/vendor/bin:$PATH
-fi
+#if [[ $(command -v composer) ]]; then
+# PATH=$HOME/.config/composer/vendor/bin:$PATH
+#fi
 
 ## TITLE: Erlang and elixir
 # PATH=$HOME/usr/local/bin/elixir:$PATH
 # export ERL_AFLAGS="-kernel shell_history enabled"
 
-## TITLE: Golang, go version manager and packages
+## TITLE: Golang, GVM (go version manager) and packages
 ## gvm: go version manager
 ## Install:
 ## bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
@@ -85,7 +90,9 @@ fi
 
 ## TITLE: Rust and rustup
 ## Install rustup: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-PATH="$HOME/.cargo/bin:$PATH"
+if [[ $(command -v cargo ) ]]; then
+  PATH="$HOME/.cargo/bin:$PATH"
+fi
 
 ## TITLE: fzf and skim
 # PATH="$HOME/.skim/bin:$PATH"
