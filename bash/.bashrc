@@ -1,5 +1,13 @@
 #!/bin/bash .bashrc
 
+## LOADING HIERARCHY:
+## ~/.profile | ~/.bashrc | ~/.shell/.aliasrc ...
+## All major configs and path setup are included in .aliarc:
+##  | ~/.shell/.colorsrc
+##  | ~/.shell/.pathrc
+##  | ~/.shell/.dnfrc
+##  | ~/.shell/.configrc
+
 ## ===================================================
 ## === BASH Initial Setup - Completion 
 ## ===================================================
@@ -13,12 +21,12 @@ fi
 #   . /opt/local/etc/profile.d/bash_completion.sh
 #fi
 
+## ===================================================
+## === History - Pager
+## ===================================================
+
 ## Uncomment the following line if you don't like systemctl's auto-paging feature:
 ## export SYSTEMD_PAGER=
-
-## ===================================================
-## === History
-## ===================================================
 
 # Basic vars
 #export TERM="st-256color"
@@ -44,8 +52,10 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 ## === Added Apps - Custom Helpers
 ## ===================================================
 
-if [ "$(command -v pass)" ]; then
-# pass-import completion file for bash
+if [ "$(command -v pass import)" ]; then
+## pass-import completion file for bash
+## https://github.com/roddhjav/pass-import
+## pip install --user pass-import
 PASSWORD_STORE_EXTENSION_COMMANDS+=(import)
 
 __password_store_extension_complete_import() {
@@ -70,8 +80,8 @@ __password_store_extension_complete_import() {
 }
 fi
 
-# fzf fuzzy finder
-# https://github.com/junegunn/fzf
+## fzf fuzzy finder
+## https://github.com/junegunn/fzf
 [ -f "$HOME/.bash/.fzf.bash" ] && "." "$HOME/.bash/.fzf.bash"
 
 if [[ $(command -v kitty) ]]; then

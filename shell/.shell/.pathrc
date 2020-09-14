@@ -38,6 +38,7 @@ export PERL_MM_OPT;
 ## LINK: https://github.com/Schniz/fnm
 ## - Installation - update:
 ## curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash -s -- --install-dir "./.fnm" --skip-shell
+
 if [[ -d "/home/$(whoami)/.fnm" ]]; then
   PATH=$HOME/.fnm:$PATH
   eval "$(fnm env)"

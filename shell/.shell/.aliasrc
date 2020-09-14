@@ -30,9 +30,10 @@ if [ -f ~/.hintrc ]; then
 fi 
 
 ## ===================================================
-## === Package Manager
+## === Package Managers
 ## ===================================================
-if [[ "$(command -v dnf)" ]]; then
+if grep -qE "(Fedora)" /etc/*release*
+then
     "." "${ALIASPATH}/.dnfrc"
 fi
 
@@ -190,7 +191,7 @@ fi
 ## ===================================================
 
 # TITLE: Manage dotfiles with a git bare repo
-# URL: https://www.atlassian.com/git/tutorials/dotfiles
+# LINK: https://www.atlassian.com/git/tutorials/dotfiles
 # To init run once: git init --bare $HOME/.dotfiles
 # Run this after once: config config --local status.showUntrackedFiles no
 # To add: config add /path/to/file
