@@ -10,7 +10,7 @@
 (package! indium)
 (package! js2-refactor)
 (package! xref-js2)
-(package! reason-mode)
+;;(package! reason-mode)
 (package! prettier-js)
 (package! move-text)
 (package! origami)
