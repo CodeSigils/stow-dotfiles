@@ -165,12 +165,13 @@ if [ "$(command -v buku)" ]; then
   "." "${ALIASPATH}/.bukurc"
 fi
 ## npm
-if [ "$(command -v npm)" ]; then
+if  [ "$(command -v npm)" ]; then
   alias npmi='npm install --no-optional' # avoid 'fsevents linux' warning
   alias npmid='npm install --no-optional --save-dev'
 fi
 ## yarn
-if [ "$(command -v yarn)" ]; then
+if type yarn >/dev/null 2>&1;
+then
   alias ya='yarn'
   alias yaa='yarn add'
   alias yada='yarn add -D'

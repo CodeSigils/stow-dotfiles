@@ -45,7 +45,7 @@ if [[ -d "/home/$(whoami)/.fnm" ]]; then
 fi
 
 ## TITLE: Yarn (set path after nvm)
-if ! command -v yarn &> /dev/null; then
+if command -v yarn >/dev/null 2>&1; then
   PATH="$PATH:$(yarn global bin)"
   # PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 fi
