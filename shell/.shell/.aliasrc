@@ -82,6 +82,14 @@ fi
 ## ===================================================
 ## === Substitutions - list - history - weather - date
 ## ===================================================
+## Use doas instead of sudo
+## https://memotut.com/en/b2b63815d7c6c7a171ee/
+if [[ "$(command -v doas)" ]]; then
+  alias sudo="doas"
+  alias rm-doas="sudo rm /usr/local/bin/doas && \
+      sudo rm /usr/local/man/man1/doas.1 && \
+      sudo rm /usr/local/man/man5/doas.conf.5";
+fi
 ## Navigation - History
 if [[ "$(command -v ranger)" ]]; then
   alias rng="ranger"
