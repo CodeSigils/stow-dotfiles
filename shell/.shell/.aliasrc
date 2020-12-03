@@ -83,7 +83,8 @@ fi
 ## === Substitutions - list - history - weather - date
 ## ===================================================
 ## Use doas instead of sudo
-## https://memotut.com/en/b2b63815d7c6c7a171ee/
+## REPO: https://github.com/slicer69/doas.git
+## LINK: https://memotut.com/en/b2b63815d7c6c7a171ee/
 if [[ "$(command -v doas)" ]]; then
   alias sudo="doas"
   alias rm-doas="sudo rm /usr/local/bin/doas && \
@@ -94,7 +95,7 @@ fi
 if [[ "$(command -v ranger)" ]]; then
   alias rng="ranger"
 fi
-## Substitutions
+## Common substitutions
 if [[ "$(command -v lsd)" ]]; then
   alias ls='lsd --color=auto'
 fi
