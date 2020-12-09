@@ -1312,4 +1312,4 @@ if 1
     delcommand CSAHi
 endif
 
-so ~/.vim/colors/status_line.vim
+"so ~/.vim/colors/status_line.vim
