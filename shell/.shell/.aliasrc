@@ -118,13 +118,13 @@ alias svim="sudo nvim"
 alias vim='nvim'
 alias visudo='sudo EDITOR="$EDITOR" visudo'
 ## Youtube viewer flags: -C=color, -f=fullscreen, -1=1080p, number of results
-alias ytv='straw-viewer -C -f -1 --results=30'
+alias ytv='straw-viewer -C -f -1 --results=50'
 alias sr='sr -browser=$BROWSERCLI'  ## surfraw: open in cli browser
 alias srf='surfraw -browser=$BROWSER'  ## surfraw: open in gui browser
 alias wget='wget -N -c'  ## continues/resumes
 alias w3m='w3m -num'  ## w3m with line number
 ## Weather - date -time
-alias weather='curl http://wttr.in/athens'
+alias weather='curl https://wttr.in'
 alias weather-malta='curl http://wttr.in/malta'
 alias date-time='sudo dpkg-reconfigure tzdata'
 #alias docker='podman'

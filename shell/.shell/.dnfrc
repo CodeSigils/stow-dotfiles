@@ -1,21 +1,21 @@
 #!/bin/bash
 
 ## TITLE: Dnf
-alias dnf="sudo dnf"
-alias dnfs="sudo dnf search"
-alias dnffo="sudo dnf info"
-alias dnfi="sudo dnf install"
+alias dnf="doas dnf"
+alias dnfs="doas dnf search"
+alias dnffo="doas dnf info"
+alias dnfi="doas dnf install"
 alias dnfi-noweak="dnf --setopt=install_weak_deps=False --best install"
-alias dnfr="sudo dnf remove"
-alias dnfup="sudo dnf upgrade"
-alias dnfc="sudo dnf autoremove"
-alias dnfcc="sudo dnf autoremove && sudo dnf clean all"
+alias dnfr="doas dnf remove"
+alias dnfup="doas dnf upgrade"
+alias dnfc="doas dnf autoremove"
+alias dnfcc="doas dnf autoremove && doas dnf clean all"
 
 ## TITLE: Repos
 ## LINK: https://docs.fedoraproject.org/en-US/Fedora/22/html/System_Administrators_Guide/sec-Managing_DNF_Repositories.html
-alias dnfl="sudo dnf repolist"
-alias dnf-repo-add="sudo dnf config-manager --add-repo"
-alias dnf-repo-dis-="sudo dnf config-manager --disablerepo"
+alias dnfl="doas dnf repolist"
+alias dnf-repo-add="doas dnf config-manager --add-repo"
+alias dnf-repo-dis-="doas dnf config-manager --disablerepo"
 ## dnf --enablerepo=some-disabled-repository install some-package
-alias dnf-repo-en="sudo dnf config-manager --enablerepo"
+alias dnf-repo-en="doas dnf config-manager --enablerepo"
 

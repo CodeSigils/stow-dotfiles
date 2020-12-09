@@ -6,7 +6,7 @@
 find_alt() { for i; do command -v "$i" >/dev/null && { echo "$i"; return 0; };done;return 1; }
 ## TITLE: Definitions
 export OPENER=$(find_alt xdg-open gnome-open kde-open exo-open)
-# export BROWSER=$(find_alt firefox google-chrome chromium chromium-browser qutebrowser "$OPENER")
+# export BROWSER=$(find_alt brave firefox google-chrome chromium chromium-browser qutebrowser "$OPENER")
 export BROWSERCLI=$(find_alt w3m links2 links lynx elinks surf "$OPENER")
 export BROWSERTOR=$(find_alt torbrowser-launcher)
 export COMICER=$(find_alt mcomix comix zathura "$OPENER")
@@ -100,12 +100,13 @@ cf-ranger-commands() { "$EDITOR" ~/.config/ranger/commands.py; }
 cf-resolve() { sudo "$EDITOR" /etc/resolv.conf; }
 cf-rtv() { "$EDITOR" ~/.config/rtv/rtv.cfg; }
 cf-samba() { sudo "$EDITOR" /etc/samba/smb.conf; }
+cf-sakura() { "$EDITOR" ~/.config/sakura/sakura.conf; }
 cf-skippyxd() { "$EDITOR" ~/.skippy-xd.rc; }
 cf-slrnrc() { "$EDITOR" ~/.slrnrc; }
 cf-ssh-client() { sudo "$EDITOR" /etc/ssh/ssh_config; }
 cf-ssh-daemon() { sudo "$EDITOR" /etc/ssh/sshd_config; }
+cf-straw() { "$EDITOR" ~/.config/straw-viewer/straw-viewer.conf; }
 cf-sudoers() { sudo "$EDITOR" /etc/sudoers; }
-cf-sakura() { "$EDITOR" ~/.config/sakura/sakura.conf; }
 cf-surfraw() { "$EDITOR" ~/.config/surfraw/conf; }
 cf-syncthing() { "$EDITORGUI" ~/.config/syncthing/config.xml; }
 cf-sysctl() { sudo "$EDITOR" /etc/sysctl.conf; }

@@ -3,6 +3,9 @@
 ## LOADING HIERARCHY:
 ## ~/.profile | ~/.bashrc | ~/.shell/.aliasrc ...
 ## All major configs and path setup are included in .aliarc:
+## -----------------
+## ~/.shell/.aliasrc
+## -----------------
 ##  | ~/.shell/.colorsrc
 ##  | ~/.shell/.pathrc
 ##  | ~/.shell/.dnfrc
@@ -21,17 +24,6 @@ fi
 #   . /opt/local/etc/profile.d/bash_completion.sh
 #fi
 
-## ===================================================
-## === History - Pager
-## ===================================================
-
-## Uncomment the following line if you don't like systemctl's auto-paging feature:
-## export SYSTEMD_PAGER=
-
-# Basic vars
-#export TERM="st-256color"
-export TERM=xterm-256color
-export HISTCONTROL=ignoredups:erasedups # no duplicate entries
 
 ## ===================================================
 ## === ALIAS - CUSTOM SETUP in "~/.shell" dir
@@ -49,14 +41,29 @@ fi
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 ## ===================================================
+## === Colors - History - Pager
+## ===================================================
+
+## Uncomment the following line if you don't like systemctl's auto-paging feature:
+## export SYSTEMD_PAGER=
+
+# Basic vars
+#export TERM="st-256color"
+export TERM=xterm-256color
+export HISTCONTROL=ignoredups:erasedups # no duplicate entries
+
+export PS1="\[\e[31m\][\[\e[m\]\[\e[38;5;172m\]\u\[\e[m\]@\[\e[38;5;153m\]\h\[\e[m\] \[\e[38;5;214m\]\W\[\e[m\]\[\e[31m\]]\[\e[m\]\\$ "
+
+
+## ===================================================
 ## === Added Apps - Custom Helpers
 ## ===================================================
 
 if [ "$(command -v pass import)" ]; then
-## pass-import completion file for bash
-## https://github.com/roddhjav/pass-import
-## pip install --user pass-import
-PASSWORD_STORE_EXTENSION_COMMANDS+=(import)
+    ## pass-import completion file for bash
+    ## https://github.com/roddhjav/pass-import
+    ## pip install --user pass-import
+    PASSWORD_STORE_EXTENSION_COMMANDS+=(import)
 
 __password_store_extension_complete_import() {
     local importers=(1password 1password4 1password4pif aegis andotp
