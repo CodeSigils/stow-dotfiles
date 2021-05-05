@@ -169,15 +169,24 @@ alias gpg-ls-keys="gpg -K --keyid-format long --with-colons --with-fingerprint"
 # === APPS - External CLI
 ## ===================================================
 
+## Pip
+## Link: https://dougie.io/answers/pip-update-all-packages/
+alias pip-upgrade="pip freeze --user | cut -d'=' -f1 | xargs -n1 pip install -U"
+
 ## Buku
 if [ "$(command -v buku)" ]; then
   "." "${ALIASPATH}/.bukurc"
 fi
+
 ## npm
 if  [ "$(command -v npm)" ]; then
   alias npmi='npm install --no-optional' # avoid 'fsevents linux' warning
   alias npmid='npm install --no-optional --save-dev'
 fi
+
+## Deno
+alias deno-up="curl -fsSL https://deno.land/x/install/install.sh | sh"
+
 ## yarn
 if type yarn >/dev/null 2>&1;
 then
