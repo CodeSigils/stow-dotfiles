@@ -72,6 +72,8 @@ alias rld-bashrc='source ~/.bashrc'
 alias rld-vimrc='source ~/.vimrc'
 alias rld-pathrc='source ${ALIASPATH}/.pathrc'
 alias 'nah'='echo "shutdown (ctrl-c to abort)?" && read && sudo shutdown 0' ## Done with work?
+alias rm-vtt='find . -name "*.vtt" -exec rm -f {} +'
+alias rm-srt='find . -name "*.srt" -exec rm -f {} +'
 
 ## Update Kitty terminal emulator
 ## Link: https://sw.kovidgoyal.net/kitty/binary.html
@@ -111,6 +113,7 @@ alias mkdir='mkdir -p -v'  ## create if not exist, verbose
 alias cp='cp -aiv'  ## cp prompt confirmation
 ## Editors
 alias code='codium'
+alias cf-code="code /usr/share/codium/resources/app/product.json"
 alias emacs='emacs -nw'  ## cli mode
 alias doom='~/.emacs.d/bin/doom'  ## emacs-doom cli mode
 alias nano='nano -c -$'  ## word wrapping
@@ -161,7 +164,7 @@ if [ "$(command -v firewall-cmd)" ]; then
   alias fire-restart="sudo service firewalld restart"
 fi
 ## Keys
-alias ssh-key-gen="ssh-keygen -t rsa -b 4096 -C " ## "your_email@example.com"
+alias ssh-key-gen-4096="ssh-keygen -t rsa -b 4096 -C " ## "your_email@example.com"
 alias ssh-cp-pub-key='xclip -sel clip < ~/.ssh/id_rsa.pub'
 alias gpg-ls-keys="gpg -K --keyid-format long --with-colons --with-fingerprint"
 

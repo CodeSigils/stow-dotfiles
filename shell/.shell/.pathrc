@@ -71,8 +71,7 @@ fi
 ## gvm: go version manager
 ## Install:
 ## bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
-## Note: 
-## gvm will overwite $GOPATH to .gvm/pkgsets/<go version>/global 
+## Note: gvm will overwite $GOPATH to .gvm/pkgsets/<go version>/global 
 ## and $GOROOT to ${GVM_ROOT}/.gvm/gos/<go version>
 [[ -s "/home/seven/.gvm/scripts/gvm" ]] && source "/home/seven/.gvm/scripts/gvm"
 
