@@ -61,7 +61,7 @@ hgrep() {
 alias algrep='cat ${ALIASPATH}/.aliasrc* | grep'
 alias xs='xstow'
 alias cl='clear'
-alias xx='exit'
+alias q='exit'
 alias rs='reset'
 mkdircd() { "mkdir -p -v $1" ; "cd $1 || return" ; "ls -l ../" ; } ## create folder then cd into it
 alias shred='shred -u -vzn 0'
@@ -121,7 +121,7 @@ alias svim="sudo nvim"
 alias vim='nvim'
 alias visudo='sudo EDITOR="$EDITOR" visudo'
 ## Youtube viewer flags: -C=color, -f=fullscreen, -1=1080p, number of results
-alias ytv='straw-viewer -C -f -1 --results=50'
+alias ytv='pipe-viewer -C -f -1 --results=50'
 alias sr='sr -browser=$BROWSERCLI'  ## surfraw: open in cli browser
 alias srf='surfraw -browser=$BROWSER'  ## surfraw: open in gui browser
 alias wget='wget -N -c'  ## continues/resumes
@@ -207,16 +207,4 @@ then
   alias yagui='yarn global upgrade-interactive'
   alias yacfg='yarn global bin' # output symlinks to executables
 fi
-
-## ===================================================
-## === DOTFILES
-## ===================================================
-
-# TITLE: Manage dotfiles with a git bare repo
-# LINK: https://www.atlassian.com/git/tutorials/dotfiles
-# To init run once: git init --bare $HOME/.dotfiles
-# Run this after once: config config --local status.showUntrackedFiles no
-# To add: config add /path/to/file
-# To commit: config commit -m "message"
-alias config='$(command -v git) --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 

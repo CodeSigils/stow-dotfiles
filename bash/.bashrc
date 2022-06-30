@@ -5,7 +5,6 @@
 ## All major configs and path setup are included in .aliarc:
 ## -----------------
 ## ~/.shell/.aliasrc
-## -----------------
 ##  | ~/.shell/.colorsrc
 ##  | ~/.shell/.pathrc
 ##  | ~/.shell/.dnfrc
@@ -16,25 +15,18 @@
 ## ===================================================
 
 # Source global definitions
-if [ -f /etc/bashrc ]; then
-    . /etc/bashrc
-fi
+[ -f /etc/bashrc ] && . /etc/bashrc
 
 #if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
 #   . /opt/local/etc/profile.d/bash_completion.sh
 #fi
-
 
 ## ===================================================
 ## === ALIAS - CUSTOM SETUP in "~/.shell" dir
 ## ===================================================
 
 ## User specific aliases and functions
-if [ -f ~/.shell/.aliasrc ]; then
-    "." ~/.shell/.aliasrc
-else
-    print "404: ~/.shell/.aliasrc not found. Check your .bashrc"
-fi
+[ -f ~/.shell/.aliasrc ] && . ~/.shell/.aliasrc
 
 # Add an "alert" alias for long running commands.  Use like so:
 # sleep 10; alert
@@ -88,8 +80,5 @@ fi
 
 ## fzf fuzzy finder
 ## https://github.com/junegunn/fzf
-[ -f "$HOME/.bash/.fzf.bash" ] && "." "$HOME/.bash/.fzf.bash"
+[ -f "$HOME/.bash/.fzf.bash" ] && . "$HOME/.bash/.fzf.bash"
 
-if [[ $(command -v kitty) ]]; then
-  source <(kitty + complete setup bash)
-fi

@@ -10,6 +10,9 @@ if [[ -d "$HOME/.local" ]]; then
 fi
 PATH="$PATH:/var/lib/snapd/snap/bin"
 
+## TITLE: xdg-utils
+XDG_CONFIG_HOME="$HOME/.config"
+
 ## TITLE: Perl modules with CPAN
 PATH="${HOME}/perl5/bin${PATH:+:${PATH}}"; 
 PERL5LIB="${HOME}/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; 
@@ -49,6 +52,7 @@ if command -v yarn >/dev/null 2>&1; then
   PATH="$PATH:$(yarn global bin)"
   # PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 fi
+
 
 ## TITLE: Deno
 ## LINK: https://deno.land/#installation

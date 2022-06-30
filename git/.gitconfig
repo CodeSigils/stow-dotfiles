@@ -117,3 +117,7 @@
 	insteadOf = https://github.com/
 [gpg]
 	program = gpg2
+[gui]
+	recentrepo = /home/seven/.dotfiles
+[hub]
+	protocol = ssh
